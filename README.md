@@ -4,11 +4,11 @@ Website đào tạo Bảo hiểm An Tâm Số (BH PVI × MISA): 11 bài học c�
 
 **Bài thi được chấm trên Google Apps Script**: website chỉ chứa câu hỏi, không chứa đáp án. Đáp án, lời giải, việc chấm điểm và ghi kết quả nằm trong file `Code.gs` – file này **không đưa lên repo** (repo public), chỉ lưu nội bộ tại BH PVI.
 
-Toàn bộ website nằm trong **một file `index.html`** (không cần build, không cần server).
+Website gồm `index.html` và 4 ảnh minh họa `ats-*.webp` (tạo bằng Google Gemini). Không cần build, không cần server.
 
 ## 1. Đưa lên GitHub Pages
 
-1. Tải `index.html` và `README.md` lên nhánh `main` của repo này (**không** tải `Code.gs`).
+1. Tải `index.html`, 4 file `ats-*.webp` và `README.md` lên nhánh `main` của repo này (**không** tải `Code.gs`).
 2. Vào **Settings → Pages** → Source: *Deploy from a branch* → Branch: `main` / `/ (root)` → **Save**.
 3. Sau 1–2 phút, website chạy tại:
    `https://pvi-aviationdivision.github.io/Daotao_Misa_AnTamSo/`
