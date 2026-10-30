@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Đào tạo An Tâm Số</title>
+<meta name="description" content="Chương trình đào tạo Bảo hiểm An Tâm Số dành cho CBNV MISA – sản phẩm, kỹ năng tư vấn và bài thi cuối khóa.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 3.5v6.5c0 5-3.8 9.3-9 10-5.2-.7-9-5-9-10V5.5L12 2z' fill='%230040D0'/%3E%3Cpath d='M8 12l3 3 5-6' stroke='%23FFC93C' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>:root{
+  --blue:#0040D0; --blue-2:#2450F8; --navy:#0A2A8A; --ink:#0B1B4D; --sky:#EAF2FF; --sky-2:#F4F8FF;
+  --yellow:#FFC93C; --orange:#FF8A00; --green:#0E9F6E; --green-bg:#E7F8F1; --red:#D92D20; --red-bg:#FDECEA;
+  --text:#1B2540; --muted:#5B6785; --line:#DCE5F5; --card:#FFFFFF; --bg:#F5F8FE;
+  --radius:18px; --shadow:0 1px 2px rgba(10,42,138,.06),0 8px 24px rgba(10,42,138,.08);
+  --font:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+button{font-family:inherit;cursor:pointer}
+h1,h2,h3,h4{color:var(--ink);line-height:1.25;margin:0 0 .5em;font-weight:800;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.hidden{display:none!important}
+
+/* ---------- Top bar ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px 20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-width:0}
+.brand img{height:34px;width:auto;display:block}
+.brand .sep{width:1px;height:28px;background:var(--line)}
+.brand .name{font-weight:800;color:var(--navy);font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .name small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.topnav{margin-left:auto;display:flex;gap:4px}
+.topnav button{background:none;border:0;padding:8px 14px;border-radius:999px;font-weight:600;color:var(--muted);font-size:14px}
+.topnav button:hover{background:var(--sky);color:var(--blue)}
+.topnav button.on{background:var(--blue);color:#fff}
+.who{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:13px}
+.menu-btn{display:none;background:var(--sky);border:0;border-radius:10px;width:40px;height:40px;color:var(--blue)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 500px at 85% -10%,#2450F8 0%,rgba(36,80,248,0) 60%),linear-gradient(135deg,#0A2A8A 0%,#0040D0 100%);color:#fff}
+.hero-in{max-width:1180px;margin:0 auto;padding:64px 20px 72px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+.hero h1{color:#fff;font-size:clamp(32px,4.6vw,54px);margin:18px 0 14px}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p.lead{font-size:18px;color:rgba(255,255,255,.86);max-width:560px}
+.hero-stats{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
+.hero-stats b{display:block;font-size:28px;color:var(--yellow);font-weight:800;line-height:1.1}
+.hero-stats span{font-size:13px;color:rgba(255,255,255,.75)}
+.hero-art{position:relative;display:grid;place-items:center}
+.hero-art svg{width:100%;max-width:360px;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.25))}
+.hero-deco{position:absolute;inset:0;z-index:1;opacity:.5;pointer-events:none}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.section{padding:48px 0}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.section-title h2{font-size:28px;margin:0}
+.section-title p{margin:0;color:var(--muted)}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(220,229,245,.7)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 20px;font-weight:700;font-size:15px;transition:transform .12s ease,box-shadow .12s ease,background .12s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 6px 16px rgba(0,64,208,.28)}
+.btn-primary:hover{background:var(--blue-2)}
+.btn-yellow{background:var(--yellow);color:var(--navy);box-shadow:0 6px 16px rgba(255,201,60,.35)}
+.btn-yellow:hover{filter:brightness(1.04)}
+.btn-ghost{background:var(--sky);color:var(--blue)}
+.btn-ghost:hover{background:#DDE9FF}
+.btn-line{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn-line:hover{border-color:var(--blue);color:var(--blue)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn-sm{padding:8px 14px;font-size:14px;border-radius:10px}
+
+/* ---------- Register ---------- */
+.register{margin-top:-40px;position:relative;z-index:5}
+.register .card{padding:28px;display:grid;grid-template-columns:1fr 1.6fr;gap:28px;align-items:center}
+.register h3{font-size:22px}
+.register p{color:var(--muted);margin:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.field input,.field select{width:100%;font:inherit;font-size:15px;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--text);outline:none;transition:border .12s,box-shadow .12s}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,64,208,.12)}
+.field.err input{border-color:var(--red)}
+.form-actions{grid-column:1/-1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.form-note{font-size:12.5px;color:var(--muted)}
+.welcome{display:flex;align-items:center;gap:16px}
+.welcome .avatar{width:52px;height:52px;font-size:18px}
+
+/* ---------- Module cards ---------- */
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mod{padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.mod:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(10,42,138,.06),0 18px 40px rgba(10,42,138,.12)}
+.mod .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+.mod .ico svg{width:28px;height:28px}
+.mod h3{font-size:21px;margin:0}
+.mod p{color:var(--muted);margin:0;font-size:15px}
+.mod ul{margin:0;padding:0;list-style:none;font-size:14px;color:var(--text)}
+.mod ul li{padding:5px 0;border-top:1px dashed var(--line);display:flex;gap:8px;align-items:center}
+.mod ul li .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center}
+.mod ul li.done .tick{background:var(--green);border-color:var(--green)}
+.mod ul li.done .tick::after{content:'';width:8px;height:4px;border:2px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.mod .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.bar{height:8px;border-radius:99px;background:var(--sky);overflow:hidden;flex:1}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-2));border-radius:99px;transition:width .4s}
+.pct{font-size:13px;font-weight:700;color:var(--navy);min-width:40px;text-align:right}
+.mod.exam{background:linear-gradient(160deg,#0A2A8A,#0040D0);color:#fff;border:0}
+.mod.exam h3{color:#fff}
+.mod.exam p{color:rgba(255,255,255,.8)}
+.mod.exam .chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--sky);color:var(--blue)}
+.mod.exam .chip{background:rgba(255,255,255,.14);color:#fff}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--orange);color:#fff}
+
+/* ---------- Quick facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fact{padding:20px}
+.fact b{display:block;font-size:24px;color:var(--blue);font-weight:800}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* ---------- Course layout ---------- */
+.course{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:28px;padding:28px 20px 80px}
+.side{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;padding:18px}
+.side h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:14px 8px 8px}
+.side h4:first-child{margin-top:0}
+.side .lnk{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:10px;font-size:14px;color:var(--text);font-weight:500}
+.side .lnk:hover{background:var(--sky-2)}
+.side .lnk.on{background:var(--sky);color:var(--blue);font-weight:700}
+.side .num{width:24px;height:24px;flex:none;border-radius:8px;background:var(--sky);color:var(--blue);font-size:12px;font-weight:800;display:grid;place-items:center}
+.side .lnk.on .num{background:var(--blue);color:#fff}
+.side .lnk.done .num{background:var(--green);color:#fff}
+.side .side-prog{padding:12px 10px 4px;display:flex;align-items:center;gap:10px}
+.lesson{padding:40px 48px;min-height:60vh}
+.crumb{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.crumb .pill{background:var(--sky);color:var(--blue);border-radius:999px;padding:2px 10px}
+.lesson h2{font-size:clamp(26px,3vw,34px)}
+.lesson h3{font-size:20px;margin-top:1.6em}
+.lesson .lead{font-size:18px;color:var(--muted)}
+.lesson-nav{display:flex;justify-content:space-between;gap:12px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+
+/* ---------- Content blocks ---------- */
+.callout{border-radius:14px;padding:16px 18px;margin:18px 0;display:flex;gap:12px;align-items:flex-start}
+.callout .ci{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:800}
+.callout p:last-child{margin:0}
+.callout.info{background:var(--sky)}
+.callout.info .ci{background:var(--blue);color:#fff}
+.callout.warn{background:#FFF4E5}
+.callout.warn .ci{background:var(--orange);color:#fff}
+.callout.ok{background:var(--green-bg)}
+.callout.ok .ci{background:var(--green);color:#fff}
+.callout.bad{background:var(--red-bg)}
+.callout.bad .ci{background:var(--red);color:#fff}
+.quote{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:16px;padding:22px 24px;font-size:19px;font-weight:700;margin:20px 0;position:relative}
+.quote::before{content:'“';position:absolute;top:-6px;left:14px;font-size:64px;color:var(--yellow);opacity:.9;line-height:1}
+.quote span{display:block;padding-left:26px}
+.say{background:var(--sky-2);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-style:italic}
+.say b{font-style:normal;color:var(--blue)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.box{border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+.box h4{font-size:16px;margin-bottom:6px}
+.box p,.box ul{font-size:15px;margin:0}
+.box ul{padding-left:18px}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:15px;margin:14px 0;border:1.5px solid var(--line);border-radius:14px;overflow:hidden}
+.tbl th{background:var(--navy);color:#fff;text-align:left;font-weight:700;padding:11px 14px;font-size:14px}
+.tbl td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:var(--sky-2)}
+.tbl td.num,.tbl th.num{text-align:right;white-space:nowrap}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:16px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:4px 0 18px 52px}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center}
+ol.steps>li::after{content:'';position:absolute;left:17px;top:40px;bottom:2px;width:2px;background:var(--line)}
+ol.steps>li:last-child::after{display:none}
+ol.steps>li>b:first-child{display:block;color:var(--ink)}
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;border:1.5px solid var(--line);margin:14px 0}
+.dodont>div{padding:0}
+.dodont h4{margin:0;padding:12px 16px;font-size:15px;color:#fff}
+.dodont .do h4{background:var(--green)}
+.dodont .dont h4{background:var(--red)}
+.dodont ul{list-style:none;margin:0;padding:0}
+.dodont li{padding:11px 16px;border-top:1px solid var(--line);font-size:15px;min-height:52px}
+.dodont .do li{background:#F7FCFA}
+.dodont .dont li{background:#FFF9F8}
+
+/* ---------- Packages ---------- */
+.pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.pkg{border:2px solid var(--line);border-radius:16px;padding:16px;background:#fff;text-align:left;transition:all .15s;position:relative}
+.pkg:hover{border-color:var(--blue-2)}
+.pkg.on{border-color:var(--blue);background:var(--sky-2);box-shadow:0 8px 20px rgba(0,64,208,.14)}
+.pkg .pn{font-size:13px;font-weight:700;color:var(--muted)}
+.pkg .pl{font-size:30px;font-weight:800;color:var(--navy);line-height:1.1}
+.pkg .pl small{font-size:14px;font-weight:600;color:var(--muted)}
+.pkg .pp{display:inline-block;margin-top:8px;background:var(--yellow);color:var(--navy);font-weight:800;border-radius:8px;padding:3px 9px;font-size:15px}
+.pkg .pd{font-size:12.5px;color:var(--muted);margin-top:6px}
+.benefits{display:grid;gap:10px}
+.ben{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--sky-2)}
+.ben .bi{width:34px;height:34px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center}
+.ben .bt b{display:block;font-size:15px;color:var(--ink)}
+.ben .bt span{font-size:13px;color:var(--muted)}
+.ben .bv{font-weight:800;color:var(--blue);font-size:17px;white-space:nowrap}
+.ben .bbar{grid-column:2/4;height:6px;border-radius:9px;background:#DDE7FB;overflow:hidden}
+.ben .bbar i{display:block;height:100%;background:var(--blue-2);transition:width .4s}
+.ghtn{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--navy);color:#fff;border-radius:14px;padding:14px 18px;margin-top:10px;flex-wrap:wrap}
+.ghtn b{color:var(--yellow);font-size:20px}
+
+/* ---------- Flip / myth cards ---------- */
+.myths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+.myth{perspective:1000px;min-height:190px;border:0;background:none;padding:0;text-align:left}
+.myth .inner{position:relative;width:100%;height:100%;min-height:190px;transition:transform .5s;transform-style:preserve-3d}
+.myth.flip .inner{transform:rotateY(180deg)}
+.myth .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.myth .front{background:#fff;border:1.5px solid var(--line)}
+.myth .front .q{font-weight:700;color:var(--ink);font-size:16px}
+.myth .front .hint{margin-top:auto;font-size:13px;color:var(--blue);font-weight:600}
+.myth .back{background:var(--red-bg);transform:rotateY(180deg);border:1.5px solid #F7C6C1}
+.myth .back .v{font-weight:800;color:var(--red);font-size:15px}
+.myth .back p{font-size:14px;margin:0}
+
+/* ---------- Checklist ---------- */
+.checks{display:grid;gap:10px;margin:14px 0}
+.chk{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:#fff;border:1.5px solid var(--line)}
+.chk .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+
+/* ---------- Tools (calculator / picker) ---------- */
+.tool{border:2px solid var(--blue);border-radius:18px;padding:22px;margin:22px 0;background:linear-gradient(180deg,#fff,var(--sky-2))}
+.tool-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.tool-h .ti{width:36px;height:36px;border-radius:10px;background:var(--yellow);color:var(--navy);display:grid;place-items:center}
+.tool-h h4{margin:0;font-size:18px}
+.tool-h span{font-size:13px;color:var(--muted)}
+.tool .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tool .field input,.tool .field select{background:#fff}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font-weight:600;font-size:14px;color:var(--text)}
+.seg button.on{border-color:var(--blue);background:var(--blue);color:#fff}
+.result{margin-top:16px;background:#fff;border-radius:14px;border:1.5px solid var(--line);padding:16px 18px}
+.result .big{font-size:30px;font-weight:800;color:var(--green)}
+.result .calc-lines{font-size:14px;color:var(--muted);margin-top:8px}
+.result .calc-lines div{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-top:1px dashed var(--line)}
+.result .calc-lines div b{color:var(--text)}
+.rec{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.rec .rbadge{background:var(--navy);color:#fff;border-radius:14px;padding:14px 18px;text-align:center;min-width:150px}
+.rec .rbadge small{display:block;font-size:12px;opacity:.8}
+.rec .rbadge b{font-size:24px;color:var(--yellow)}
+
+/* ---------- Tabs / personas ---------- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tabs button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px;color:var(--text)}
+.tabs button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.persona{border:1.5px solid var(--line);border-radius:16px;padding:20px;background:#fff}
+.persona .ph{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.persona .ph h4{margin:0;font-size:19px}
+.persona .code{font-size:12px;font-weight:700;background:var(--sky);color:var(--blue);border-radius:6px;padding:2px 8px}
+.persona dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;margin:0 0 12px;font-size:15px}
+.persona dt{font-weight:700;color:var(--muted)}
+.persona dd{margin:0}
+.dialog{display:grid;gap:8px;margin:12px 0}
+.msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:15px}
+.msg.nv{background:var(--blue);color:#fff;border-bottom-left-radius:4px}
+.msg.kh{background:#EEF1F7;justify-self:end;border-bottom-right-radius:4px}
+.msg small{display:block;font-size:11px;font-weight:700;opacity:.7;text-transform:uppercase;letter-spacing:.05em}
+.zalo{background:#E8F3FF;border:1.5px solid #B8D6FF;border-radius:14px;padding:14px 16px;font-size:15px;position:relative}
+.zalo::before{content:'Tin nhắn mẫu';display:block;font-size:12px;font-weight:700;color:var(--blue);margin-bottom:4px}
+
+/* ---------- Accordion ---------- */
+.acc{border:1.5px solid var(--line);border-radius:14px;margin:10px 0;background:#fff;overflow:hidden}
+.acc>button{width:100%;text-align:left;background:none;border:0;padding:15px 18px;font-weight:700;font-size:16px;color:var(--ink);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.acc>button::after{content:'+';font-size:22px;color:var(--blue);font-weight:600;transition:transform .2s}
+.acc.open>button::after{transform:rotate(45deg)}
+.acc .acc-b{display:none;padding:0 18px 16px}
+.acc.open .acc-b{display:block}
+.reveal-btn{margin-top:4px}
+
+/* ---------- Checkpoint ---------- */
+.checkpoint{margin-top:34px;border-radius:18px;background:var(--navy);color:#fff;padding:24px}
+.checkpoint h4{color:var(--yellow);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.checkpoint .cq{font-size:18px;font-weight:700;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;padding:12px 14px;border-radius:12px;font-size:15px;font-weight:500;transition:all .12s}
+.opt:hover{border-color:rgba(255,255,255,.5)}
+.opt .k{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.15);display:grid;place-items:center;font-weight:800;font-size:13px}
+.opt.right{border-color:#34D399;background:rgba(52,211,153,.18)}
+.opt.wrong{border-color:#F87171;background:rgba(248,113,113,.18)}
+.cp-ex{margin-top:12px;font-size:15px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px 14px}
+
+/* ---------- Exam ---------- */
+.exam-wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px}
+.exam-intro{padding:36px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px}
+.rules{display:grid;gap:10px;margin:16px 0}
+.rule{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--sky-2)}
+.rule .ri{width:36px;height:36px;border-radius:10px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.exam-grid{display:grid;grid-template-columns:1fr 280px;gap:22px;align-items:start}
+.qcard{padding:30px}
+.qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.qmeta .qn{font-weight:800;color:var(--blue)}
+.qtext{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.45}
+.qcard .opt{border-color:var(--line);background:#fff;color:var(--text)}
+.qcard .opt .k{background:var(--sky);color:var(--blue)}
+.qcard .opt:hover{border-color:var(--blue-2)}
+.qcard .opt.sel{border-color:var(--blue);background:var(--sky)}
+.qcard .opt.sel .k{background:var(--blue);color:#fff}
+.qnav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.panel{padding:18px;position:sticky;top:80px}
+.timer{display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:#fff;border-radius:14px;padding:12px 16px;margin-bottom:14px}
+.timer b{font-size:26px;font-variant-numeric:tabular-nums;color:var(--yellow)}
+.timer.low{background:var(--red)}
+.timer.low b{color:#fff}
+.grid-nums{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.grid-nums button{aspect-ratio:1;border-radius:9px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:13px;color:var(--muted);padding:0}
+.grid-nums button.ans{background:var(--blue);border-color:var(--blue);color:#fff}
+.grid-nums button.cur{outline:3px solid var(--yellow);outline-offset:1px}
+.grid-nums button.flag{background:var(--orange);border-color:var(--orange);color:#fff}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.flagbtn{background:none;border:1.5px solid var(--line);border-radius:10px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--muted)}
+.flagbtn.on{border-color:var(--orange);color:var(--orange);background:#FFF4E5}
+
+/* ---------- Result ---------- */
+.res-top{padding:34px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.ring{width:170px;height:170px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .rv{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .rv b{font-size:40px;font-weight:800;color:var(--ink);line-height:1}
+.ring .rv span{font-size:13px;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px}
+.status.pass{background:var(--green-bg);color:var(--green)}
+.status.fail{background:var(--red-bg);color:var(--red)}
+.sync{font-size:13px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sync .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.sync.ok .dot{background:var(--green)}
+.sync.err .dot{background:var(--red)}
+.review{margin-top:22px}
+.rv-item{padding:18px 20px;border-radius:14px;border:1.5px solid var(--line);background:#fff;margin:10px 0}
+.rv-item .rq{font-weight:700;color:var(--ink)}
+.rv-item .ra{font-size:14px;margin-top:6px}
+.rv-item .ra .bad{color:var(--red);font-weight:700}
+.rv-item .ra .good{color:var(--green);font-weight:700}
+.rv-item .rx{font-size:14px;color:var(--muted);margin-top:6px}
+
+/* ---------- Certificate ---------- */
+.cert{position:relative;background:#fff;border-radius:20px;padding:48px 56px;margin:24px 0;border:1px solid var(--line);overflow:hidden;text-align:center;box-shadow:var(--shadow)}
+.cert::before{content:'';position:absolute;inset:12px;border:2px solid var(--navy);border-radius:12px;pointer-events:none}
+.cert::after{content:'';position:absolute;inset:18px;border:1px solid var(--yellow);border-radius:9px;pointer-events:none}
+.cert .cl{height:44px;margin:0 auto 10px;display:block}
+.cert .ct{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.cert h2{font-size:34px;color:var(--navy);margin:10px 0 2px}
+.cert .cname{font-size:40px;font-weight:800;color:var(--blue);margin:16px 0 4px}
+.cert .cunit{color:var(--muted);font-size:16px}
+.cert .cbody{max-width:620px;margin:16px auto;font-size:16px}
+.cert .cmeta{display:flex;justify-content:center;gap:40px;margin-top:22px;flex-wrap:wrap}
+.cert .cmeta div{font-size:13px;color:var(--muted)}
+.cert .cmeta b{display:block;font-size:17px;color:var(--ink)}
+.cert .seal{position:absolute;right:48px;top:44px;width:96px;height:96px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;color:var(--navy);font-weight:800;font-size:12px;text-align:center;line-height:1.2;box-shadow:0 0 0 6px #FFF3D0}
+.cert .cfoot{font-size:11.5px;color:var(--muted);margin-top:22px}
+
+/* ---------- Modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(11,27,77,.5);display:grid;place-items:center;z-index:100;padding:20px}
+.modal .card{max-width:440px;width:100%;padding:26px}
+.modal h3{font-size:20px}
+.modal .acts{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:36px 0;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer h5{color:#fff;font-size:14px;margin:0 0 8px}
+footer p{margin:0 0 4px}
+footer b{color:#fff}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:600;z-index:120;transition:transform .25s;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast{opacity:0}
+.mtimer{display:none;font-weight:800;color:var(--navy);background:var(--yellow);border-radius:999px;padding:4px 12px;font-variant-numeric:tabular-nums}
+.mtimer.low{background:var(--red);color:#fff}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1000px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-art{display:none}
+  .mods{grid-template-columns:1fr 1fr}
+  .mod.exam{grid-column:1/-1}
+  .facts{grid-template-columns:1fr 1fr}
+  .register .card{grid-template-columns:1fr}
+  .course{grid-template-columns:1fr}
+  .side{position:fixed;top:0;left:0;bottom:0;width:300px;max-height:none;z-index:80;border-radius:0;transform:translateX(-105%);transition:transform .25s}
+  .side.open{transform:none}
+  .menu-btn{display:grid;place-items:center}
+  .exam-grid{grid-template-columns:1fr}
+  .panel{position:static}
+  .mtimer{display:inline-block}
+  .grid-nums{grid-template-columns:repeat(10,1fr)}
+  .exam-intro{grid-template-columns:1fr}
+  .pkgs{grid-template-columns:1fr 1fr}
+  .myths{grid-template-columns:1fr 1fr}
+  .tool .row{grid-template-columns:1fr 1fr}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:15px}
+  .topnav{display:none}
+  .brand .sep,.brand .name small{display:none}
+  .who .wname{display:none}
+  .hero-in{padding:40px 16px 64px}
+  .wrap,.course,.exam-wrap{padding-left:16px;padding-right:16px}
+  .mods,.facts,.grid2,.grid3,.myths,.form-grid{grid-template-columns:1fr}
+  .lesson{padding:24px 18px}
+  .qcard,.exam-intro,.res-top{padding:20px}
+  .res-top{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .dodont{grid-template-columns:1fr}
+  .persona dl{grid-template-columns:1fr}
+  .grid-nums{grid-template-columns:repeat(6,1fr)}
+  .cert{padding:36px 22px}
+  .cert .cname{font-size:28px}
+  .cert h2{font-size:24px}
+  .cert .seal{position:static;margin:18px auto 0;width:80px;height:80px}
+  .tool .row{grid-template-columns:1fr}
+  .qtext{font-size:17px}
+  .msg{max-width:95%}
+}
+.scrim{position:fixed;inset:0;background:rgba(11,27,77,.4);z-index:70}
+
+/* ---------- Print: certificate only ---------- */
+@media print{
+  body{background:#fff}
+  body *{visibility:hidden}
+  #certArea,#certArea *{visibility:visible}
+  #certArea{position:absolute;left:0;top:0;width:100%}
+  .cert{box-shadow:none;margin:0}
+  @page{size:A4 landscape;margin:10mm}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <button class="menu-btn" id="menuBtn" aria-label="Mục lục"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <a class="brand" href="#home"><img src="" id="topLogo" alt="BH PVI"><span class="sep"></span><span class="name">Học viện An Tâm Số<small>Đào tạo cho CBNV MISA</small></span></a>
+  <nav class="topnav"><button data-go="home">Trang chủ</button><button data-go="learn">Bài học</button><button data-go="exam">Bài thi</button></nav>
+  <div class="who" id="who"></div>
+</div></header>
+
+<!-- HOME -->
+<main id="v-home" class="view">
+  <section class="hero">
+    <svg class="hero-deco" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="g" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#fff" opacity=".18"/></pattern></defs><rect width="1200" height="500" fill="url(#g)"/><circle cx="1080" cy="430" r="220" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="2"/><circle cx="1080" cy="430" r="300" fill="none" stroke="#fff" stroke-opacity=".06" stroke-width="2"/></svg>
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>BH PVI × MISA · Mở bán từ 21/10/2026</span>
+        <h1>Tư vấn tự tin<br><em>Bảo hiểm An Tâm Số</em></h1>
+        <p class="lead">Khóa học online giúp đội ngũ MISA nắm chắc sản phẩm, biết chọn gói đúng nhu cầu và tư vấn đúng quy định cho khách hàng doanh nghiệp, hộ kinh doanh.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><button class="btn btn-yellow" onclick="go('learn')">Bắt đầu học →</button><button class="btn" style="background:rgba(255,255,255,.14);color:#fff" onclick="go('exam')">Làm bài thi</button></div>
+        <div class="hero-stats"><div><b>11</b><span>bài học ngắn</span></div><div><b>6</b><span>công cụ tương tác</span></div><div><b id="bankCount">60</b><span>câu hỏi ngân hàng đề</span></div><div><b>~60’</b><span>thời lượng học</span></div></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 360 400">
+          <defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2450F8"/><stop offset="1" stop-color="#0A2A8A"/></linearGradient><linearGradient id="sh2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+          <g transform="translate(40 20)">
+            <rect x="-20" y="210" width="130" height="86" rx="16" fill="#fff" opacity=".96"/><rect x="-6" y="226" width="60" height="8" rx="4" fill="#0040D0"/><rect x="-6" y="244" width="96" height="6" rx="3" fill="#DCE5F5"/><rect x="-6" y="258" width="80" height="6" rx="3" fill="#DCE5F5"/><rect x="-6" y="272" width="40" height="14" rx="7" fill="#FFC93C"/>
+            <path d="M140 20l120 46v92c0 76-51 140-120 152C71 298 20 234 20 158V66l120-46z" fill="url(#sh)"/>
+            <path d="M140 20l120 46v92c0 76-51 140-120 152C71 298 20 234 20 158V66l120-46z" fill="url(#sh2)"/>
+            <path d="M140 52l92 35v71c0 58-39 107-92 117-53-10-92-59-92-117V87l92-35z" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+            <rect x="108" y="140" width="64" height="54" rx="10" fill="#FFC93C"/><path d="M118 140v-14a22 22 0 0 1 44 0v14" fill="none" stroke="#FFC93C" stroke-width="10" stroke-linecap="round"/><circle cx="140" cy="164" r="7" fill="#0A2A8A"/><rect x="137" y="166" width="6" height="14" rx="3" fill="#0A2A8A"/>
+            <g transform="translate(206 230)"><rect width="104" height="70" rx="16" fill="#fff"/><text x="16" y="28" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="13" fill="#5B6785">Chỉ từ</text><text x="16" y="52" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="20" fill="#0040D0">599.000đ</text></g>
+            <circle cx="262" cy="40" r="18" fill="#FF8A00"/><path d="M254 40l6 6 10-11" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <div class="wrap register"><div class="card" id="regBox"></div></div>
+  <section class="section"><div class="wrap">
+    <div class="section-title"><div><h2>Lộ trình khóa học</h2><p>Học theo thứ tự, mỗi bài có câu hỏi kiểm tra nhanh. Tiến độ được lưu trên trình duyệt của bạn.</p></div></div>
+    <div class="mods" id="mods"></div>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <div class="section-title"><div><h2>Nhớ nhanh 4 con số</h2></div></div>
+    <div class="facts">
+      <div class="card fact"><b>26 tỷ</b><span>Doanh thu tối đa năm gần nhất để tham gia</span></div>
+      <div class="card fact"><b>8 triệu</b><span>Mức khấu trừ – áp dụng 1 lần mỗi sự cố</span></div>
+      <div class="card fact"><b>14 ngày</b><span>Hạn tối đa thông báo sự cố cho BH PVI</span></div>
+      <div class="card fact"><b>50% · 20%</b><span>Hạn mức khôi phục dữ liệu · tư vấn khủng hoảng (theo GHTN)</span></div>
+    </div>
+  </div></section>
+</main>
+
+<!-- LEARN -->
+<main id="v-learn" class="view hidden">
+  <div class="course">
+    <aside class="card side" id="side"></aside>
+    <article class="card lesson" id="lesson"></article>
+  </div>
+</main>
+<div class="scrim hidden" id="scrim"></div>
+
+<!-- EXAM -->
+<main id="v-exam" class="view hidden"><div class="exam-wrap" id="examArea"></div></main>
+
+<footer><div class="wrap">
+  <div><h5>Học viện An Tâm Số</h5><p>Tài liệu đào tạo nội bộ, tóm tắt từ Quy tắc bảo hiểm An ninh mạng SME (PVI CYBERSHIELD SME) ban hành kèm Quyết định số 888/QĐ-PVIBH ngày 20/08/2026. Khi có khác biệt, Quy tắc bảo hiểm và Giấy chứng nhận bảo hiểm được ưu tiên áp dụng.</p></div>
+  <div><h5>Sửa thông tin, hủy hợp đồng</h5><p><b>misa.antamso@pvi.com.vn</b></p><h5 style="margin-top:12px">Thông báo sự cố, bồi thường</h5><p>Hotline <b>0888 994 664</b><br><b>claim.vn@iglooinsure.com</b><br>QR trên GCNBH</p></div>
+  <div><h5>Nghiệp vụ sản phẩm, đào tạo</h5><p>Phòng Thương mại điện tử – Ban HK&amp;KHDN<br>Tổng Công ty Bảo hiểm PVI</p></div>
+</div></footer>
+<div class="toast" id="toast"></div>
+<script>const LOGO="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAABbCAMAAAB6UPiNAAAAYFBMVEX///////z+///9//36//7//v/+/v7+/fv++/z8/Pz3/Pzt7vLf2+G1sb6LaX4iP2nlISbmHybkHyjkHybkHyXpGybhHye5JTEYN2kXNWkYNWcXNWcXNmUVNmcSMV8LKloT43sQAAAXYUlEQVR42t1c6XqruBIEIQkQi22C8e68/1veqm6B8YITn7m/om/mxLGBUPRe3XKS/G7luQ0hWOPxo/Te2Cz52yuEwiWhwsrzJFiP3/72KgpTNW3H1dRFkln/xwH7otkNW65+GNo6DfZv43V5A7gQ76Ybhm2/a4q/a8O+tEWZQL6bTbeBhDsgB+KkLLLsTxpyDsC27vqv/ktX1wH0uvJ/FXCauxCaYYT79TV0FHOTh9JZ8wcB27IIVbftv9Yj4EE0uw5l8ScBZ2Vpm2HzdZPwILbcFsUf9VyFLeCab4jxCzD3Q5NkxV/Eawpfd9u5iCX9GLZdZf9kvmVC0Q6bm88aFXs7NK78ixIuEZPmGh3Xdhh29Z9MMLO02a6H7QvA2zYv3Z9TapdUu37zNUScG4p6I4a8gVInf0upnTHOJ80w9FsF3FOum34AbgTjfugquLQsXXpUHiEtf7/KsixK7/CXENJ9hqT97gxvFiM9PnHudhUulybmdycvAs4KX+wQhUSwX32/bZqu3wD1dgM5r5FvFdbmr092LvtlYuKKMuPN2fCYrGY2WzIaJLbFQ1gs8sTeuVvQFB+ZnPe2TGrAU8Bd33cVBL5lFcE31sNQ2+Bfpx8uTVNbNz+vug5MYHFrWe7t/WdhWUiZcc7fXx8+NMwvHEL+GWDnbMhbiBO5FSW83jbB1qyLo8jX23Xui7DECqX16vv641qt2qb2eLpJmuamvTuDTsIsqbRPqvn1v1uIJ9ze+W5NSD8DnLmyrHdbAhYv3Xe1LV1zAwybblBNLVUdSXO97Pf4T9bhcBhf8Rf5gU8Ph8v1e9UixHmHU+rVVT/l598t+bPXiE2C63/LZS+yVnVCwNc938Dp323ykYShMKHwaduvpQSmcx7arChyPIL4huTVNezcvzI0jxs6X86XHxdhf5+b4DycEES8nz64nOskX3AEyHoqoJPrn05n4POwYQI+neTkd4BNpvpL4ibPSEwWeLDWJgXEyaCEGhgOGhZb+DxvuknkAA6+h4da1BJFXsJPpHkGjs+YbAR8Ps9Q8xf9XV7I/2fqwXcb6Fop4vjmmSgsvO0C6QQBX/b8C+fzaX+FgBWwnHvhuUmZJwsnw0l674sSNw2sXhSmquqm3WkhjAgEwC3gJs5XXb/uul7d9nbYwe1UFRymkSeFZWeAj6ef1gH/H49A3CQ5/LVvvwFBT7sQRr7kUWHBe558Op+p/bBpPwLGm3wHgJecHkRkQjBiG0VVw/uRomRdpBGYoWiowffA+dNRd/ogKHnKfrdr6W4rCRTWZhaR9beAuY6QyRX6i6AsVnw6K2De9QJg0E7X6+WkgEXAHwCmOqPOt4Ug3ZGoE4Ky32zUO7Em3O5K46RcrHbbjWTXpD4Ykylp4u4i7jJ4Z+wHgE9nMboABc4srDgCPhKIL18LONDazxEwdT/5ADACblHUTRQqgHZrke5wA7wZGiv+2CE04RBJqAFcDxPUPVIyoXELsiGfAD6r0UJ/0xLBDKapgI97KLpfEvDlINBO+xNcdPoJ4MSUaQVikvcLcpKou40QOV1UachxV5WluseMBSPyS0Ds5SDVfdZU8nJXhEIA1+f9z4tmKM7sTCtOfU4RT4Cvq+oVYuOsCFiP24vH+wAwcrqqBcj1GsLdUo+BV15MNQMYDhucmnuB9ItZNXRelB6H05FH2LtdbXLvkBZDCN8/rsPhdFSfzduGixcrVuM8HPQp5OYhvNiAgyIyYLtE3zYCPv0EOFjglWyq+3q9IOA6E6eWGF/YvIXJfm3nVbLwIHguiMym9JJbZj9nlu3qeoRGCj6RZp6UdNQzwKsqLZOHGzeBzvx8EzBijJsAi+N/L2HEWw00S2uzbdJCW4aoCkIG1meDUDXn9uiwEb/aCtmY11Qr/UWXrpGoORNULiI+aMQCJs0vzV2SVUYBi+7iIJ73AWBHFd10m2W8HekNJCMRsC3TVpT6ATCUusmj5uNPpVK6FbF+Y4zHP/IOfpY5QzZYscnZHi/AhjdSddSjO7u2wSNRuCsMfaICFsB00WXqzO8Bey8a+gRYa6SuW3cbyZn1ZKRVrjBIMJGNrO8A87FkuDs/5TNIut4sh/+Rm39f7gAbyagve0Erat0w/ZsBtpqPjYDh3eF0ze8Bk9QAYE2P4YCi/9kw5PQbjbBthcrXuwlwaWppq/XrYY20C08GoQl40Ve1Yy5omHJmbxaPKBm7LsejJlYAbABYRHyBk8a9H8QF3wEGDjpyRczPERF+DRj+j073a6wHNttu0PxJW6NCQrdNYR5ig0/qZjeG7V7i766pko8pLljj/no+KGB6ZCovngJNVB+DlBCln5dhKcuGY8wqj+d6DFy/Biy5otowpAt31AvWbsycEFRvijp2YFAlaA663pEU6XZ1nn/OzL8C7EvNqBXwSWzU39edqAtPU5IVJhv6CPCwGbNjhNIRKbUOmhms84+hG7UV3reggYi7ros06vyngI8R8HGSsKei480IWBPlu7LhGsuLM3z0jUr8Nwlv+1arH7pD1nxc6QtKyYmbLQU2IiOyK2f+AXBznCR8jYBjpny+lRDzmolZ5X4CTAv/WML10I02DMBgX60plXAsSSmCnnoSXYrgYS0+Rp8YVWFZirwzUYiPADvkxBHwfgJMUOeYKQMUU+Xy5j1YF47Sv9CHJx8A1jC8kzSi1zJwu2s8YmUW4Ejl9l/HMnzIopIDL2mWpZA1tFxZU0ZZKAWuUr5bsHm4e4jyIInVkQGo1Owmz6UYOmrpuJcsW4hZQ4W8Xk8z+84fAf+cWkqm2GkDaSM1fVoGUM6/JTdBzqC4dLfimlwAytMfTFrspFkdD1oEADDccchuhNhhqpWRX+aS9Ki2w8Dls70EafcI+KfiwVPEW7XhDasfaDWr418CBmFaFN56+K7bKgKK51D/tDSZ1ls8MrX0NgIuw5hukRCCiMtUyHfxZxNguuhb/PgtYJflrB02U/d3K4hD9mu6rzQ5KBLJQTpNW9rKMx/6aR2vYBkv8RZZPLhM/yr5kut5IgfwkYdSWy8PIho3skqx4I8Bw0dVu5F5lVRCEf9yFgv0ZlK3MQOJWQiqZ5MLCfNm4cORZB2trkCNFdPHHByziFg5SFoxEjc+RcSi02inYQ7q14CNhVIjS/xCBdFrhkXE9qfRJPae4MUD8kzJzJBj0t8PbEmEyHic3y+BezgczwoKgFO9o1Q4DYV7pojhEAlYnJyUUSeYgmr6x4BTNJ7QUcCtdlL+f6mvLknU+PeAGYlZSeh5wCyTXF2ThM9IvNNF8osynSJ+qd5Jpa8hC7Yz1hWHyBjcNXo+AEyiak5SMvMSGbu3ep16Rqa6GxM1DuqBKpEi4iPARxYJEJdPZ4hpxTfALZh6I1HsFAEzUfHJvwBG/YMwxK7RZogEB4UNNs6W+Tu8BcKPuPiYpymLOdSm+IzEk6IIfmmeMifeMMMYAQsRAGViL0UBz7PoDwGH4ApEUlriCJi0XU/ExduRUzQPJWuJeRo0OxaJLnwEWBPm/AUzeYl83llTjIZ1YyQ6r48N+d87LUTzkAuTpyQG6QvxP0Ds32q0qYWV347EFvUZ8kVm/ajS+/3xJWt55Nvop9ENp8m8S+VzilizZlj5qna5tJNisIpU5b8Axl8BcQmzq1qhItlZIaHRk+l4ky9h8BTeXQhM2K6GcHQYYWz3gFHassv3esEUv9k+TJ5LFAY27aZoHZjI75dZFp3+G+CxHrBWZAzy9St2/KmfyyJGqCa7K4dTH5COU5+VGLkHfPihQUx55s8t5iqaLKLT/rRqGrB7My/2KIvPAJu8gGCIeGyGwjQxRZr4RcS5rdhkG8d6eo5g2uIZMImpdnkEoApUFvfcc83LKaOWZBJP5xhrg4PUwf4/AYZSI2ciIz+yPUwh2qfLPgHexIN76kOIGdocMIIOHMw754eS1j3bTpZJi3AEfLgcjgpH+t3B5/9Jwgm6nKhuiVg1ekNnNDRvAHsB3MWn0/fir54BH897AF6sEtmlJan8vFPGSNF0Oo4JJlvk5wvrhiOfoDJ3/w7YFTl8TYno1A+RoN3+ALgsMCGwGZ8OuzEF+5DPNny5Ls10GYt8jSvNngFjzKWSnv4p9tIvsU6iBWdoRP03wE5mgcoM4+DihkDDSlN4+YzStf22U+IAYYwjIMa6RxumIi4CfntLSap8zphvReu9HPYvr/frVsud5+V4dN8p4O49YKYGOGhsmGO+1s2lMwE+vAP8AwUkjN0c8Emy6FV44Uv/BXCG7Bizd+sIuN+945pTjnEJYKYqBOz/34BJYH6fLw+AD3I5/38BDAa6VQn3zKHa4i1g9sYnwMihnwBrNvXvgMET0YrnSyYcqlfBUseWYlP6+kvApSva7Q1w89ByuAuWYL5k9FQBb4Z58SKAZ2Nj/zyIimnPp/G27+blrMt8MO3yWwmXhiMcmmitNxNgy46SZzWIFw45Gfn5rMT0eL+NNkyP7uaJjJlTPBGw0risAfFEcvCiqeNoaaplof6gy5ZfZCgNvHv7yAwxBjPzNlM/0cTe0uxQAAbrGvtYi+Sxamnk82RyRzCkWWk9J/lY94GyC+y92AyJStOPI1td37o79hcRrppWrOQYhYz0UTPEIXDb4Lyd4J0WOJScj8FxCg+0HUjy6mE5znHjyFvbLtLhYBLHY+oK7EWWSp+Sbcw3cQB1gDYSb4AVKZi6Hcay0AIuJHSCqxzdtADezQ3e3af28REDq2PrOCUpLUNhYN4prWkhpTaZFyqFXY8MM8jllO2neiEiTbXrr3yv9+wV6AOYOAQZL5b2SMHCxCyoNAEPI+DRSaOTkhU15tR0s2WG6BVI/3i66bHQ6Ie5Sxc5JqTmOS073rXnbUFypZs2vlnSUt4LWgMMOXsa48NKyywTdl9aPimvY6UdIs9FjyJDlWjpgeeUT+wE5+huldFitshcQgGjuG2lOsTlbV63Mr21ZrRqMCXEbponFzYBfgjaaWZCxckr7DsOJo5Vm6oyIDaypKp1xBd/0YaqVMB8GBVUETlXiJ+bwFYPHh5GbWEi1ogE8R6vqoDBQ0DLnfr0eCJKEkyU2ZtFRd7/xZ6O4gZ4u20ydMg42Vu3zKyFwSGJS8iGT5rZNIN2LxY/d9NgoOBtQERaOJJW6RtPqrp2ZW7AwGOE54wPnIGnacD6pxSga3isC2Tov7VOLrS7lWd0XvgLPE7dU6vZB9vJ2mCEm44n4tJNYpqbB6uS1yMn1so4wK2vho6RTetGp5RkBo1ppIxYYvoHpEErgElYYkI+wZaAaFkSlsDLpJxqFlo5lc6ucHXNGWDAw39/oxLGWPUqJKBgwUkjruDeeSYLZTyUFYeC6MB47onEV0FN4Ekx1jkOBOAl+Y+6vRIr1pV8AcaB4nTUtV4ETI5qHKQcMLNh2esfFNU0B7KWDlSVoHPYaG4pIy0tI9csl14p4KsO6AhgTn2Taz230mppglfAqTVwUOkI+HJYQSvr9owcg1WCJzGPBIRTEdodWh2YfyCdJ2CZJc/lKayozrxyhdGX62U1Dtf712ZsTTOM44YEbDKO6HEo4HFwizOluCgS0aknNcDHWeOSJ8BKIXuZ6Sa3iiffmltL/BVgCgjTJwoFdSBORU2Itz0lJYAvmPBhVkAJSyZHXYINjB6q1PenPSevi2LUSuvN2BvvaoG7fbEzTfaYEnLciYmJRZSV0IjYHboHfJXc0kfA7JPV9HpY2SJgDDaJRnDuGRLmSS0/ZatYAJ+vbB6CrFZgcBbAW+FovbTVB1FqYFoKSxiy69eaS7AAwvgGpy+HYZq3mwB/cRqTk4bjrAQbLWTwcvsIGL5ndRVnpYDBph8aMmKk8RcBw3aDpxugMci02qoSY43eD1elwuObNqIkazk3GOYzXArYs11dZos7d+CzImAOBQwSh4YuZiKy2FbRkcztIJTl1w1wgzmtMnsGzDsFglIB498jnGgibfNlCUNKo3WmBW++VdRSKAm6FT+Fl1HA8nBKhDnN3ExUdVFws7STgDNb3K8TR9O6O2Vmy2xDHuRGbG42s+G0dU+vXrgXgDlJ1iTRS4MchXNhxEFysGzDKdvlV7ppJ/wlXgW11jJ6uuYgo/8KjMNdzWy6Wp1ZW9GF1RrcF8YfboAfBhA7GVpjcNq+nFNc9y0U1SfPgGsa46qKgEkVkoxuQpIvAIayNtIu/waGUkumliZxhPsrIuCqxGVAxytg/Tv+DjB2RYxx2LwMSyrh4TVgsVlNtjYLgGmZSjQ9ACZx8S3KTMBlYvEZQ4jOkr4ADCL7eEQwRg+t9OqAG7Cb+Kn8rACm6zo2yQ1w9QQ4xuHzQhx2SbHrlwAj8djt1oO0gIeXgJl5BPcKsAqtjoDxWVJBXTWavAa8X7ED3MjkRZCzZUcYDdXIdAGTEFUcsyzh6xiHrVtKPKSX/wy4W8twIabQGqRiGG549UTgpcsFleZwHYKoArasiZAWna6jd31W6bZuxCehvEJfmNaoUyHi7yPgvMDxsPY2Bru7HRJiw99jHE7d612MIdRxnj9GoLhvJWZWnFTyKCN0NlE8diTiJQ6vodCZew04EZ+qcdgiIYZl2pbyiYARS5A13iUeavc5J8kQdWNWLI3kCFiveqxjsJMMlpQ+a+3UagZWBsyFMC65hWoJDM9GhgEUsWx7kHKhYjHCDWsJKye2J6jZ/TCMbQpWS2PZ9wRY2iZwzbwpnbyRvWX8SLUTVSFsVMSkgNk8FBHDlSNwT5sG+BTSCNgGQ8UZ4zCNJvAekYumcMsa1LzwM4tUs+W0uHwHzUgDUNxNjceUxs2vGNpB9QTFFoc99mX67XyG6EnC2CeEEYbrXtJ8GR6XqbSzGB8dEUfa5oB1a5JkVoQyNadWJwbXKGHZkHe+ytaIoJlWEVcErJnWIgEAMoNfNKT94eiat6yM0pF3MNA9NBcKrY+7qPpssO4q/wZwVkjNwJErFLmWFbpmD8ZAI3Hz4karmUqXWaDpkqmlpxpvkdlmGAELU384TmouufQ48KsSHt1xsgS4zJE/y3wthuGZZ/HrpEIRu4IgcjnKwjHDRspjDmd9rVkqYb94cs9azlUaOxI5181by+oWHVLQThJGybXTm0qN0+65Qw1Oi4BlelxUADfuguweF2Z+tAMWxxjcuq5k5kX+oFyI2wibShOP2KK0C6QHx9GxV0p4jfHbs2TzJUZH0zhkyY1dAZaVyJds6XQ4RmAqvPkA+DoDjNyWyC4xGh9XsdyNZZ1WsVLzhyJmiTJxiRf4TQbTsJMzkcf23c4A86UaClVmrIfP83r4KnfwmvJIZeO/fD0aNyG1+H40DHKAWZynZtibCdeAXRAFB/B4HJQe1Ju/+w4uYTwMJAAMQlpRBCQtXN2y9ldCg14VEUp4CtT8Ta2bVsiVyGZTvKgjyyuexzv5Fdfm7mIyK3LVWmsKRHe9EhmP5I7xePc1KzlYOol6VTbWt689XCpbMzFayYHjxxyGlBJyDHBagXv5QcyUDtoGZ8y0IypaqZWrmZgo8lqoYcBeAYrhC89/7noRNSZSyPyqCeE1bjTVL+GIZBk0GufbaaizMv7dV3DkrFSCQCrdm25axuOMTB8+tXrQi8TXJILEK7lxVb68wEta4P1tuiHTgU43cY00UhbOabwcXjgvbNV8hlTrrDQClkFbVVhzmxAFhzifuXo/KYvWu6dj4lDz26+tQbKA2XA6E/ecpbK3gEtlwJfFzXSpHMnvK5CNTOOGdydv8BsuItdMljJl8CSPTU42nc+i5HFMf5xbJ4kd5Wd447rEiHLpO8jB5ocJWfRNhTd4BxhFJu4URz0/F+VSua3WuFR5R8c5egPswqFz19JkLvKGHDPmaRlbC9JT4BT6XB0xh8k5U15M+wkCMvbGZaJaV8YDppWm7/fJeekhOff+u2cgLKSSr48jYOkbef2YgLnrDG/oraLvMxJrniqVaOdhfJS8x0R228uMwBxwpi2bLAIGNBCeftya4Md+EnpTVr/JBH918QtW/vj6H4JD7Z1Fg+qGAAAAAElFTkSuQmCC";</script>
+<script>/* ===== Nội dung khóa học An Tâm Số — nguồn: Sổ tay đào tạo v1.1, Bảng báo phí, Quy tắc QĐ 888/QĐ-PVIBH ===== */
+const PKGS = [
+  {id:50,  name:'An Tâm Số 50',  price:599000,  limit:50,  day:'≈ 1.600đ/ngày'},
+  {id:100, name:'An Tâm Số 100', price:1099000, limit:100, day:'≈ 3.000đ/ngày'},
+  {id:200, name:'An Tâm Số 200', price:2199000, limit:200, day:'≈ 6.000đ/ngày'},
+  {id:500, name:'An Tâm Số 500', price:4999000, limit:500, day:'≈ 13.700đ/ngày'}
+];
+const DEDUCT = 8; // triệu đồng / sự cố
+
+const MODULES = [
+{
+ id:'A', title:'Hiểu sản phẩm', short:'Sản phẩm', color:'#0040D0',
+ desc:'4 gói, 4 quyền lợi, những gì không chi trả, ai được mua và quy trình từ mua đến bồi thường.',
+ lessons:[
+ {id:'A1', title:'An Tâm Số trong 1 phút', html:`
+  <p class="lead">An Tâm Số là bảo hiểm giúp doanh nghiệp và hộ kinh doanh chi trả <b>tiền bồi thường, tiền phạt và chi phí khắc phục</b> khi dữ liệu cá nhân của khách hàng, nhân viên, đối tác bị lộ, mất hoặc bị truy cập trái phép do <b>tấn công mạng</b>.</p>
+  <div class="quote"><span>Dữ liệu khách hàng bị lộ do hacker – An Tâm Số lo tiền bồi thường, tiền phạt và chi phí xử lý khủng hoảng.</span></div>
+  <div class="grid3">
+   <div class="box"><h4>Ai phát hành?</h4><p>Tổng Công ty Bảo hiểm PVI (<b>BH PVI</b>). MISA là đối tác phân phối (đại lý).</p></div>
+   <div class="box"><h4>Bán cho ai?</h4><p>Doanh nghiệp, hộ kinh doanh, tổ chức tại Việt Nam có doanh thu năm gần nhất <b>không quá 26 tỷ đồng</b>.</p></div>
+   <div class="box"><h4>Mấy gói?</h4><p>4 gói: <b>An Tâm Số 50 / 100 / 200 / 500</b>. Con số là giới hạn trách nhiệm, tính bằng triệu đồng.</p></div>
+   <div class="box"><h4>Phí bao nhiêu?</h4><p>Từ <b>599.000đ</b> (gói 50) đến <b>4.999.000đ</b> (gói 500) mỗi năm, đã gồm VAT.</p></div>
+   <div class="box"><h4>Thời hạn?</h4><p><b>01 năm</b>. Phạm vi lãnh thổ: Việt Nam.</p></div>
+   <div class="box"><h4>Mua ở đâu?</h4><p>Ngay trên phần mềm MISA, mục <b>Kết nối bảo hiểm</b>. Thanh toán online, nhận GCNBH điện tử qua email.</p></div>
+  </div>
+  <div class="callout info"><div class="ci">i</div><p>Tệp khách hàng tiềm năng: khoảng <b>425.000 doanh nghiệp</b> đang dùng giải pháp MISA. Ngày mở bán: <b>21/10/2026</b>. Căn cứ: Quy tắc bảo hiểm An ninh mạng SME (PVI CYBERSHIELD SME) ban hành kèm Quyết định số 888/QĐ-PVIBH ngày 20/08/2026.</p></div>`,
+  check:{q:'Ai là đơn vị phát hành và giải quyết bồi thường cho An Tâm Số?',opts:['MISA','BH PVI (Tổng Công ty Bảo hiểm PVI)','Ngân hàng của khách hàng','Cơ quan quản lý nhà nước'],a:1,ex:'BH PVI là nhà bảo hiểm phát hành và giải quyết bồi thường. MISA là đại lý phân phối, giúp khách mua nhanh trên phần mềm đang dùng.'}},
+
+ {id:'A2', title:'Vì sao khách hàng cần', html:`
+  <p class="lead">Từ năm 2026, khung pháp lý về dữ liệu cá nhân và an ninh mạng chặt chẽ hơn rõ rệt: Luật An ninh mạng 2025, Luật Bảo vệ dữ liệu cá nhân 2025 và các nghị định hướng dẫn, xử phạt (trong đó có Nghị định 330/2026).</p>
+  <div class="grid2">
+   <div class="box"><h4>Không miễn trừ doanh nghiệp nhỏ</h4><p>Đơn vị nào thu thập, lưu trữ, sử dụng thông tin cá nhân của người khác (họ tên, số điện thoại, CCCD, địa chỉ, sức khỏe, tài khoản…) đều có nghĩa vụ bảo vệ dữ liệu đó.</p></div>
+   <div class="box"><h4>Thuê ngoài vẫn chịu trách nhiệm</h4><p>Thuê cloud, IT, call center, marketing… thì doanh nghiệp vẫn là bên chịu trách nhiệm với dữ liệu khách hàng của mình.</p></div>
+   <div class="box"><h4>Rủi ro tài chính từ 3 phía</h4><p>(1) Người bị lộ dữ liệu đòi bồi thường; (2) cơ quan nhà nước xử phạt; (3) chi phí khôi phục dữ liệu, xử lý khủng hoảng, giữ uy tín.</p></div>
+   <div class="box"><h4>Mức phạt đáng kể</h4><p>Nghị định 330/2026 có các khung phạt cố định tùy hành vi. Tổ chức vi phạm thường bị phạt gấp đôi cá nhân, kèm biện pháp khắc phục.</p></div>
+  </div>
+  <h3>Cách nói với khách (không hù dọa)</h3>
+  <div class="say">“Luật mới yêu cầu mọi đơn vị có giữ thông tin khách hàng đều phải bảo vệ dữ liệu đó. Rủi ro bị hacker tấn công thì không ai loại trừ được 100%, kể cả doanh nghiệp lớn. <b>An Tâm Số là cách để nếu chẳng may xảy ra, anh/chị có tiền xử lý hậu quả mà không ảnh hưởng dòng tiền kinh doanh.</b>”</div>
+  <div class="callout warn"><div class="ci">!</div><p>Nhân viên <b>không tư vấn pháp lý cụ thể</b> (ví dụ “anh/chị chắc chắn bị phạt X đồng”). Chỉ nêu bối cảnh chung như trên.</p></div>
+  <h3>Câu khách hỏi nhiều nhất: “Đã dùng MISA rồi, sao còn cần bảo hiểm?”</h3>
+  <p>Ý cốt lõi: <b>MISA bảo vệ hệ thống phần mềm; An Tâm Số bảo vệ tài chính của doanh nghiệp</b> khi sự cố xảy ra. Hai lớp bảo vệ bổ sung cho nhau, không thay thế nhau.</p>
+  <div class="tbl-wrap"><table class="tbl"><tr><th></th><th>Phần mềm MISA</th><th>An Tâm Số</th></tr>
+   <tr><td><b>Ví như</b></td><td>Ổ khóa</td><td>Bảo hiểm cháy nổ của ngôi nhà</td></tr>
+   <tr><td><b>Bảo vệ cái gì</b></td><td>Dữ liệu trên hệ thống MISA: bảo mật, sao lưu, phân quyền</td><td>Túi tiền doanh nghiệp: tiền đền khách, tiền phạt, chi phí khắc phục</td></tr>
+   <tr><td><b>Do ai lo</b></td><td>MISA</td><td>BH PVI chi trả</td></tr></table></div>
+  <p><b>Ba lý do, nói theo thứ tự:</b></p>
+  <ol class="steps">
+   <li><b>Dữ liệu không chỉ nằm trong MISA.</b>Thông tin khách, nhân viên còn ở Excel, Zalo, email, máy tính nhân viên. Nhiều sự cố bắt đầu từ phía doanh nghiệp: bấm nhầm link lừa đảo, lộ mật khẩu, nhiễm mã độc.</li>
+   <li><b>Luật quy trách nhiệm cho chính doanh nghiệp.</b>Đơn vị thu thập thông tin chịu trách nhiệm khi để lộ. Không nhà cung cấp phần mềm nào nộp phạt thay khách hàng.</li>
+   <li><b>Không có bảo mật 100%.</b>Bảo mật tốt giảm rủi ro chứ không đưa rủi ro về 0. Ngân hàng, tập đoàn lớn vẫn mua bảo hiểm an ninh mạng.</li>
+  </ol>
+  <div class="say">“Dạ MISA luôn bảo vệ dữ liệu trên hệ thống MISA. Nhưng thông tin khách hàng của anh/chị còn nằm ở Excel, Zalo, máy tính nhân viên. Nếu bị lộ từ những chỗ đó, theo luật thì cửa hàng mình phải chịu trách nhiệm đền cho khách và nộp phạt. <b>An Tâm Số là để lúc đó có BH PVI chi trả thay anh/chị, chỉ từ 599.000 đồng một năm ạ.</b>”</div>
+  <div class="callout bad"><div class="ci">✕</div><p><b>Không được nói:</b> “phần mềm nào cũng có thể bị hack”, “MISA không chịu trách nhiệm”, “mua để phòng MISA bị lộ dữ liệu”. Những câu này làm hại uy tín MISA và không đúng bản chất sản phẩm.</p></div>
+  <div class="callout info"><div class="ci">i</div><p>Khách hỏi <b>“Lỗi do hệ thống MISA thì sao?”</b>: BH PVI xem xét chi trả theo Quy tắc bảo hiểm khi thông tin cá nhân bị lộ do tấn công mạng. Nhân viên không bình luận lỗi thuộc bên nào và chuyển câu hỏi chi tiết cho BH PVI.</p></div>`,
+  check:{q:'Ý cốt lõi khi trả lời “Đã dùng MISA rồi, sao còn cần bảo hiểm?” là gì?',opts:['Phần mềm nào cũng có thể bị hack, kể cả MISA','MISA bảo vệ hệ thống phần mềm; An Tâm Số bảo vệ tài chính doanh nghiệp khi sự cố xảy ra','Mua để phòng trường hợp MISA làm lộ dữ liệu','An Tâm Số thay thế các biện pháp bảo mật của MISA'],a:1,ex:'Hai lớp bảo vệ khác nhau và bổ sung cho nhau. Tuyệt đối không nói những câu làm hại uy tín MISA như “phần mềm nào cũng bị hack”.'}},
+
+ {id:'A3', title:'4 gói & 4 quyền lợi', html:`
+  <p class="lead">Bấm vào từng gói để xem phí và hạn mức của từng quyền lợi.</p>
+  <div data-widget="packages"></div>
+  <h3>3 điều nhân viên hay giải thích sai</h3>
+  <div class="checks">
+   <div class="chk"><div class="n">1</div><div><b>Không cộng dồn 4 quyền lợi.</b> GHTN là tổng tối đa cho cả năm. Gói 500: tổng mọi khoản trong năm tối đa 500 triệu, <u>không phải</u> 500 + 500 + 250 + 100 = 1,35 tỷ.</div></div>
+   <div class="chk"><div class="n">2</div><div><b>Mức khấu trừ 8 triệu/sự cố.</b> Mỗi sự cố, khách tự chịu 8 triệu đầu tiên; BH PVI trả phần vượt trên 8 triệu (trong hạn mức). Khấu trừ áp dụng <b>một lần cho mỗi sự cố</b>, kể cả khi sự cố liên quan nhiều quyền lợi.</div></div>
+   <div class="chk"><div class="n">3</div><div><b>Tính theo thời điểm khiếu nại/phát hiện.</b> Áp dụng cho yêu cầu bồi thường đưa ra lần đầu trong thời hạn bảo hiểm (quyền lợi 3, 4: cuộc tấn công được phát hiện lần đầu trong thời hạn). Sự cố đã biết trước khi mua thì không được bảo hiểm.</div></div>
+  </div>
+  <h3>4 khoản BH PVI chi trả – nói bằng lời thường</h3>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Nói với khách</th><th>Tên trong Quy tắc</th><th>Ví dụ (giả định)</th></tr>
+   <tr><td><b>1. Tiền đền cho khách hàng, nhân viên bị lộ thông tin</b></td><td>Trách nhiệm pháp lý đối với bên thứ ba</td><td>Hacker lấy danh sách khách của phòng khám, khách khởi kiện đòi bồi thường.</td></tr>
+   <tr><td><b>2. Tiền phạt của cơ quan nhà nước</b> (trong phạm vi luật cho phép bảo hiểm)</td><td>Các khoản phạt theo quy định</td><td>Sau vụ lộ dữ liệu, đơn vị bị xử phạt hành chính vì chưa bảo đảm biện pháp bảo vệ dữ liệu.</td></tr>
+   <tr><td><b>3. Tiền thuê người khôi phục lại dữ liệu</b> (thuê ngoài, thuê máy, làm thêm giờ). Phải hỏi BH PVI trước khi thuê.</td><td>Chi phí khôi phục thông tin cá nhân của bên thứ ba</td><td>Cửa hàng bị mã độc làm hỏng dữ liệu khách thành viên, thuê đơn vị IT khôi phục từ bản sao lưu.</td></tr>
+   <tr><td><b>4. Tiền thuê chuyên gia xử lý truyền thông, giữ uy tín.</b> Phải hỏi BH PVI trước khi thuê.</td><td>Chi phí tư vấn quản lý khủng hoảng</td><td>Tin lộ dữ liệu lan trên mạng xã hội, đơn vị cần tư vấn xử lý truyền thông.</td></tr></table></div>
+  <h3>Từ điển bỏ túi</h3>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Thuật ngữ trong Quy tắc</th><th>Nói với khách là</th></tr>
+   <tr><td>Giới hạn trách nhiệm (GHTN)</td><td>Số tiền tối đa BH PVI trả trong 1 năm (cộng tất cả các khoản)</td></tr>
+   <tr><td>Mức khấu trừ 8.000.000đ/sự cố</td><td>Mỗi vụ, 8 triệu đầu tiên mình tự chịu, phần còn lại BH PVI trả</td></tr>
+   <tr><td>Người được bảo hiểm</td><td>Cửa hàng, công ty đứng tên trên Giấy chứng nhận</td></tr>
+   <tr><td>Giấy chứng nhận bảo hiểm (GCNBH)</td><td>Giấy xác nhận đã có bảo hiểm, gửi qua email sau khi mua</td></tr></table></div>
+  <div class="callout info"><div class="ci">i</div><p>Ngày hồi tố và chi tiết các điều khoản loại trừ: <b>không đưa vào lời chào bán</b>. Khi khách hỏi, dùng FAQ hoặc chuyển BH PVI.</p></div>
+  <h3>3 câu chuyện kể cho khách</h3>
+  <div class="grid3">
+   <div class="box"><h4>☕ Quán cà phê</h4><p>Máy tính quầy nhiễm mã độc, lộ danh sách khách tích điểm. Khách bị làm phiền, khiếu nại đòi bồi thường.</p><p style="margin-top:8px"><b>BH PVI trả:</b> tiền đền khách; tiền thuê người khôi phục dữ liệu.</p></div>
+   <div class="box"><h4>📊 Văn phòng kế toán</h4><p>Kẻ xấu chiếm email, lấy bảng lương của các doanh nghiệp khách hàng. Bị xử phạt, khách đòi bồi thường.</p><p style="margin-top:8px"><b>BH PVI trả:</b> tiền phạt; tiền đền; chuyên gia giữ uy tín.</p></div>
+   <div class="box"><h4>🛍️ Shop online</h4><p>Bị tấn công, lộ địa chỉ, số điện thoại người mua. Bài phản ánh lan trên mạng xã hội.</p><p style="margin-top:8px"><b>BH PVI trả:</b> chuyên gia giữ uy tín; tiền đền. <i>Doanh thu mất do tạm ngừng bán: không trả.</i></p></div>
+  </div>
+  <p style="margin-top:12px">Kết câu chuyện bằng: <b>“Những lúc như vậy, BH PVI trả các khoản này thay mình.”</b> Mọi câu chuyện, khách đều tự chịu 8 triệu đầu tiên của vụ việc.</p>`,
+  check:{q:'Khách mua gói An Tâm Số 500. Tổng số tiền tối đa BH PVI chi trả trong cả năm là bao nhiêu?',opts:['1,35 tỷ đồng (cộng 4 quyền lợi)','500 triệu đồng cho mỗi quyền lợi','500 triệu đồng cho tất cả các khoản','500 triệu đồng cho mỗi sự cố'],a:2,ex:'GHTN là tổng tối đa cho cả năm và mọi quyền lợi. Các giới hạn phụ (50%, 20%) nằm trong GHTN, không làm tăng GHTN.'}},
+
+ {id:'A4', title:'Bảo hiểm KHÔNG chi trả gì', html:`
+  <p class="lead">Đây là phần quan trọng nhất để tránh khiếu nại về sau. Nói rõ ngay từ đầu, khách sẽ tin tưởng hơn. Bấm vào từng thẻ để xem câu trả lời đúng.</p>
+  <div data-widget="myths"></div>
+  <h3>Các loại trừ chính (tóm tắt)</h3>
+  <div class="grid2">
+   <div class="box"><ul>
+    <li>Hành vi cố ý, cố ý vi phạm pháp luật của doanh nghiệp, giám đốc, nhân viên.</li>
+    <li>Sự cố liên quan thông tin <b>không phải</b> thông tin cá nhân của bên thứ ba.</li>
+    <li>Sự cố, vụ kiện, tình huống đã phát hiện hoặc đã biết trước thời hạn bảo hiểm.</li>
+    <li>Thiệt hại từ lộ/dùng trái phép số thẻ tín dụng, số tài khoản, mật khẩu.</li>
+    <li>Tài sản hữu hình; vi phạm sở hữu trí tuệ; vu khống, phỉ báng.</li>
+   </ul></div>
+   <div class="box"><ul>
+    <li>Giao dịch chứng khoán, công cụ tài chính; hành động của cổ đông.</li>
+    <li>Trách nhiệm theo hợp đồng vượt quá trách nhiệm pháp luật quy định.</li>
+    <li>Thiên tai; chiến tranh; tấn công mạng do quốc gia/tổ chức được nhà nước bảo trợ; khủng bố, bạo loạn; hạt nhân.</li>
+    <li>Phạt hình sự, thu hồi lợi nhuận bất chính, bồi thường tăng theo hệ số.</li>
+    <li><b>Riêng quyền lợi 3, 4:</b> nâng cấp hệ thống; lương nội bộ (trừ làm thêm giờ ở QL3); điều tra kỹ thuật số, thông báo, PR, luật sư; tổn thất gián tiếp.</li>
+   </ul></div>
+  </div>
+  <div class="callout info"><div class="ci">i</div><p>Danh mục đầy đủ tại <b>Mục IV Quy tắc bảo hiểm</b>. Khi có khác biệt, Quy tắc bảo hiểm và GCNBH được ưu tiên áp dụng.</p></div>`,
+  check:{q:'Khách bị kẻ gian giả mạo đối tác, lừa chuyển khoản mất 50 triệu. An Tâm Số có chi trả không?',opts:['Có, theo quyền lợi trách nhiệm với bên thứ ba','Có, sau khi trừ khấu trừ 8 triệu','Không, lừa đảo chuyển khoản không thuộc phạm vi bảo hiểm','Có, nếu báo trong 14 ngày'],a:2,ex:'Sản phẩm không chi trả tiền bị chiếm đoạt, lừa đảo chuyển khoản. Phạm vi là trách nhiệm và chi phí khi thông tin cá nhân của bên thứ ba bị lộ do tấn công mạng.'}},
+
+ {id:'A5', title:'Ai được mua – 5 điều kiện', html:`
+  <p class="lead">Đối tượng: tổ chức, hộ kinh doanh, doanh nghiệp thành lập và đăng ký hoạt động hợp pháp tại Việt Nam. Khi mua trên MISA, khách <b>tự tích xác nhận</b> đủ 5 điều kiện:</p>
+  <div class="checks">
+   <div class="chk"><div class="n">1</div><div>Tổng doanh thu năm dương lịch gần nhất <b>không vượt quá 26 tỷ đồng</b>.</div></div>
+   <div class="chk"><div class="n">2</div><div>Trong <b>03 năm gần nhất</b> chưa từng xảy ra sự cố rò rỉ dữ liệu hoặc sự cố an ninh mạng.</div></div>
+   <div class="chk"><div class="n">3</div><div>Không có hoạt động tại, hoặc liên hệ với, các khu vực bị cấm vận thương mại.</div></div>
+   <div class="chk"><div class="n">4</div><div>Chưa từng bị xử phạt liên quan đến vi phạm dữ liệu, tấn công mạng hoặc bảo vệ dữ liệu cá nhân.</div></div>
+   <div class="chk"><div class="n">5</div><div>Không biết về bất kỳ sự kiện, tình huống nào có thể dẫn đến vi phạm dữ liệu hoặc sự cố an ninh mạng.</div></div>
+  </div>
+  <h3>Quy tắc bắt buộc với nhân viên</h3>
+  <div class="callout bad"><div class="ci">✕</div><p><b>Không tích hộ, không khai hộ các điều kiện.</b> Khách phải tự đọc và tự xác nhận.</p></div>
+  <div class="callout warn"><div class="ci">!</div><p>Khách nói <b>từng bị hack, bị lộ dữ liệu, bị phạt, hoặc doanh thu trên 26 tỷ</b> → dừng tư vấn sản phẩm này, giải thích lịch sự rằng chương trình chưa phù hợp, ghi nhận nhu cầu để chuyển BH PVI tư vấn giải pháp khác.</p></div>
+  <div class="callout info"><div class="ci">i</div><p>Khai sai điều kiện → BH PVI có quyền <b>hủy hợp đồng hoặc từ chối bồi thường</b>. Nhắc khách điều này một cách nhẹ nhàng.</p></div>`,
+  check:{q:'Khách nhờ nhân viên “tích giúp mấy ô điều kiện cho nhanh”. Nhân viên nên làm gì?',opts:['Tích giúp vì khách đã đồng ý','Tích giúp nhưng ghi chú lại','Từ chối lịch sự, hướng dẫn khách tự đọc và tự xác nhận','Bỏ qua bước xác nhận điều kiện'],a:2,ex:'Không tích hộ, không khai hộ. Khai sai điều kiện có thể khiến BH PVI hủy hợp đồng hoặc từ chối bồi thường, nên khách phải tự đọc và tự xác nhận.'}},
+
+ {id:'A6', title:'Mua, sau bán & bồi thường', html:`
+  <h3 style="margin-top:0">Các bước mua trên MISA</h3>
+  <ol class="steps">
+   <li><b>Chọn gói</b>Vào mục <b>Kết nối bảo hiểm</b> trên phần mềm MISA, chọn gói và ngày bắt đầu hiệu lực.</li>
+   <li><b>Xác nhận điều kiện</b>Khách tự tích xác nhận 5 điều kiện tham gia.</li>
+   <li><b>Kiểm tra thông tin</b>Tên DN/HKD, MST, người đại diện, địa chỉ (MISA tự điền sẵn) và người liên hệ: họ tên, số điện thoại, email nhận GCNBH. Hóa đơn lấy theo thông tin bên mua bảo hiểm.</li>
+   <li><b>Thanh toán online</b>Bảo hiểm chỉ có hiệu lực khi phí đã được thanh toán đầy đủ.</li>
+   <li><b>Nhận GCNBH</b>BH PVI phát hành GCNBH điện tử và hóa đơn điện tử, gửi tới email đã đăng ký. Xem lại GCNBH bất cứ lúc nào qua đường link trên MISA. Nhắc khách kiểm tra cả hộp thư spam.</li>
+  </ol>
+  <h3>Ai xử lý việc gì sau bán</h3>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Nhu cầu của khách</th><th>Hướng dẫn</th></tr>
+   <tr><td>Xem GCNBH, trạng thái đơn</td><td>Trên MISA (mục Kết nối bảo hiểm) hoặc email cấp đơn</td></tr>
+   <tr><td>Sửa thông tin, hủy hợp đồng</td><td>Gửi email tới BH PVI: <b>misa.antamso@pvi.com.vn</b>. BH PVI xử lý, gửi kết quả cho khách, đồng gửi MISA.</td></tr>
+   <tr><td>Thông báo sự cố, yêu cầu bồi thường</td><td>Quét <b>QR trên GCNBH</b>, hoặc hotline <b>0888 994 664</b> / email <b>claim.vn@iglooinsure.com</b></td></tr>
+   <tr><td>Thắc mắc phần mềm, thanh toán trên MISA</td><td>CSKH MISA</td></tr></table></div>
+  <h3>Hoàn phí khi hủy trước hạn</h3>
+  <p>Áp dụng khi <b>chưa có</b> yêu cầu bồi thường nào được thanh toán hoặc đang giải quyết.</p>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Đã được bảo hiểm</th><th class="num">Hoàn lại (% phí năm)</th></tr>
+   <tr><td>Đến 3 tháng</td><td class="num"><b>70%</b></td></tr><tr><td>Trên 3 đến 6 tháng</td><td class="num"><b>40%</b></td></tr>
+   <tr><td>Trên 6 đến 9 tháng</td><td class="num"><b>10%</b></td></tr><tr><td>Trên 9 tháng</td><td class="num"><b>0%</b></td></tr></table></div>
+  <h3>Khi khách gặp sự cố – 4 việc phải nhắc ngay</h3>
+  <div class="checks">
+   <div class="chk"><div class="n">1</div><div><b>Thông báo BH PVI càng sớm càng tốt, không muộn hơn 14 ngày</b> kể từ khi phát hiện. Với chi phí khôi phục dữ liệu và tư vấn khủng hoảng: thông báo <b>ngay</b> khi phát hiện tấn công.</div></div>
+   <div class="chk"><div class="n">2</div><div>Thông báo sự cố tới cơ quan có thẩm quyền theo quy định (<b>72 giờ</b>). BH PVI hỗ trợ mẫu khai báo.</div></div>
+   <div class="chk"><div class="n">3</div><div><b>Không tự thừa nhận trách nhiệm, không hứa bồi thường, không dàn xếp</b> với người bị lộ dữ liệu khi chưa có đồng ý bằng văn bản của BH PVI.</div></div>
+   <div class="chk"><div class="n">4</div><div><b>Không tự thuê</b> dịch vụ khôi phục/tư vấn khủng hoảng trước khi BH PVI đồng ý bằng văn bản.</div></div>
+  </div>
+  <div class="callout info"><div class="ci">i</div><p>Thời hạn thanh toán bồi thường: trong vòng <b>15 ngày làm việc</b> kể từ khi nhận đủ hồ sơ hợp lệ. Việc giải quyết bồi thường do BH PVI quyết định – <b>nhân viên MISA không cam kết kết quả bồi thường</b>.</p></div>
+  <h3>Thử tính số tiền bồi thường</h3>
+  <p>Dùng công cụ dưới đây để hiểu cách khấu trừ và giới hạn phụ vận hành trong một sự cố.</p>
+  <div data-widget="calc"></div>`,
+  check:{q:'Khách tự thuê công ty khôi phục dữ liệu rồi mới gửi hóa đơn cho BH PVI. Xử lý thế nào là đúng?',opts:['BH PVI trả toàn bộ hóa đơn','BH PVI trả sau khi trừ 8 triệu','Không đúng quy trình: chi phí khôi phục phải được BH PVI đồng ý bằng văn bản trước khi thuê','Chỉ cần gửi hóa đơn trong 14 ngày'],a:2,ex:'Quyền lợi 3 (khôi phục dữ liệu) và 4 (tư vấn khủng hoảng) chỉ chi trả khi chi phí phát sinh với sự đồng ý bằng văn bản trước của BH PVI. Luôn nhắc khách hỏi BH PVI trước khi thuê.'}}
+ ]
+},
+{
+ id:'B', title:'Tư vấn bán hàng', short:'Tư vấn', color:'#FF8A00',
+ desc:'Khung tư vấn 5 bước, chọn gói đúng nhu cầu, kịch bản cho 8 tệp khách, theo kênh và xử lý từ chối.',
+ lessons:[
+ {id:'B1', title:'Khung tư vấn 5 bước', html:`
+  <p class="lead">Áp dụng cho mọi kênh: gọi điện, gặp trực tiếp, chat/Zalo.</p>
+  <ol class="steps">
+   <li><b>Mở – giới thiệu, xin phép</b>Gắn với phần mềm MISA khách đang dùng.<div class="say">“Em là [tên] bên MISA, đang hỗ trợ anh/chị dùng phần mềm [tên SP]. Em xin 2 phút chia sẻ một tiện ích mới về bảo vệ dữ liệu khách hàng được không ạ?”</div></li>
+   <li><b>Khơi vấn đề</b>Để khách tự nhận ra mình đang giữ dữ liệu của người khác.<div class="say">“Hiện mình có lưu số điện thoại, địa chỉ hay thông tin của khách hàng/nhân viên trên máy tính, phần mềm không ạ?”</div></li>
+   <li><b>Giải pháp</b>Giới thiệu An Tâm Số bằng 1 câu + 1 ví dụ đúng ngành.<div class="say">“Nếu hacker lấy được dữ liệu đó, An Tâm Số chi trả tiền bồi thường cho khách hàng, tiền phạt và chi phí khắc phục.”</div></li>
+   <li><b>Chọn gói</b>Hỏi doanh thu, mức độ dữ liệu → gợi ý 1 gói chính, 1 gói thay thế.<div class="say">“Với quy mô của mình, em gợi ý gói 100, phí 1.099.000 đồng/năm, khoảng 3.000 đồng/ngày.”</div></li>
+   <li><b>Chốt & nói rõ giới hạn</b>Hướng dẫn mua, nói rõ những gì không bảo hiểm.<div class="say">“Anh/chị vào mục Kết nối bảo hiểm trên MISA… Em lưu ý sản phẩm không chi trả tiền bị hack tài khoản ngân hàng hay lừa đảo chuyển khoản ạ.”</div></li>
+  </ol>
+  <h3>Nguyên tắc tuân thủ</h3>
+  <div class="dodont">
+   <div class="do"><h4>✓ ĐƯỢC</h4><ul>
+    <li>Nói rõ BH PVI là nhà bảo hiểm, MISA là đại lý phân phối</li>
+    <li>Giải thích theo Quy tắc, bảng quyền lợi, sổ tay</li>
+    <li>Nói rõ các trường hợp không bảo hiểm</li>
+    <li>Để khách tự đọc và tích điều kiện</li>
+    <li>Nêu bối cảnh pháp lý chung</li>
+    <li>Hướng dẫn kênh hủy/sửa, bồi thường</li>
+    <li>Tôn trọng khi khách từ chối</li></ul></div>
+   <div class="dont"><h4>✕ KHÔNG ĐƯỢC</h4><ul>
+    <li>Nói đây là “bảo hiểm của MISA”</li>
+    <li>Hứa “bị gì cũng đền”, “bảo hiểm mọi rủi ro an ninh mạng”</li>
+    <li>Giấu hoặc nói lấp lửng phần loại trừ</li>
+    <li>Tích hộ, khai hộ, gợi ý khách khai sai</li>
+    <li>Phán khách “chắc chắn bị phạt”, tư vấn pháp lý cụ thể</li>
+    <li>Tự cam kết số tiền hay thời gian bồi thường</li>
+    <li>Gọi lặp lại nhiều lần, gây áp lực</li></ul></div>
+  </div>`,
+  check:{q:'Mục tiêu của bước 2 “Khơi vấn đề” là gì?',opts:['Báo giá ngay để tiết kiệm thời gian','Để khách tự nhận ra mình đang giữ dữ liệu cá nhân của người khác','Nói về mức phạt cao nhất để khách lo lắng','Hướng dẫn khách thanh toán'],a:1,ex:'Bước 2 dùng câu hỏi để khách tự nhận ra họ đang lưu số điện thoại, địa chỉ, thông tin của khách hàng/nhân viên – tức là đang có trách nhiệm bảo vệ dữ liệu đó.'}},
+
+ {id:'B2', title:'Chọn gói phù hợp', html:`
+  <p class="lead">Kết hợp 2 câu hỏi: <b>(1) doanh thu khoảng bao nhiêu?</b> và <b>(2) đơn vị giữ dữ liệu ở mức nào?</b></p>
+  <div data-widget="picker"></div>
+  <div class="grid2">
+   <div><h3 style="margin-top:0">Gợi ý theo doanh thu</h3>
+   <div class="tbl-wrap"><table class="tbl"><tr><th>Doanh thu năm gần nhất</th><th>Gói chính</th><th>Nâng cấp</th></tr>
+    <tr><td>Dưới 5 tỷ</td><td><b>50</b></td><td>100</td></tr><tr><td>5 – dưới 10 tỷ</td><td><b>100</b></td><td>200</td></tr>
+    <tr><td>10 – dưới 15 tỷ</td><td><b>200</b></td><td>500</td></tr><tr><td>15 – dưới 20 tỷ</td><td><b>200</b></td><td>500</td></tr>
+    <tr><td>20 – 26 tỷ</td><td><b>500</b></td><td>–</td></tr><tr><td>Trên 26 tỷ</td><td colspan="2">Không thuộc chương trình – ghi nhận, chuyển BH PVI</td></tr></table></div></div>
+   <div><h3 style="margin-top:0">Điều chỉnh theo mức độ dữ liệu</h3>
+   <div class="tbl-wrap"><table class="tbl"><tr><th>Mức độ</th><th>Dấu hiệu</th><th>Gợi ý</th></tr>
+    <tr><td><b>Cơ bản</b></td><td>Chỉ lưu tên, SĐT khách để chăm sóc, tích điểm</td><td>Giữ gói theo doanh thu</td></tr>
+    <tr><td><b>Hệ thống</b></td><td>Có CRM, bán online, lưu địa chỉ, CCCD, lịch sử mua của nhiều khách</td><td>Nâng 1 bậc</td></tr>
+    <tr><td><b>Nhạy cảm</b></td><td>Dữ liệu sức khỏe, tài chính, học sinh, ứng viên; hoặc xử lý dữ liệu cho người khác</td><td>Nâng 1 bậc, ưu tiên gói 200 trở lên nếu ngân sách cho phép</td></tr></table></div></div>
+  </div>
+  <div class="callout ok"><div class="ci">✓</div><p><b>Nguyên tắc:</b> tư vấn theo nhu cầu thật, không ép gói cao. Nếu khách chỉ đủ ngân sách cho gói thấp, khuyến khích mua gói thấp năm đầu và nâng cấp khi tái tục.</p></div>`,
+  check:{q:'Trung tâm ngoại ngữ doanh thu 4 tỷ/năm, lưu thông tin học viên và phụ huynh. Gói gợi ý là?',opts:['An Tâm Số 50','An Tâm Số 100','An Tâm Số 500','Không thuộc chương trình'],a:1,ex:'Doanh thu dưới 5 tỷ → gói 50. Dữ liệu học sinh thuộc nhóm nhạy cảm → nâng 1 bậc → An Tâm Số 100.'}},
+
+ {id:'B3', title:'Kịch bản theo 8 tệp khách', html:`
+  <p class="lead">Chọn tệp khách hàng để xem chân dung, dữ liệu khách đang giữ, nỗi lo chính, gói gợi ý và kịch bản mẫu. Các ví dụ đều là tình huống giả định.</p>
+  <div data-widget="personas"></div>`,
+  check:{q:'Khi tư vấn cho công ty công nghệ (mã ngành 62, 63), câu nào KHÔNG được nói?',opts:['“Sản phẩm chi trả trách nhiệm pháp lý với bên thứ ba khi dữ liệu bị lộ do tấn công mạng”','“Bảo hiểm mọi cam kết bồi thường trong hợp đồng với khách của anh”','“Đây là điểm cộng khi tham dự thầu có yêu cầu bảo mật dữ liệu”','“Với quy mô bên mình em gợi ý gói 200 hoặc 500”'],a:1,ex:'Trách nhiệm theo hợp đồng vượt quá trách nhiệm pháp luật quy định là điểm loại trừ. Không được nói “bảo hiểm mọi cam kết trong hợp đồng”.'}},
+
+ {id:'B4', title:'Kịch bản theo kênh', html:`
+  <h3 style="margin-top:0">📞 Khách gọi vào / hỏi sau khi thấy banner, email</h3>
+  <ol class="steps">
+   <li><b>Cảm ơn</b>Hỏi khách thấy thông tin ở đâu và quan tâm điều gì.</li>
+   <li><b>Hỏi 2 câu</b>Lĩnh vực kinh doanh? Có lưu thông tin khách hàng/nhân viên không?</li>
+   <li><b>Giải thích</b>1 câu + ví dụ đúng ngành (xem bài Kịch bản theo 8 tệp khách).</li>
+   <li><b>Gợi ý gói</b>Hỏi doanh thu khoảng → gợi ý gói.</li>
+   <li><b>Hướng dẫn mua</b>Ngay khi khách đang trên máy, hoặc gửi hướng dẫn qua email/Zalo.</li>
+   <li><b>Chốt</b>Bằng câu nhắc những gì không bảo hiểm.</li>
+  </ol>
+  <div class="say">“Dạ cảm ơn anh/chị đã quan tâm An Tâm Số. Để em tư vấn đúng gói, anh/chị cho em hỏi bên mình kinh doanh lĩnh vực gì và có lưu thông tin khách hàng trên phần mềm không ạ?”</div>
+  <h3>🤝 Gặp trực tiếp / Account Manager</h3>
+  <div class="grid2">
+   <div class="box"><p>Lồng vào buổi chăm sóc định kỳ hoặc gia hạn phần mềm, <b>không mở đầu bằng bảo hiểm</b>.</p></div>
+   <div class="box"><p>Dùng màn hình MISA của khách: chỉ vào danh mục khách hàng, danh sách nhân viên → <b>“đây là dữ liệu anh/chị đang có trách nhiệm bảo vệ”</b>.</p></div>
+   <div class="box"><p>Mang theo bảng gói, để khách tự xem và chọn.</p></div>
+   <div class="box"><p>Với khách nhóm Công nghệ, Tài chính, Giáo dục & y tế, Pháp lý–kế toán: đề xuất gói cao hơn kèm lý do cụ thể theo ngành.</p></div>
+  </div>
+  <h3>💬 Chat / Zalo</h3>
+  <ul>
+   <li>Tin đầu ngắn, <b>tối đa 4–5 dòng</b>: tên gói, phí, quyền lợi chính, nơi mua.</li>
+   <li>Không gửi file dài ngay; khi khách hỏi mới gửi bảng quyền lợi/hướng dẫn.</li>
+   <li>Trả lời trong giờ làm việc; câu hỏi về bồi thường cụ thể → chuyển hotline bồi thường, không tự trả lời kết quả.</li>
+  </ul>
+  <p><b>Mẫu trả lời khi khách hỏi “có đền khi bị hack không?”</b></p>
+  <div class="zalo">Dạ An Tâm Số chi trả khi thông tin cá nhân của khách hàng, nhân viên, đối tác của mình bị lộ, mất hoặc bị truy cập trái phép do tấn công mạng: tiền bồi thường cho người bị ảnh hưởng, tiền phạt theo quy định, chi phí khôi phục dữ liệu và tư vấn khủng hoảng. Sản phẩm không chi trả tiền bị chiếm đoạt từ tài khoản, lừa đảo chuyển khoản hay hư hỏng máy móc ạ.</div>`,
+  check:{q:'Khi gặp trực tiếp khách (Account Manager), cách mở đầu nào được khuyến nghị?',opts:['Mở đầu ngay bằng bảng giá bảo hiểm','Lồng vào buổi chăm sóc/gia hạn phần mềm, dùng màn hình MISA của khách để chỉ ra dữ liệu họ đang giữ','Gửi file Quy tắc 14 trang trước khi gặp','Nhấn mạnh mức phạt tối đa để tạo áp lực'],a:1,ex:'Không mở đầu bằng bảo hiểm. Chỉ vào danh mục khách hàng, danh sách nhân viên trên MISA của khách: “đây là dữ liệu anh/chị đang có trách nhiệm bảo vệ”.'}},
+
+ {id:'B5', title:'Xử lý từ chối', html:`
+  <p class="lead">Đọc câu khách nói, <b>tự nghĩ câu trả lời trước</b>, rồi bấm để xem gợi ý.</p>
+  <div data-widget="objections"></div>`,
+  check:{q:'Khách nói “Đắt quá”. Cách trả lời nào phù hợp?',opts:['“Gói này rẻ nhất thị trường rồi ạ”','“Dạ gói 50 khoảng 1.600 đồng/ngày, gói 100 khoảng 3.000 đồng/ngày. Chỉ một vụ việc nhỏ chi phí xử lý đã cao hơn nhiều lần ạ.”','“Nếu không mua anh chắc chắn sẽ bị phạt”','Giảm giá cho khách'],a:1,ex:'Quy đổi phí theo ngày để khách dễ hình dung, so sánh với chi phí xử lý sự cố. Không dọa, không hứa giảm giá.'}}
+ ]
+}
+];
+
+/* ---- 8 tệp khách hàng ---- */
+const PERSONAS = [
+ {k:'Hộ KD nhỏ', t:'Tệp 0 – Hộ kinh doanh, cửa hàng nhỏ', code:'Cà phê, trà sữa, spa, salon, quán ăn',
+  data:'Tên, số điện thoại, ngày sinh khách để tích điểm; danh sách khách trên Zalo; thông tin nhân viên.',
+  worry:'“Mình nhỏ, ai hack” – nhưng chính vì ít bảo vệ nên dễ bị tấn công; mất uy tín với khách quen.',
+  pkg:'An Tâm Số 50 (599.000đ/năm)',
+  dialog:[['nv','Dạ em chào chị, em là [tên] bên MISA, đang hỗ trợ cửa hàng mình dùng phần mềm bán hàng. Chị cho em xin 2 phút được không ạ?'],['kh','Ừ, em nói đi.'],['nv','Dạ, cửa hàng mình có làm thẻ thành viên, lưu số điện thoại khách để tích điểm đúng không chị?'],['kh','Có, cũng mấy trăm khách.'],['nv','Dạ, theo luật mới thì cửa hàng giữ thông tin khách là có trách nhiệm bảo vệ thông tin đó. Nếu chẳng may máy bị hacker xâm nhập, lộ danh sách khách, cửa hàng có thể bị khách đòi bồi thường hoặc bị phạt. MISA vừa hợp tác với Bảo hiểm PVI ra gói An Tâm Số 50, phí 599.000 đồng/năm, khoảng 1.600 đồng/ngày, chi trả tới 50 triệu cho những khoản đó.'],['kh','Thế bị hack Facebook bán hàng thì có đền không?'],['nv','Dạ không chị ạ, sản phẩm không đền việc mất tài khoản hay mất tiền. Sản phẩm chỉ lo phần trách nhiệm khi thông tin khách hàng của mình bị lộ. Em nói rõ để chị cân nhắc đúng ạ.'],['nv','Chị mua ngay trên phần mềm MISA, mục Kết nối bảo hiểm, chỉ mất 3 phút. Em gửi chị hướng dẫn qua Zalo nhé?']],
+  zalo:'Chào chị [Tên], em là [tên NV] – MISA. Cửa hàng mình đang lưu thông tin khách thành viên trên phần mềm. MISA và Bảo hiểm PVI có gói An Tâm Số 50: 599.000đ/năm, chi trả tới 50 triệu khi dữ liệu khách hàng bị lộ do tấn công mạng (bồi thường cho khách, tiền phạt, chi phí khắc phục). Mua ngay trong mục Kết nối bảo hiểm trên MISA. Chị cần em hướng dẫn thì nhắn em nhé!'},
+ {k:'Công nghệ', t:'Tệp 1 – Công nghệ & dữ liệu', code:'Mã ngành 62, 63',
+  who:'Công ty phần mềm, agency số, đơn vị lưu trữ, xử lý dữ liệu, làm website/app cho khách.',
+  data:'Dữ liệu của khách hàng của khách hàng – rủi ro bị kiện gấp đôi.',
+  worry:'Hợp đồng với khách yêu cầu bảo mật; một sự cố có thể làm mất nhiều khách lớn.',
+  pkg:'Nâng 1 bậc so với doanh thu – thường An Tâm Số 200 hoặc 500',
+  dialog:[['nv','Bên anh đang xử lý dữ liệu cho bao nhiêu khách hàng ạ? Có hệ thống nào chứa thông tin người dùng cuối không ạ?'],['kh','Có, mấy hệ thống CRM, app cho khách.'],['nv','Dạ, với đơn vị công nghệ, rủi ro lớn nhất là một lỗ hổng bị khai thác thì nhiều khách cùng bị ảnh hưởng. An Tâm Số chi trả trách nhiệm pháp lý với bên thứ ba, tiền phạt theo quy định và chi phí khôi phục dữ liệu, tư vấn khủng hoảng. Với quy mô bên mình em gợi ý gói 200 hoặc 500.'],['nv','Đây cũng là điểm cộng khi bên anh tham dự thầu hoặc ký hợp đồng có yêu cầu bảo mật dữ liệu ạ.']],
+  note:'Trách nhiệm theo hợp đồng vượt quá trách nhiệm pháp luật quy định là loại trừ – không nói “bảo hiểm mọi cam kết trong hợp đồng với khách”.'},
+ {k:'Tài chính', t:'Tệp 2 – Tài chính', code:'Mã ngành 64, 66',
+  who:'Đại lý, môi giới, dịch vụ tài chính, tư vấn đầu tư, cầm đồ, thu hộ – chi hộ quy mô nhỏ.',
+  data:'CCCD, thu nhập, tài sản, thông tin vay của khách.',
+  worry:'Dữ liệu tài chính lộ → khách bị lừa đảo, quay lại kiện đơn vị.',
+  pkg:'Nâng 1 bậc – thường An Tâm Số 200',
+  hook:'“Hồ sơ khách của mình có CCCD, thông tin thu nhập, khoản vay không ạ? Những thông tin này mà lộ thì khách rất dễ bị kẻ gian lợi dụng, và họ sẽ quay lại hỏi trách nhiệm của bên mình.”',
+  note:'Phải nói rõ: sản phẩm không chi trả thiệt hại từ việc lộ số thẻ, số tài khoản, mật khẩu, và không chi trả giao dịch chứng khoán, công cụ tài chính.'},
+ {k:'Giáo dục & Y tế', t:'Tệp 3 – Giáo dục & y tế', code:'Mã ngành 85, 86',
+  who:'Trung tâm ngoại ngữ, kỹ năng, mầm non tư thục; phòng khám, nha khoa, xét nghiệm, vật lý trị liệu.',
+  data:'Thông tin học sinh, phụ huynh; hồ sơ bệnh án, kết quả khám – nhóm dữ liệu nhạy cảm.',
+  worry:'Phụ huynh, bệnh nhân rất nhạy cảm khi lộ thông tin; ảnh hưởng uy tín rất nhanh.',
+  pkg:'Nâng 1 bậc – An Tâm Số 100 trở lên; phòng khám nhiều bệnh nhân ưu tiên 200',
+  dialog:[['nv','Phòng khám mình đang lưu hồ sơ bệnh nhân trên phần mềm đúng không ạ? Dữ liệu sức khỏe theo luật mới là dữ liệu nhạy cảm, yêu cầu bảo vệ cao hơn.'],['nv','Nếu chẳng may bị tấn công, ngoài khoản bồi thường cho bệnh nhân và tiền phạt, phòng khám còn cần xử lý truyền thông để giữ uy tín. An Tâm Số có cả quyền lợi chi phí tư vấn quản lý khủng hoảng ạ.']]},
+ {k:'Bán lẻ', t:'Tệp 4 – Bán lẻ', code:'Mã ngành 47',
+  who:'Chuỗi cửa hàng nhỏ, siêu thị mini, nhà thuốc, shop thời trang, bán hàng online đa kênh.',
+  data:'Khách thành viên, địa chỉ giao hàng, lịch sử mua; nhà thuốc có thêm thông tin sức khỏe.',
+  worry:'Lộ danh sách khách → khách bị gọi lừa đảo “giao hàng”, “hoàn tiền” và đổ lỗi cho cửa hàng.',
+  pkg:'Theo doanh thu; bán online, có app/website tích điểm → nâng 1 bậc',
+  hook:'“Gần đây nhiều khách mua online bị gọi điện lừa đảo đọc đúng tên, đúng đơn hàng. Nếu nguồn lộ là hệ thống của cửa hàng, cửa hàng có thể phải chịu trách nhiệm với khách.”'},
+ {k:'Logistics', t:'Tệp 5 – Logistics & bưu chính', code:'Mã ngành 52, 53',
+  who:'Dịch vụ giao nhận, chuyển phát, kho bãi, vận tải.',
+  data:'Họ tên, số điện thoại, địa chỉ người nhận với số lượng lớn; dữ liệu từ nhiều chủ hàng.',
+  worry:'Dữ liệu vận đơn là “mỏ vàng” cho lừa đảo; chủ hàng yêu cầu bảo mật.',
+  pkg:'An Tâm Số 100–200; quy mô lớn ưu tiên 500',
+  hook:'“Mỗi ngày bên mình xử lý bao nhiêu vận đơn ạ? Mỗi vận đơn là tên, số điện thoại, địa chỉ của một người – nếu lộ thì số người bị ảnh hưởng rất lớn.”'},
+ {k:'Lưu trú & Du lịch', t:'Tệp 6 – Lưu trú & du lịch', code:'Mã ngành 55, 79',
+  who:'Khách sạn, homestay, nhà nghỉ, đại lý lữ hành, đặt vé.',
+  data:'CCCD/hộ chiếu, lịch trình, thông tin đặt phòng, thanh toán của khách.',
+  worry:'Lộ ảnh CCCD/hộ chiếu khách; phần mềm đặt phòng kết nối nhiều kênh dễ bị tấn công.',
+  pkg:'An Tâm Số 100 trở lên',
+  hook:'“Khách sạn mình có chụp, lưu CCCD hoặc hộ chiếu của khách khi nhận phòng không ạ? Đây là loại giấy tờ mà nếu lộ ra, khách rất dễ bị lợi dụng để mở tài khoản, vay tiền giả mạo.”'},
+ {k:'Pháp lý & Kế toán', t:'Tệp 7 – Pháp lý, kế toán, dịch vụ việc làm', code:'Mã ngành 69, 78',
+  who:'Dịch vụ kế toán, đại lý thuế, văn phòng luật, công ty nhân sự, tuyển dụng, cung ứng lao động.',
+  data:'Hồ sơ của nhiều doanh nghiệp khách hàng, bảng lương, CCCD, hồ sơ ứng viên.',
+  worry:'Một sự cố ảnh hưởng nhiều khách hàng cùng lúc; mất uy tín nghề nghiệp.',
+  pkg:'Nâng 1 bậc – An Tâm Số 200 trở lên',
+  dialog:[['nv','Bên mình đang làm dịch vụ kế toán cho khoảng bao nhiêu doanh nghiệp ạ? Mỗi doanh nghiệp đều có bảng lương, thông tin nhân viên của họ trên hệ thống của mình đúng không ạ?'],['nv','Đó chính là dữ liệu cá nhân của bên thứ ba. Nếu bị tấn công, bên mình có thể phải chịu trách nhiệm với nhiều khách hàng cùng lúc. Gói 200 hoặc 500 sẽ phù hợp hơn với rủi ro này ạ.']],
+  note:'Sai sót nghiệp vụ kế toán, tư vấn sai (không do tấn công mạng) không thuộc sản phẩm này – đó là bảo hiểm trách nhiệm nghề nghiệp, có thể ghi nhận nhu cầu để chuyển BH PVI.'}
+];
+
+/* ---- Hiểu lầm thường gặp ---- */
+const MYTHS = [
+ {q:'“Bị hack tài khoản ngân hàng, mất tiền có được đền không?”',a:'Không. Sản phẩm không bồi thường tiền bị chiếm đoạt. Thiệt hại từ việc lộ, dùng trái phép số thẻ, số tài khoản, mật khẩu cũng bị loại trừ.'},
+ {q:'“Bị lừa chuyển khoản, giả mạo đối tác thì sao?”',a:'Không thuộc phạm vi bảo hiểm.'},
+ {q:'“Máy bị mã độc khóa, ngừng bán mấy ngày, có đền doanh thu không?”',a:'Không bồi thường doanh thu bị mất hay tổn thất gián tiếp. Chỉ khi dữ liệu cá nhân của bên thứ ba bị ảnh hưởng mới xét các quyền lợi 1–4.'},
+ {q:'“Mất laptop, hỏng máy chủ thì sao?”',a:'Không. Tài sản hữu hình không thuộc phạm vi bảo hiểm.'},
+ {q:'“Lộ bí mật kinh doanh, công thức, báo giá?”',a:'Không. Chỉ bảo hiểm thông tin cá nhân của bên thứ ba (khách hàng, nhân sự, đối tác).'},
+ {q:'“Tôi biết có sự cố từ trước, giờ mua có được không?”',a:'Mua được nếu đủ điều kiện, nhưng sự cố đã biết trước khi mua không được bảo hiểm. Người mua phải khai trung thực.'}
+];
+
+/* ---- Xử lý từ chối ---- */
+const OBJECTIONS = [
+ ['“Mình đã dùng MISA rồi, MISA phải bảo vệ cho mình chứ?”','“Dạ MISA luôn bảo vệ dữ liệu trên hệ thống MISA. Nhưng thông tin khách của anh/chị còn ở Excel, Zalo, máy nhân viên; nếu lộ từ đó thì theo luật mình phải đền và nộp phạt. An Tâm Số để BH PVI lo khoản đó ạ.”'],
+ ['“Mình nhỏ, hacker không để ý đâu.”','“Dạ thực tế hacker thường quét tự động, đơn vị nhỏ ít lớp bảo vệ nên lại dễ bị hơn. Gói nhỏ nhất chỉ 599.000 đồng/năm để yên tâm ạ.”'],
+ ['“Mình không có dữ liệu gì.”','“Dạ mình có lưu số điện thoại khách, thông tin nhân viên để tính lương không ạ? Theo luật, những thông tin đó là dữ liệu cá nhân mình đang có trách nhiệm bảo vệ.”'],
+ ['“Đắt quá.”','“Dạ gói 50 khoảng 1.600 đồng/ngày, gói 100 khoảng 3.000 đồng/ngày. Chỉ một vụ việc nhỏ chi phí xử lý đã cao hơn nhiều lần ạ.”'],
+ ['“Đã có IT, phần mềm diệt virus rồi.”','“Dạ rất tốt, đó là lớp phòng ngừa. Bảo hiểm là lớp tài chính khi phòng ngừa vẫn bị vượt qua – hai cái bổ trợ nhau ạ.”'],
+ ['“Có đền khi bị hack tài khoản ngân hàng không?”','“Dạ không ạ. Em nói rõ để anh/chị cân nhắc: sản phẩm lo trách nhiệm khi dữ liệu khách hàng bị lộ, không đền tiền bị chiếm đoạt.”'],
+ ['“Bảo hiểm khó đòi tiền lắm.”','“Dạ em hiểu. Vì vậy em nói rõ ngay những gì được và không được bảo hiểm. Khi có sự cố, anh/chị thông báo sớm qua QR trên giấy chứng nhận, làm đúng hướng dẫn thì quá trình sẽ thuận lợi ạ.”'],
+ ['“Để suy nghĩ thêm.”','“Dạ vâng, em gửi anh/chị bảng quyền lợi qua Zalo/email để tham khảo. Khi cần anh/chị mua ngay trên MISA, em có thể gọi lại vào [thời gian] được không ạ?”'],
+ ['“Đã có bảo hiểm tài sản/cháy nổ rồi.”','“Dạ bảo hiểm tài sản không chi trả trách nhiệm khi dữ liệu khách hàng bị lộ hay tiền phạt về bảo vệ dữ liệu. An Tâm Số bổ sung đúng phần còn thiếu ạ.”'],
+ ['“Sao mua qua MISA mà không mua trực tiếp?”','“Dạ BH PVI là nhà bảo hiểm phát hành và giải quyết bồi thường; MISA là đại lý của BH PVI, giúp anh/chị mua nhanh ngay trên phần mềm đang dùng, thông tin tự điền sẵn ạ.”'],
+ ['“Doanh thu bên mình trên 26 tỷ.”','“Dạ chương trình này dành cho đơn vị doanh thu đến 26 tỷ. Em xin ghi nhận để BH PVI liên hệ tư vấn giải pháp phù hợp hơn ạ.”'],
+ ['“Năm ngoái mình từng bị lộ dữ liệu.”','“Dạ cảm ơn anh/chị chia sẻ. Theo điều kiện, chương trình này chưa phù hợp với đơn vị đã có sự cố trong 3 năm gần nhất. Em xin ghi nhận để BH PVI tư vấn riêng ạ.”'],
+ ['“Mua rồi mình có phải làm gì thêm không?”','“Dạ chỉ cần lưu giấy chứng nhận. Khi phát hiện sự cố, thông báo ngay cho BH PVI và không tự hứa bồi thường với ai trước khi BH PVI đồng ý ạ.”']
+];
+
+const EXAM = {"total": 30, "pass": 0.8, "minutes": 30, "quota": {"P": 8, "X": 6, "E": 4, "C": 6, "S": 6}, "cats": {"P": "Sản phẩm & quyền lợi", "X": "Phạm vi & loại trừ", "E": "Điều kiện tham gia", "C": "Quy trình & bồi thường", "S": "Tư vấn & tuân thủ"}};
+const BANK = [{"id": "P01", "c": "P", "q": "Đơn vị nào là nhà bảo hiểm phát hành An Tâm Số?", "o": ["MISA", "BH PVI (Tổng Công ty Bảo hiểm PVI)", "Igloo", "Một công ty phần mềm bảo mật"]}, {"id": "P02", "c": "P", "q": "Phí gói An Tâm Số 100 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["999.000đ", "1.099.000đ", "1.000.000đ", "1.199.000đ"]}, {"id": "P03", "c": "P", "q": "Phí gói An Tâm Số 200 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["2.200.000đ", "1.999.000đ", "2.199.000đ", "2.099.000đ"]}, {"id": "P04", "c": "P", "q": "Phí gói An Tâm Số 500 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["5.000.000đ", "4.999.000đ", "4.599.000đ", "5.499.000đ"]}, {"id": "P05", "c": "P", "q": "Phí gói An Tâm Số 50 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["499.000đ", "500.000đ", "599.000đ", "699.000đ"]}, {"id": "P06", "c": "P", "q": "Con số trong tên gói (50, 100, 200, 500) thể hiện điều gì?", "o": ["Phí bảo hiểm, tính bằng nghìn đồng", "Giới hạn trách nhiệm, tính bằng triệu đồng", "Số nhân viên tối đa của doanh nghiệp", "Số khách hàng tối đa được bảo vệ dữ liệu"]}, {"id": "P07", "c": "P", "q": "Gói An Tâm Số 500: tổng số tiền tối đa BH PVI chi trả trong cả năm là bao nhiêu?", "o": ["1,35 tỷ đồng (cộng 4 quyền lợi)", "500 triệu đồng cho mỗi quyền lợi", "500 triệu đồng cho tất cả các khoản", "500 triệu đồng cho mỗi sự cố"]}, {"id": "P08", "c": "P", "q": "Chi phí khôi phục thông tin cá nhân được chi trả tối đa bao nhiêu % giới hạn trách nhiệm?", "o": ["20%", "30%", "50%", "100%"]}, {"id": "P09", "c": "P", "q": "Chi phí tư vấn quản lý khủng hoảng được chi trả tối đa bao nhiêu % giới hạn trách nhiệm?", "o": ["10%", "20%", "50%", "100%"]}, {"id": "P10", "c": "P", "q": "Với gói An Tâm Số 200, hạn mức chi phí tư vấn quản lý khủng hoảng là bao nhiêu?", "o": ["20 triệu", "40 triệu", "100 triệu", "200 triệu"]}, {"id": "P11", "c": "P", "q": "Mức khấu trừ của An Tâm Số được áp dụng như thế nào?", "o": ["8 triệu đồng mỗi sự cố, áp dụng một lần dù sự cố liên quan nhiều quyền lợi", "8 triệu đồng cho mỗi quyền lợi trong cùng sự cố", "8% số tiền yêu cầu bồi thường", "Không có mức khấu trừ"]}, {"id": "P12", "c": "P", "q": "Thời hạn bảo hiểm của An Tâm Số là bao lâu?", "o": ["6 tháng", "01 năm", "03 năm", "Theo thời hạn hợp đồng phần mềm MISA"]}, {"id": "P13", "c": "P", "q": "Phạm vi lãnh thổ của An Tâm Số là?", "o": ["Việt Nam", "Đông Nam Á", "Toàn cầu", "Nơi đặt máy chủ của doanh nghiệp"]}, {"id": "P14", "c": "P", "q": "Gói An Tâm Số 100. Một sự cố tấn công mạng làm lộ dữ liệu, khách hàng đòi bồi thường hợp lệ 40 triệu, không có khoản nào khác. BH PVI chi trả bao nhiêu?", "o": ["40 triệu", "32 triệu", "100 triệu", "0 đồng"]}, {"id": "P15", "c": "P", "q": "Gói An Tâm Số 50. Sau một cuộc tấn công, chi phí khôi phục dữ liệu khách hàng (đã được BH PVI đồng ý trước) là 40 triệu. BH PVI chi trả tối đa bao nhiêu?", "o": ["40 triệu", "32 triệu", "25 triệu", "50 triệu"]}, {"id": "P16", "c": "P", "q": "An Tâm Số áp dụng cho yêu cầu bồi thường được đưa ra vào thời điểm nào?", "o": ["Lần đầu trong thời hạn bảo hiểm", "Bất kỳ lúc nào, kể cả trước khi mua", "Trong vòng 3 năm sau khi hết hạn", "Chỉ khi trùng ngày ký hợp đồng phần mềm"]}, {"id": "P17", "c": "P", "q": "Câu nào mô tả đúng sự khác nhau giữa phần mềm MISA và An Tâm Số?", "o": ["MISA bảo vệ hệ thống phần mềm; An Tâm Số bảo vệ tài chính doanh nghiệp khi sự cố xảy ra", "An Tâm Số thay thế các biện pháp bảo mật của MISA", "An Tâm Số chỉ chi trả khi MISA bị lỗi", "Hai sản phẩm giống nhau, chỉ khác tên"]}, {"id": "P18", "c": "P", "q": "Quyền lợi nào sau đây KHÔNG thuộc 4 quyền lợi của An Tâm Số?", "o": ["Trách nhiệm pháp lý đối với bên thứ ba", "Các khoản phạt theo quy định", "Bồi thường doanh thu bị mất do gián đoạn kinh doanh", "Chi phí tư vấn quản lý khủng hoảng"]}, {"id": "X01", "c": "X", "q": "Khách bị kẻ gian giả mạo đối tác, lừa chuyển khoản mất 50 triệu. An Tâm Số có chi trả không?", "o": ["Có, theo quyền lợi trách nhiệm với bên thứ ba", "Có, sau khi trừ 8 triệu", "Không, lừa đảo chuyển khoản không thuộc phạm vi bảo hiểm", "Có, nếu báo trong 14 ngày"]}, {"id": "X02", "c": "X", "q": "Tài khoản ngân hàng của doanh nghiệp bị hack, mất tiền. An Tâm Số xử lý thế nào?", "o": ["Chi trả toàn bộ số tiền bị mất", "Không chi trả – sản phẩm không bồi thường tiền bị chiếm đoạt", "Chi trả 50%", "Chi trả nếu là gói 500"]}, {"id": "X03", "c": "X", "q": "Máy bị mã độc khóa, cửa hàng phải ngừng bán 3 ngày. Doanh thu mất trong 3 ngày đó có được bồi thường?", "o": ["Có, theo quyền lợi khôi phục dữ liệu", "Có, sau khi trừ khấu trừ", "Không – doanh thu bị mất và tổn thất gián tiếp không được chi trả", "Có, nếu có hóa đơn"]}, {"id": "X04", "c": "X", "q": "Doanh nghiệp bị mất laptop chứa dữ liệu. Giá trị chiếc laptop có được bồi thường?", "o": ["Có", "Không – tài sản hữu hình không thuộc phạm vi bảo hiểm", "Có, tối đa 20% GHTN", "Chỉ với gói 200 trở lên"]}, {"id": "X05", "c": "X", "q": "Hacker lấy được công thức sản phẩm và bảng báo giá (bí mật kinh doanh). An Tâm Số có chi trả?", "o": ["Có, đây là dữ liệu quan trọng nhất", "Không – chỉ bảo hiểm thông tin cá nhân của bên thứ ba", "Có, theo quyền lợi khủng hoảng", "Có, nếu khách báo ngay"]}, {"id": "X06", "c": "X", "q": "Khoản nào sau đây CÓ THỂ được An Tâm Số chi trả?", "o": ["Tiền phạt hành chính do vi phạm bảo vệ dữ liệu cá nhân sau vụ tấn công (trong phạm vi luật cho phép bảo hiểm)", "Tiền phạt hình sự", "Tiền bị chiếm đoạt từ tài khoản ngân hàng", "Chi phí nâng cấp hệ thống bảo mật sau sự cố"]}, {"id": "X07", "c": "X", "q": "Khách biết hệ thống từng bị xâm nhập trước khi mua, nay mới phát sinh khiếu nại. Sự cố đó có được bảo hiểm?", "o": ["Có, vì khiếu nại đến sau khi mua", "Không – sự cố, tình huống đã biết trước khi mua không được bảo hiểm", "Có, nếu mua gói 500", "Có, sau khi trừ 8 triệu"]}, {"id": "X08", "c": "X", "q": "Khoản chi phí nào sau đây KHÔNG được chi trả theo quyền lợi 3 (khôi phục dữ liệu) và 4 (tư vấn khủng hoảng)?", "o": ["Phí thuê đơn vị IT bên ngoài khôi phục dữ liệu khách hàng (đã được BH PVI đồng ý)", "Chi phí làm thêm giờ để nhập lại dữ liệu khách hàng", "Chi phí nâng cấp, thay mới hệ thống bảo mật sau sự cố", "Phí công ty tư vấn khủng hoảng trong danh sách được chấp thuận (đã được đồng ý)"]}, {"id": "X09", "c": "X", "q": "Công ty kế toán tư vấn sai nghiệp vụ (không liên quan tấn công mạng), khách hàng đòi bồi thường. Đúng hay sai: An Tâm Số chi trả?", "o": ["Đúng", "Sai – đây là rủi ro trách nhiệm nghề nghiệp, không thuộc An Tâm Số", "Đúng, nếu là gói 200 trở lên", "Đúng, sau khi trừ khấu trừ"]}, {"id": "X10", "c": "X", "q": "Đối tượng dữ liệu mà An Tâm Số bảo vệ là gì?", "o": ["Mọi dữ liệu của doanh nghiệp", "Thông tin cá nhân của bên thứ ba (khách hàng, nhân sự, đối tác)", "Chỉ dữ liệu kế toán trên MISA", "Chỉ dữ liệu của chủ doanh nghiệp"]}, {"id": "E01", "c": "E", "q": "Doanh thu tối đa để được tham gia An Tâm Số là bao nhiêu?", "o": ["Không quá 26 tỷ đồng (năm dương lịch gần nhất)", "Không quá 30 tỷ đồng", "Không quá 20 tỷ đồng", "Không giới hạn"]}, {"id": "E02", "c": "E", "q": "Khách cho biết năm ngoái đơn vị từng bị lộ dữ liệu khách hàng. Nhân viên nên làm gì?", "o": ["Tư vấn gói 500 để được bảo vệ cao nhất", "Bán bình thường nhưng không ghi nhận", "Dừng tư vấn sản phẩm này, giải thích lịch sự và ghi nhận để chuyển BH PVI tư vấn riêng", "Khuyên khách không khai thông tin này"]}, {"id": "E03", "c": "E", "q": "Khách nhờ nhân viên tích hộ các ô xác nhận điều kiện cho nhanh. Xử lý đúng là?", "o": ["Tích hộ vì khách đã đồng ý miệng", "Từ chối lịch sự, hướng dẫn khách tự đọc và tự xác nhận", "Tích hộ và chụp màn hình lưu lại", "Bỏ qua bước xác nhận"]}, {"id": "E04", "c": "E", "q": "Hậu quả nếu khách khai sai điều kiện tham gia?", "o": ["Không ảnh hưởng gì", "Chỉ phải đóng thêm phí", "BH PVI có quyền hủy hợp đồng hoặc từ chối bồi thường", "MISA chịu trách nhiệm thay"]}, {"id": "E05", "c": "E", "q": "Điều nào sau đây KHÔNG phải là điều kiện tham gia An Tâm Số?", "o": ["Có tối thiểu 10 nhân viên", "Doanh thu năm gần nhất không quá 26 tỷ đồng", "03 năm gần nhất chưa từng có sự cố rò rỉ dữ liệu/an ninh mạng", "Chưa từng bị xử phạt về vi phạm dữ liệu"]}, {"id": "E06", "c": "E", "q": "Doanh nghiệp có doanh thu năm gần nhất 28 tỷ đồng muốn mua An Tâm Số. Nhân viên trả lời thế nào?", "o": ["Bán gói 500", "Bán gói 500 và ghi doanh thu 26 tỷ", "Chương trình dành cho doanh thu đến 26 tỷ; ghi nhận để BH PVI tư vấn giải pháp phù hợp", "Bán 2 gói 500"]}, {"id": "E07", "c": "E", "q": "Điều kiện về lịch sử sự cố: đơn vị chưa từng xảy ra sự cố rò rỉ dữ liệu hoặc an ninh mạng trong bao nhiêu năm gần nhất?", "o": ["01 năm", "02 năm", "03 năm", "05 năm"]}, {"id": "E08", "c": "E", "q": "Đối tượng nào được tham gia An Tâm Số?", "o": ["Chỉ công ty cổ phần", "Tổ chức, hộ kinh doanh, doanh nghiệp đăng ký hoạt động hợp pháp tại Việt Nam", "Cá nhân không kinh doanh", "Doanh nghiệp nước ngoài không có pháp nhân tại Việt Nam"]}, {"id": "C01", "c": "C", "q": "Khách mua An Tâm Số ở đâu?", "o": ["Mục Kết nối bảo hiểm trên phần mềm MISA", "Tại quầy giao dịch ngân hàng", "Gọi hotline bồi thường", "Gửi email cho BH PVI"]}, {"id": "C02", "c": "C", "q": "Bảo hiểm có hiệu lực khi nào?", "o": ["Ngay khi khách bấm chọn gói", "Khi phí bảo hiểm đã được thanh toán đầy đủ", "Khi nhân viên MISA xác nhận qua điện thoại", "Sau 30 ngày kể từ khi đăng ký"]}, {"id": "C03", "c": "C", "q": "Khách muốn sửa thông tin hoặc hủy hợp đồng. Hướng dẫn khách liên hệ kênh nào?", "o": ["Hotline bồi thường 0888 994 664", "Email BH PVI: misa.antamso@pvi.com.vn", "Tự sửa trên phần mềm MISA", "Nhắn Zalo cho nhân viên tư vấn"]}, {"id": "C04", "c": "C", "q": "Khách phát hiện bị tấn công mạng, muốn thông báo sự cố/yêu cầu bồi thường. Kênh đúng là?", "o": ["QR trên GCNBH, hotline 0888 994 664 hoặc email claim.vn@iglooinsure.com", "CSKH MISA", "Email misa.antamso@pvi.com.vn", "Tự liên hệ công ty khôi phục dữ liệu"]}, {"id": "C05", "c": "C", "q": "Khách hủy hợp đồng sau 2 tháng, chưa có yêu cầu bồi thường. Khách được hoàn bao nhiêu % phí năm?", "o": ["100%", "70%", "40%", "0%"]}, {"id": "C06", "c": "C", "q": "Khách hủy hợp đồng sau 5 tháng, chưa có yêu cầu bồi thường. Tỷ lệ hoàn phí là?", "o": ["70%", "40%", "10%", "0%"]}, {"id": "C07", "c": "C", "q": "Khách hủy hợp đồng sau 10 tháng. Tỷ lệ hoàn phí là?", "o": ["40%", "10%", "0%", "20%"]}, {"id": "C08", "c": "C", "q": "Sau khi phát hiện sự cố, khách phải thông báo cho BH PVI trong thời hạn nào?", "o": ["Càng sớm càng tốt, không muộn hơn 14 ngày; với chi phí khôi phục dữ liệu và tư vấn khủng hoảng: thông báo ngay", "Trong 60 ngày", "Khi hết thời hạn bảo hiểm", "Không cần thông báo nếu tự xử lý được"]}, {"id": "C09", "c": "C", "q": "Khách tự thuê công ty khôi phục dữ liệu, sau đó gửi hóa đơn cho BH PVI. Điều này đúng hay sai?", "o": ["Đúng, miễn có hóa đơn hợp lệ", "Sai – phải được BH PVI đồng ý bằng văn bản trước khi thuê", "Đúng, nếu dưới 8 triệu", "Đúng, nếu gói 500"]}, {"id": "C10", "c": "C", "q": "Sau vụ lộ dữ liệu, chủ cửa hàng muốn chủ động hứa đền tiền cho khách hàng để giữ uy tín. Nhân viên nên nhắc gì?", "o": ["Cứ hứa, BH PVI sẽ trả sau", "Không tự thừa nhận trách nhiệm, không hứa bồi thường khi chưa có đồng ý bằng văn bản của BH PVI", "Hứa tối đa bằng giới hạn trách nhiệm", "Hứa nhưng chỉ bằng lời nói"]}, {"id": "C11", "c": "C", "q": "Thời hạn thanh toán bồi thường cho chương trình An Tâm Số là?", "o": ["Trong vòng 15 ngày làm việc kể từ khi nhận đủ hồ sơ hợp lệ", "Ngay trong ngày", "Trong vòng 90 ngày", "Do nhân viên MISA cam kết với khách"]}, {"id": "C12", "c": "C", "q": "Khách nhắn Zalo hỏi nhân viên MISA: “Hồ sơ bồi thường của chị có được duyệt không?”. Xử lý đúng là?", "o": ["Khẳng định chắc chắn được duyệt", "Ước lượng số tiền cho khách yên tâm", "Chuyển khách sang hotline bồi thường, không tự trả lời kết quả", "Khuyên khách hủy hợp đồng"]}, {"id": "C13", "c": "C", "q": "Sau khi thanh toán, khách nhận Giấy chứng nhận bảo hiểm (GCNBH) bằng cách nào?", "o": ["Nhận bản giấy qua bưu điện", "GCNBH điện tử gửi tới email đã đăng ký, xem lại qua đường link trên MISA", "Đến văn phòng BH PVI nhận", "Chỉ nhận khi có sự cố"]}, {"id": "C14", "c": "C", "q": "Ngoài thông báo cho BH PVI, khi có sự cố khách còn cần thông báo cho cơ quan có thẩm quyền trong thời hạn nào theo quy định?", "o": ["72 giờ", "30 ngày", "6 tháng", "Không cần thông báo"]}, {"id": "S01", "c": "S", "q": "Bước đầu tiên trong khung tư vấn 5 bước là gì?", "o": ["Báo giá ngay", "Mở – giới thiệu, xin phép, gắn với phần mềm MISA khách đang dùng", "Nói rõ các điểm loại trừ", "Hướng dẫn thanh toán"]}, {"id": "S02", "c": "S", "q": "Câu nào ĐƯỢC phép nói khi tư vấn?", "o": ["“Đây là bảo hiểm của MISA”", "“Bị gì cũng đền ạ”", "“BH PVI là nhà bảo hiểm, MISA là đại lý phân phối”", "“Anh/chị chắc chắn sẽ bị phạt nếu không mua”"]}, {"id": "S03", "c": "S", "q": "Câu nào KHÔNG được nói khi tư vấn?", "o": ["“MISA luôn bảo vệ dữ liệu trên hệ thống MISA”", "“Mua để phòng trường hợp MISA bị lộ dữ liệu”", "“Dữ liệu khách của anh/chị còn nằm ở Excel, Zalo”", "“Sản phẩm không chi trả tiền bị lừa chuyển khoản”"]}, {"id": "S04", "c": "S", "q": "Doanh nghiệp doanh thu 7 tỷ/năm, chỉ lưu tên và số điện thoại khách để chăm sóc. Gói gợi ý chính là?", "o": ["An Tâm Số 50", "An Tâm Số 100", "An Tâm Số 200", "An Tâm Số 500"]}, {"id": "S05", "c": "S", "q": "Phòng khám nha khoa doanh thu 3 tỷ/năm, lưu hồ sơ bệnh nhân. Gói gợi ý là?", "o": ["An Tâm Số 50", "An Tâm Số 100", "An Tâm Số 500", "Không thuộc chương trình"]}, {"id": "S06", "c": "S", "q": "Doanh nghiệp doanh thu 22 tỷ/năm. Gói gợi ý chính là?", "o": ["An Tâm Số 100", "An Tâm Số 200", "An Tâm Số 500", "Không thuộc chương trình"]}, {"id": "S07", "c": "S", "q": "Khách nói “Đắt quá”. Cách trả lời phù hợp nhất?", "o": ["Quy đổi phí theo ngày (gói 50 ≈ 1.600đ/ngày, gói 100 ≈ 3.000đ/ngày) và so với chi phí xử lý một vụ việc", "Hứa giảm giá", "Nói “không mua chắc chắn sẽ bị phạt”", "Chuyển sang chủ đề khác"]}, {"id": "S08", "c": "S", "q": "Khách nói “Mình nhỏ, hacker không để ý đâu”. Gợi ý trả lời?", "o": ["Đồng ý và kết thúc cuộc gọi", "“Hacker thường quét tự động, đơn vị nhỏ ít lớp bảo vệ nên lại dễ bị hơn. Gói nhỏ nhất chỉ 599.000đ/năm”", "“Chắc chắn tuần sau anh/chị bị hack”", "Gửi ngay Quy tắc 14 trang"]}, {"id": "S09", "c": "S", "q": "Khách nói “Đã có bảo hiểm tài sản/cháy nổ rồi”. Ý chính để trả lời?", "o": ["Bảo hiểm cháy nổ đã đủ", "Bảo hiểm tài sản không chi trả trách nhiệm khi dữ liệu khách hàng bị lộ hay tiền phạt về bảo vệ dữ liệu – An Tâm Số bổ sung đúng phần còn thiếu", "Nên hủy bảo hiểm cháy nổ", "An Tâm Số cũng chi trả cháy nổ"]}, {"id": "S10", "c": "S", "q": "Tin nhắn Zalo đầu tiên gửi khách nên như thế nào?", "o": ["Gửi ngay file Quy tắc và bảng phí đầy đủ", "Ngắn, tối đa 4–5 dòng: tên gói, phí, quyền lợi chính, nơi mua", "Gửi nhiều tin liên tục để khách chú ý", "Chỉ gửi đường link, không giải thích"]}, {"id": "S11", "c": "S", "q": "Khách chỉ đủ ngân sách cho gói thấp hơn gói được gợi ý. Nhân viên nên?", "o": ["Ép khách mua gói cao", "Từ chối bán", "Khuyến khích mua gói thấp năm đầu và nâng cấp khi tái tục", "Cho khách nợ phí"]}, {"id": "S12", "c": "S", "q": "Khi tư vấn công ty công nghệ, câu nào KHÔNG được nói?", "o": ["“Bảo hiểm mọi cam kết bồi thường trong hợp đồng với khách của anh”", "“Sản phẩm chi trả trách nhiệm pháp lý với bên thứ ba”", "“Đây là điểm cộng khi tham dự thầu có yêu cầu bảo mật”", "“Em gợi ý gói 200 hoặc 500”"]}, {"id": "S13", "c": "S", "q": "Khách hỏi “Nếu lỗi do hệ thống MISA thì sao?”. Nhân viên trả lời thế nào?", "o": ["“Thì MISA sẽ đền”", "“Lỗi đó chắc chắn không được bảo hiểm”", "BH PVI xem xét chi trả theo Quy tắc khi thông tin cá nhân bị lộ do tấn công mạng; không bình luận lỗi thuộc bên nào, chuyển câu hỏi chi tiết cho BH PVI", "“MISA không bao giờ có lỗi”"]}, {"id": "S14", "c": "S", "q": "Khách nói “Để suy nghĩ thêm”. Cách xử lý phù hợp?", "o": ["Gọi lại mỗi ngày đến khi khách mua", "Gửi bảng quyền lợi qua Zalo/email, hẹn thời gian gọi lại phù hợp", "Nói chương trình sắp hết hạn để tạo áp lực", "Không liên hệ nữa"]}, {"id": "S15", "c": "S", "q": "Khi gặp trực tiếp khách (Account Manager), cách mở đầu được khuyến nghị là?", "o": ["Mở đầu ngay bằng bảng giá bảo hiểm", "Lồng vào buổi chăm sóc/gia hạn phần mềm; dùng màn hình MISA của khách chỉ ra dữ liệu họ đang giữ", "Gửi trước Quy tắc 14 trang", "Nhấn mạnh mức phạt tối đa"]}, {"id": "S16", "c": "S", "q": "Khách nói “Mình không có dữ liệu gì”. Câu hỏi khơi vấn đề phù hợp?", "o": ["“Vậy thì anh/chị không cần mua”", "“Mình có lưu số điện thoại khách, thông tin nhân viên để tính lương không ạ?”", "“Ai cũng có dữ liệu, anh/chị đang nói sai”", "“Hacker sẽ tìm ra thôi”"]}, {"id": "S17", "c": "S", "q": "Đơn vị có dữ liệu ở mức “Hệ thống” (có CRM, bán online, lưu địa chỉ, CCCD, lịch sử mua của nhiều khách). Điều chỉnh gói thế nào so với gợi ý theo doanh thu?", "o": ["Giữ nguyên gói theo doanh thu", "Nâng 1 bậc", "Nâng thẳng lên gói 500", "Hạ 1 bậc để giảm phí"]}];
+
+/* ===================== CẤU HÌNH ===================== */
+/* Dán URL Web App của Google Apps Script vào đây (xem README). Để trống = không gửi kết quả. */
+const SHEET_ENDPOINT = "";
+/* ==================================================== */
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const fmt = n => n.toLocaleString('vi-VN');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem('ats_'+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem('ats_'+k, JSON.stringify(v)); }catch(e){} }
+};
+let user = store.get('user', null);
+let done = store.get('done', {});
+let attempts = store.get('attempts', 0);
+const ALL_LESSONS = MODULES.flatMap(m => m.lessons.map(l => ({...l, mod:m})));
+
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2400); }
+function initials(n){ const p=n.trim().split(/\s+/); return ((p.length>1?p[p.length-2][0]:'')+p[p.length-1][0]).toUpperCase(); }
+
+/* ---------- Router ---------- */
+function go(view, arg){
+  location.hash = view + (arg ? '/' + arg : '');
+}
+function route(){
+  stopTimerIfLeaving();
+  const [view, arg] = location.hash.replace('#','').split('/');
+  $$('.view').forEach(v => v.classList.add('hidden'));
+  $$('.topnav button').forEach(b => b.classList.toggle('on', b.dataset.go === (view||'home') || (view==='learn' && b.dataset.go==='learn')));
+  closeSide();
+  if(view === 'learn'){ $('#v-learn').classList.remove('hidden'); renderLesson(arg || firstUndone()); }
+  else if(view === 'exam'){ $('#v-exam').classList.remove('hidden'); if(!examState || examState.finished) renderExamIntro(); }
+  else { $('#v-home').classList.remove('hidden'); renderHome(); }
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+}
+window.addEventListener('hashchange', route);
+
+function firstUndone(){ const l = ALL_LESSONS.find(l => !done[l.id]); return (l || ALL_LESSONS[0]).id; }
+
+/* ---------- Header user ---------- */
+function renderWho(){
+  const w = $('#who');
+  if(user){ w.innerHTML = `<span class="wname">${esc(user.name)}</span><div class="avatar" title="${esc(user.name)}">${esc(initials(user.name))}</div>`; }
+  else w.innerHTML = '';
+}
+
+/* ---------- Home ---------- */
+function modProgress(m){ const n=m.lessons.filter(l=>done[l.id]).length; return {n, t:m.lessons.length, p:Math.round(n/m.lessons.length*100)}; }
+
+function renderHome(){
+  // register
+  const r = $('#regBox');
+  if(user){
+    const total = ALL_LESSONS.length, n = ALL_LESSONS.filter(l=>done[l.id]).length;
+    r.innerHTML = `<div class="welcome"><div class="avatar">${esc(initials(user.name))}</div><div><h3 style="margin:0">Chào ${esc(user.name)}!</h3><p>${esc(user.unit)}${user.region? ' · '+esc(user.region):''} · ${esc(user.email)}</p></div></div>
+      <div><div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><div class="bar"><i style="width:${Math.round(n/total*100)}%"></i></div><span class="pct">${n}/${total} bài</span></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary" onclick="go('learn')">${n? 'Học tiếp' : 'Bắt đầu học'} →</button><button class="btn btn-ghost" onclick="go('exam')">Làm bài thi</button><button class="btn btn-line btn-sm" onclick="editUser()">Đổi thông tin</button></div></div>`;
+  } else {
+    r.innerHTML = `<div><h3>Đăng ký học viên</h3><p>Nhập thông tin để lưu tiến độ học và ghi nhận kết quả bài thi về BH PVI.</p></div>
+      <form class="form-grid" id="regForm" novalidate>
+        <div class="field"><label>Họ và tên *</label><input name="name" autocomplete="name" placeholder="Nguyễn Văn A" required></div>
+        <div class="field"><label>Email công việc *</label><input name="email" type="email" autocomplete="email" placeholder="ten@misa.com.vn" required></div>
+        <div class="field"><label>Phòng ban / Bộ phận *</label><input name="unit" placeholder="VD: Kinh doanh SME, CSKH…" required></div>
+        <div class="field"><label>Chi nhánh / Khu vực</label><input name="region" placeholder="VD: Hà Nội, TP.HCM…"></div>
+        <div class="form-actions"><button class="btn btn-primary" type="submit">Vào học →</button><span class="form-note">Thông tin chỉ dùng để ghi nhận kết quả đào tạo.</span></div>
+      </form>`;
+    $('#regForm').addEventListener('submit', e => {
+      e.preventDefault(); const f = e.target; let ok = true;
+      ['name','email','unit'].forEach(k => { const el=f[k]; const bad = !el.value.trim() || (k==='email' && !/^\S+@\S+\.\S+$/.test(el.value.trim())); el.parentElement.classList.toggle('err', bad); if(bad) ok=false; });
+      if(!ok){ toast('Vui lòng điền đủ thông tin bắt buộc'); return; }
+      user = {name:f.name.value.trim(), email:f.email.value.trim(), unit:f.unit.value.trim(), region:f.region.value.trim()};
+      store.set('user', user); renderWho(); renderHome(); toast('Đã lưu thông tin học viên');
+    });
+  }
+  // modules
+  const icons = {A:svgShield, B:svgChat};
+  $('#mods').innerHTML = MODULES.map((m,i) => { const p = modProgress(m); return `
+    <div class="card mod">
+      <div class="ico" style="background:${i? '#FFF1DE':'#E5EDFF'};color:${m.color}">${icons[m.id]}</div>
+      <div><div class="crumb" style="margin:0 0 4px">Phần ${i+1} · ${m.lessons.length} bài</div><h3>${m.title}</h3></div>
+      <p>${m.desc}</p>
+      <ul>${m.lessons.map(l => `<li class="${done[l.id]?'done':''}"><span class="tick"></span><a href="#learn/${l.id}" style="color:inherit;text-decoration:none">${l.title}</a></li>`).join('')}</ul>
+      <div class="foot"><div class="bar"><i style="width:${p.p}%"></i></div><span class="pct">${p.p}%</span><button class="btn btn-ghost btn-sm" onclick="go('learn','${(m.lessons.find(l=>!done[l.id])||m.lessons[0]).id}')">${p.n===p.t?'Xem lại':p.n?'Tiếp tục':'Bắt đầu'}</button></div>
+    </div>`; }).join('') + `
+    <div class="card mod exam">
+      <div class="ico" style="background:rgba(255,255,255,.14);color:var(--yellow)">${svgTrophy}</div>
+      <div><div class="crumb" style="margin:0 0 4px;color:rgba(255,255,255,.7)">Phần 3 · Kiểm tra</div><h3>Bài thi cuối khóa</h3></div>
+      <p>Hoàn thành bài thi để nhận Giấy xác nhận hoàn thành đào tạo An Tâm Số.</p>
+      <div class="chips"><span class="chip">${EXAM.total} câu</span><span class="chip">${EXAM.minutes} phút</span><span class="chip">Đạt ≥ ${Math.round(EXAM.pass*100)}%</span><span class="chip">Được thi lại</span></div>
+      ${store.get('best',null)? `<p style="color:#fff">Điểm cao nhất của bạn: <b style="color:var(--yellow)">${store.get('best').score}/${EXAM.total}</b></p>`:''}
+      <div class="foot"><button class="btn btn-yellow" onclick="go('exam')">Vào bài thi →</button></div>
+    </div>`;
+}
+function editUser(){ user=null; store.set('user', null); renderWho(); renderHome(); }
+
+/* ---------- Learn ---------- */
+function renderSide(cur){
+  const tot = ALL_LESSONS.length, n = ALL_LESSONS.filter(l=>done[l.id]).length;
+  $('#side').innerHTML = `<div class="side-prog"><div class="bar"><i style="width:${Math.round(n/tot*100)}%"></i></div><span class="pct">${n}/${tot}</span></div>` +
+    MODULES.map((m,i)=>`<h4>Phần ${i+1} · ${m.title}</h4>` + m.lessons.map((l,j)=>`<button class="lnk ${l.id===cur?'on':''} ${done[l.id]?'done':''}" onclick="go('learn','${l.id}')"><span class="num">${done[l.id]?'✓':l.id}</span>${l.title}</button>`).join('')).join('') +
+    `<h4>Phần 3 · Kiểm tra</h4><button class="lnk" onclick="go('exam')"><span class="num">★</span>Bài thi cuối khóa</button>`;
+}
+function renderLesson(id){
+  const idx = ALL_LESSONS.findIndex(l=>l.id===id); const L = ALL_LESSONS[idx<0?0:idx];
+  renderSide(L.id);
+  const prev = ALL_LESSONS[idx-1], next = ALL_LESSONS[idx+1];
+  const c = L.check;
+  $('#lesson').innerHTML = `
+    <div class="crumb"><span class="pill">Phần ${MODULES.indexOf(L.mod)+1} · ${L.mod.title}</span><span>Bài ${L.id}</span></div>
+    <h2>${L.title}</h2>${L.html}
+    <div class="checkpoint" id="cp"><h4>Câu hỏi kiểm tra nhanh</h4><div class="cq">${c.q}</div>
+      <div class="opts">${c.opts.map((o,i)=>`<button class="opt" data-i="${i}"><span class="k">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div>
+      <div id="cpEx"></div></div>
+    <div class="lesson-nav">
+      ${prev? `<button class="btn btn-line" onclick="go('learn','${prev.id}')">← ${prev.title}</button>`:'<span></span>'}
+      ${next? `<button class="btn btn-primary" id="nextBtn" onclick="go('learn','${next.id}')">${next.title} →</button>` : `<button class="btn btn-yellow" onclick="go('exam')">Vào bài thi →</button>`}
+    </div>`;
+  $$('#cp .opt').forEach(b => b.addEventListener('click', () => {
+    if($('#cp').dataset.answered) return;
+    $('#cp').dataset.answered = 1;
+    const i = +b.dataset.i, ok = i===c.a;
+    $$('#cp .opt').forEach((x,j)=>{ if(j===c.a) x.classList.add('right'); else if(j===i) x.classList.add('wrong'); });
+    $('#cpEx').innerHTML = `<div class="cp-ex"><b>${ok?'✓ Chính xác!':'✕ Chưa đúng.'}</b> ${c.ex}</div>`;
+    done[L.id] = true; store.set('done', done); renderSide(L.id);
+    toast(ok ? 'Đã hoàn thành bài ' + L.id : 'Đã ghi nhận – xem lại giải thích nhé');
+  }));
+  mountWidgets($('#lesson'));
+}
+
+/* ---------- Widgets ---------- */
+function mountWidgets(root){
+  $$('[data-widget]', root).forEach(el => ({packages:wPackages, myths:wMyths, calc:wCalc, picker:wPicker, personas:wPersonas, objections:wObjections})[el.dataset.widget](el));
+}
+function wPackages(el){
+  let sel = 100;
+  const draw = () => {
+    const p = PKGS.find(x=>x.id===sel), L = p.limit;
+    const rows = [['1','Tiền đền cho khách hàng, nhân viên bị lộ thông tin','Trách nhiệm pháp lý đối với bên thứ ba',L,1],['2','Tiền phạt của cơ quan nhà nước','Các khoản phạt theo quy định (trong phạm vi luật cho phép)',L,1],['3','Tiền thuê người khôi phục dữ liệu','Chi phí khôi phục thông tin cá nhân · tối đa 50% GHTN',L*.5,.5],['4','Tiền thuê chuyên gia giữ uy tín','Chi phí tư vấn quản lý khủng hoảng · tối đa 20% GHTN',L*.2,.2]];
+    el.innerHTML = `<div class="pkgs">${PKGS.map(x=>`<button class="pkg ${x.id===sel?'on':''}" data-id="${x.id}"><div class="pn">${x.name}</div><div class="pl">${x.limit} <small>triệu</small></div><span class="pp">${fmt(x.price)}đ/năm</span><div class="pd">${x.day} · gồm VAT</div></button>`).join('')}</div>
+    <div class="benefits">${rows.map(r=>`<div class="ben"><div class="bi">${r[0]}</div><div class="bt"><b>${r[1]}</b><span>${r[2]}</span></div><div class="bv">${fmt(r[3])} tr</div><div class="bbar"><i style="width:${r[4]*100}%"></i></div></div>`).join('')}</div>
+    <div class="ghtn"><span>Tổng tối đa cả năm (GHTN) – <u>không cộng dồn</u> 4 quyền lợi</span><b>${fmt(L)} triệu đồng</b></div>
+    <div class="ghtn" style="background:#FFF4E5;color:var(--ink)"><span>Mức khấu trừ – khách tự chịu mỗi sự cố</span><b style="color:var(--orange)">8 triệu đồng</b></div>`;
+    $$('.pkg', el).forEach(b => b.onclick = () => { sel = +b.dataset.id; draw(); });
+  };
+  draw();
+}
+function wMyths(el){
+  el.innerHTML = `<div class="myths">${MYTHS.map(m=>`<button class="myth"><div class="inner"><div class="face front"><div class="tag" style="align-self:flex-start;background:var(--navy)">Khách hỏi</div><div class="q">${m.q}</div><div class="hint">Bấm để xem câu trả lời ↻</div></div><div class="face back"><div class="v">✕ KHÔNG CHI TRẢ</div><p>${m.a}</p></div></div></button>`).join('')}</div>`;
+  $$('.myth', el).forEach(b => b.onclick = () => b.classList.toggle('flip'));
+}
+function wCalc(el){
+  el.innerHTML = `<div class="tool"><div class="tool-h"><div class="ti">${svgCalc}</div><div><h4>Mô phỏng bồi thường một sự cố</h4><span>Nhập thiệt hại hợp lệ (triệu đồng) – giả định chi phí QL3, QL4 đã được BH PVI đồng ý trước</span></div></div>
+    <div class="field" style="margin-bottom:12px"><label>Gói bảo hiểm</label><div class="seg" id="cPkg">${PKGS.map(p=>`<button data-id="${p.id}" class="${p.id===100?'on':''}">${p.name}</button>`).join('')}</div></div>
+    <div class="row">
+      <div class="field"><label>1. Tiền đền bên thứ ba</label><input type="number" min="0" step="1" value="30" data-k="0"></div>
+      <div class="field"><label>2. Tiền phạt</label><input type="number" min="0" step="1" value="0" data-k="1"></div>
+      <div class="field"><label>3. Khôi phục dữ liệu</label><input type="number" min="0" step="1" value="70" data-k="2"></div>
+      <div class="field"><label>4. Tư vấn khủng hoảng</label><input type="number" min="0" step="1" value="0" data-k="3"></div>
+    </div><div class="result" id="cRes"></div></div>`;
+  let pk = 100;
+  const calc = () => {
+    const L = pk, subs = [L, L, L*.5, L*.2], names = ['Tiền đền bên thứ ba','Tiền phạt','Khôi phục dữ liệu','Tư vấn khủng hoảng'];
+    const v = $$('input', el).map(i => Math.max(0, +i.value || 0));
+    const total = v.reduce((a,b)=>a+b,0);
+    if(!total){ $('#cRes', el).innerHTML = '<span style="color:var(--muted)">Nhập ít nhất một khoản thiệt hại.</span>'; return; }
+    // Khấu trừ 8tr một lần/sự cố – trừ vào quyền lợi có số tiền yêu cầu lớn nhất
+    const imax = v.indexOf(Math.max(...v)); const after = v.slice(); let ded = Math.min(DEDUCT, total), left = ded;
+    after[imax] = Math.max(0, after[imax] - left); left -= (v[imax]-after[imax]);
+    for(let i=0;i<4 && left>0;i++){ const t=Math.min(after[i],left); after[i]-=t; left-=t; }
+    const capped = after.map((x,i)=>Math.min(x, subs[i]));
+    let pay = capped.reduce((a,b)=>a+b,0); const overL = pay > L; if(overL) pay = L;
+    const r = n => fmt(Math.round(n*10)/10);
+    $('#cRes', el).innerHTML = `<div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap"><div><div style="font-size:13px;color:var(--muted);font-weight:600">BH PVI chi trả</div><div class="big">${r(pay)} triệu đồng</div></div><div style="text-align:right"><div style="font-size:13px;color:var(--muted);font-weight:600">Khách tự chịu</div><div style="font-size:22px;font-weight:800;color:var(--orange)">${r(total-pay)} triệu</div></div></div>
+      <div class="calc-lines"><div><span>Tổng thiệt hại yêu cầu</span><b>${r(total)} tr</b></div><div><span>Trừ khấu trừ 1 lần/sự cố (vào khoản lớn nhất: ${names[imax]})</span><b>− ${r(ded)} tr</b></div>
+      ${capped.map((x,i)=> v[i] ? `<div><span>${i+1}. ${names[i]} – hạn mức ${r(subs[i])} tr</span><b>${r(x)} tr${after[i]>subs[i]?' <span style="color:var(--orange)">(chạm hạn mức)</span>':''}</b></div>`:'').join('')}
+      ${overL?`<div><span>Giới hạn tổng GHTN</span><b>${r(L)} tr</b></div>`:''}</div>
+      <p style="font-size:12.5px;color:var(--muted);margin:10px 0 0">Mô phỏng phục vụ đào tạo. Kết quả bồi thường thực tế do BH PVI quyết định theo Quy tắc và GCNBH; GHTN còn lại giảm dần sau mỗi lần chi trả trong năm.</p>`;
+  };
+  $$('#cPkg button', el).forEach(b => b.onclick = () => { pk = +b.dataset.id; $$('#cPkg button', el).forEach(x=>x.classList.toggle('on', x===b)); calc(); });
+  $$('input', el).forEach(i => i.oninput = calc); calc();
+}
+function wPicker(el){
+  const revs = [['<5','Dưới 5 tỷ',0],['5-10','5 – dưới 10 tỷ',1],['10-15','10 – dưới 15 tỷ',2],['15-20','15 – dưới 20 tỷ',2],['20-26','20 – 26 tỷ',3],['>26','Trên 26 tỷ',-1]];
+  const lv = [['co-ban','Cơ bản','Chỉ tên, SĐT khách để chăm sóc/tích điểm',0],['he-thong','Hệ thống','CRM, bán online, lưu địa chỉ, CCCD, lịch sử mua',1],['nhay-cam','Nhạy cảm','Sức khỏe, tài chính, học sinh, ứng viên; xử lý dữ liệu cho người khác',2]];
+  let r = 1, d = 0;
+  el.innerHTML = `<div class="tool"><div class="tool-h"><div class="ti">${svgTarget}</div><div><h4>Công cụ gợi ý gói</h4><span>Chọn doanh thu và mức độ dữ liệu của khách</span></div></div>
+    <div class="field"><label>(1) Doanh thu năm gần nhất</label><div class="seg" id="pRev">${revs.map((x,i)=>`<button data-i="${i}" class="${i===r?'on':''}">${x[1]}</button>`).join('')}</div></div>
+    <div class="field" style="margin-top:12px"><label>(2) Mức độ dữ liệu khách đang giữ</label><div class="seg" id="pLv">${lv.map((x,i)=>`<button data-i="${i}" class="${i===d?'on':''}" title="${x[2]}">${x[1]}</button>`).join('')}</div><div id="pLvHint" style="font-size:13px;color:var(--muted);margin-top:6px"></div></div>
+    <div class="result" id="pRes"></div></div>`;
+  const draw = () => {
+    $('#pLvHint', el).textContent = lv[d][2];
+    const base = revs[r][2];
+    if(base < 0){ $('#pRes', el).innerHTML = `<div class="rec"><div class="rbadge" style="background:var(--red)"><small>Kết luận</small><b style="color:#fff">Không thuộc chương trình</b></div><div>Doanh thu trên 26 tỷ không đủ điều kiện tham gia. Giải thích lịch sự, <b>ghi nhận nhu cầu để chuyển BH PVI</b> tư vấn giải pháp phù hợp.</div></div>`; return; }
+    let idx = Math.min(3, base + (d>0?1:0)); if(d===2 && idx<2) idx = Math.max(idx, 1);
+    const p = PKGS[idx], alt = PKGS[Math.min(3, idx+1)];
+    const why = d===0 ? 'Dữ liệu ở mức cơ bản → giữ gói theo doanh thu.' : d===1 ? 'Dữ liệu ở mức hệ thống → nâng 1 bậc so với gợi ý theo doanh thu.' : 'Dữ liệu nhạy cảm → nâng 1 bậc; ưu tiên gói 200 trở lên nếu ngân sách cho phép.';
+    $('#pRes', el).innerHTML = `<div class="rec"><div class="rbadge"><small>Gói gợi ý chính</small><b>${p.name.replace('An Tâm Số ','ATS ')}</b><small>${fmt(p.price)}đ/năm</small></div>
+      <div style="flex:1;min-width:220px"><p style="margin:0 0 6px">${why}</p>${alt.id!==p.id?`<p style="margin:0;color:var(--muted)">Gói thay thế/nâng cấp: <b>${alt.name}</b> (${fmt(alt.price)}đ/năm).</p>`:''}
+      <div class="say" style="margin:10px 0 0">“Với quy mô của mình, em gợi ý gói ${p.id}, phí ${fmt(p.price)} đồng/năm, ${p.day.replace('≈ ','khoảng ').replace('đ/ngày',' đồng/ngày')}.”</div></div></div>`;
+  };
+  $$('#pRev button', el).forEach(b => b.onclick = () => { r = +b.dataset.i; $$('#pRev button', el).forEach(x=>x.classList.toggle('on',x===b)); draw(); });
+  $$('#pLv button', el).forEach(b => b.onclick = () => { d = +b.dataset.i; $$('#pLv button', el).forEach(x=>x.classList.toggle('on',x===b)); draw(); });
+  draw();
+}
+function wPersonas(el){
+  let cur = 0;
+  const draw = () => {
+    const p = PERSONAS[cur];
+    el.innerHTML = `<div class="tabs">${PERSONAS.map((x,i)=>`<button class="${i===cur?'on':''}" data-i="${i}">${x.k}</button>`).join('')}</div>
+    <div class="persona"><div class="ph"><h4>${p.t}</h4><span class="code">${p.code}</span></div>
+      <dl>${p.who?`<dt>Chân dung</dt><dd>${p.who}</dd>`:''}<dt>Dữ liệu đang giữ</dt><dd>${p.data}</dd><dt>Nỗi lo chính</dt><dd>${p.worry}</dd><dt>Gói gợi ý</dt><dd><b style="color:var(--blue)">${p.pkg}</b></dd></dl>
+      ${p.hook?`<p style="margin:12px 0 4px"><b>Câu khơi vấn đề</b></p><div class="say">${p.hook}</div>`:''}
+      ${p.dialog?`<p style="margin:12px 0 4px"><b>Kịch bản gọi điện</b></p><div class="dialog">${p.dialog.map(m=>`<div class="msg ${m[0]}"><small>${m[0]==='nv'?'Nhân viên':'Khách hàng'}</small>${m[1]}</div>`).join('')}</div>`:''}
+      ${p.zalo?`<div class="zalo">${p.zalo}</div>`:''}
+      ${p.note?`<div class="callout warn" style="margin-bottom:0"><div class="ci">!</div><p><b>Lưu ý:</b> ${p.note}</p></div>`:''}</div>`;
+    $$('.tabs button', el).forEach(b => b.onclick = () => { cur = +b.dataset.i; draw(); });
+  };
+  draw();
+}
+function wObjections(el){
+  el.innerHTML = OBJECTIONS.map((o,i)=>`<div class="acc"><button>${o[0]}</button><div class="acc-b"><div class="say" style="margin-top:0">${o[1]}</div></div></div>`).join('');
+  $$('.acc>button', el).forEach(b => b.onclick = () => b.parentElement.classList.toggle('open'));
+}
+
+/* ---------- Exam ---------- */
+let examState = null, timerH = null;
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function buildExam(){
+  let qs = [];
+  Object.entries(EXAM.quota).forEach(([c,n]) => { qs = qs.concat(shuffle(BANK.filter(q=>q.c===c)).slice(0,n)); });
+  qs = shuffle(qs).map(q => { const order = shuffle([0,1,2,3].slice(0,q.o.length)); return {...q, order}; });
+  return qs;
+}
+function renderExamIntro(){
+  const n = ALL_LESSONS.filter(l=>done[l.id]).length, t = ALL_LESSONS.length, best = store.get('best', null);
+  $('#examArea').innerHTML = `<div class="card exam-intro">
+    <div><div class="crumb"><span class="pill">Phần 3 · Kiểm tra</span></div><h2 style="font-size:32px">Bài thi cuối khóa An Tâm Số</h2>
+      <p class="lead" style="color:var(--muted)">Câu hỏi được rút ngẫu nhiên từ ngân hàng ${BANK.length} câu, phủ đủ 5 nhóm kiến thức. Mỗi lần thi là một bộ đề khác nhau.</p>
+      <div class="rules">
+        <div class="rule"><div class="ri">${EXAM.total}</div><div><b>${EXAM.total} câu trắc nghiệm</b><br><span style="color:var(--muted);font-size:14px">${Object.entries(EXAM.quota).map(([c,q])=>`${EXAM.cats[c]} (${q})`).join(' · ')}</span></div></div>
+        <div class="rule"><div class="ri">⏱</div><div><b>${EXAM.minutes} phút</b> – hết giờ bài tự động nộp</div></div>
+        <div class="rule"><div class="ri">✓</div><div><b>Đạt khi đúng từ ${Math.ceil(EXAM.total*EXAM.pass)}/${EXAM.total} câu (${Math.round(EXAM.pass*100)}%)</b> – được thi lại nếu chưa đạt</div></div>
+        <div class="rule"><div class="ri">↗</div><div>Bài làm được chấm trên hệ thống BH PVI; kết quả từng lần thi được lưu để theo dõi đào tạo</div></div>
+      </div></div>
+    <div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+      ${!user ? `<div class="callout warn" style="margin:0"><div class="ci">!</div><p>Bạn cần <b>đăng ký học viên</b> trước khi làm bài thi.</p></div><button class="btn btn-primary" onclick="go('home')">Đăng ký học viên →</button>` : `
+      <div class="box"><h4>Học viên</h4><p><b>${esc(user.name)}</b><br>${esc(user.unit)}${user.region?' · '+esc(user.region):''}<br><span style="color:var(--muted)">${esc(user.email)}</span></p></div>
+      <div class="box"><h4>Tiến độ học</h4><div style="display:flex;align-items:center;gap:10px"><div class="bar"><i style="width:${Math.round(n/t*100)}%"></i></div><span class="pct">${n}/${t}</span></div>${n<t?`<p style="font-size:13px;color:var(--orange);margin-top:6px">Nên hoàn thành ${t-n} bài còn lại trước khi thi.</p>`:''}</div>
+      ${best?`<div class="box"><h4>Kết quả tốt nhất</h4><p><b>${best.score}/${EXAM.total}</b> · ${best.passed?'<span style="color:var(--green);font-weight:700">Đạt</span>':'<span style="color:var(--red);font-weight:700">Chưa đạt</span>'} · lần thi thứ ${attempts}</p></div>`:''}
+      ${SHEET_ENDPOINT ? `<button class="btn btn-yellow" style="padding:16px" onclick="startExam()">Bắt đầu làm bài →</button>` : `<div class="callout warn" style="margin:0"><div class="ci">!</div><p>Bài thi chưa mở: hệ thống chấm điểm chưa được kết nối. Vui lòng liên hệ BH PVI.</p></div>`}`}
+    </div></div>`;
+}
+function startExam(){
+  examState = {qs:buildExam(), cur:0, picks:{}, flags:{}, start:Date.now(), end:Date.now()+EXAM.minutes*60000, finished:false};
+  renderExam(); tick(); clearInterval(timerH); timerH = setInterval(tick, 1000);
+}
+function tick(){
+  if(!examState || examState.finished) return;
+  const ms = Math.max(0, examState.end - Date.now()), s = Math.ceil(ms/1000);
+  const el = $('#timer'); if(el){ el.querySelector('b').textContent = String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); el.classList.toggle('low', s<=120); }
+  const mt = $('#mtimer'); if(mt){ mt.textContent = '⏱ ' + String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); mt.classList.toggle('low', s<=120); }
+  if(ms<=0){ toast('Hết giờ – bài thi đã được nộp'); submitExam(); }
+}
+function stopTimerIfLeaving(){ /* timer keeps running; exam resumes when returning */ }
+function renderExam(){
+  const S = examState, q = S.qs[S.cur], answered = Object.keys(S.picks).length;
+  $('#examArea').innerHTML = `<div class="exam-grid">
+    <div class="card qcard">
+      <div class="qmeta"><span class="qn">Câu ${S.cur+1}/${S.qs.length}</span><span class="mtimer" id="mtimer">--:--</span><span class="chip">${EXAM.cats[q.c]}</span><button class="flagbtn ${S.flags[S.cur]?'on':''}" id="flagB">⚑ ${S.flags[S.cur]?'Đã đánh dấu':'Đánh dấu xem lại'}</button></div>
+      <div class="qtext">${q.q}</div>
+      <div class="opts">${q.order.map((oi,k)=>`<button class="opt ${S.picks[S.cur]===k?'sel':''}" data-k="${k}"><span class="k">${'ABCD'[k]}</span><span>${q.o[oi]}</span></button>`).join('')}</div>
+      <div class="qnav"><button class="btn btn-line" ${S.cur?'':'disabled'} onclick="examMove(-1)">← Câu trước</button>
+        ${S.cur<S.qs.length-1?`<button class="btn btn-primary" onclick="examMove(1)">Câu tiếp →</button>`:`<button class="btn btn-yellow" onclick="confirmSubmit()">Nộp bài</button>`}</div>
+    </div>
+    <div class="card panel">
+      <div class="timer" id="timer"><span>Thời gian còn lại</span><b>--:--</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:8px"><span>Đã trả lời</span><span>${answered}/${S.qs.length}</span></div>
+      <div class="grid-nums">${S.qs.map((_,i)=>`<button class="${S.picks[i]!==undefined?'ans':''} ${S.flags[i]?'flag':''} ${i===S.cur?'cur':''}" onclick="examJump(${i})">${i+1}</button>`).join('')}</div>
+      <div class="legend"><span><i style="background:var(--blue)"></i>Đã trả lời</span><span><i style="background:var(--orange)"></i>Đánh dấu</span><span><i style="border:1.5px solid var(--line)"></i>Chưa làm</span></div>
+      <button class="btn btn-yellow" style="width:100%;margin-top:14px" onclick="confirmSubmit()">Nộp bài</button>
+    </div></div>`;
+  $$('.qcard .opt').forEach(b => b.onclick = () => { S.picks[S.cur] = +b.dataset.k; renderExam(); });
+  $('#flagB').onclick = () => { S.flags[S.cur] = !S.flags[S.cur]; renderExam(); };
+  tick();
+}
+function examMove(d){ examState.cur = Math.min(examState.qs.length-1, Math.max(0, examState.cur+d)); renderExam(); window.scrollTo({top:0}); }
+function examJump(i){ examState.cur = i; renderExam(); }
+function confirmSubmit(){
+  const left = examState.qs.length - Object.keys(examState.picks).length;
+  modal(`<h3>Nộp bài thi?</h3><p>${left? `Bạn còn <b>${left} câu chưa trả lời</b>. Câu chưa trả lời được tính là sai.` : 'Bạn đã trả lời tất cả các câu.'}</p>`, [['Làm tiếp','btn-line',null],['Nộp bài','btn-primary',submitExam]]);
+}
+function modal(html, actions){
+  const m = document.createElement('div'); m.className='modal';
+  m.innerHTML = `<div class="card">${html}<div class="acts">${actions.map((a,i)=>`<button class="btn ${a[1]}" data-i="${i}">${a[0]}</button>`).join('')}</div></div>`;
+  document.body.appendChild(m);
+  $$('button', m).forEach(b => b.onclick = () => { m.remove(); const f = actions[+b.dataset.i][2]; if(f) f(); });
+  m.addEventListener('click', e => { if(e.target===m) m.remove(); });
+}
+async function submitExam(){
+  const S = examState; if(S.finished || S.grading) return; S.grading = true; clearInterval(timerH);
+  const dur = Math.round((Math.min(Date.now(), S.end) - S.start)/1000);
+  S.dur = dur;
+  $('#examArea').innerHTML = `<div class="card" style="padding:48px;text-align:center"><div class="ring" style="margin:0 auto 16px;width:72px;height:72px"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="64" fill="none" stroke="#EAF2FF" stroke-width="16"/><circle cx="80" cy="80" r="64" fill="none" stroke="#0040D0" stroke-width="16" stroke-linecap="round" stroke-dasharray="120 400"><animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="1s" repeatCount="indefinite"/></circle></svg></div><h3>Đang chấm bài…</h3><p style="color:var(--muted)">Bài làm được gửi về hệ thống BH PVI để chấm điểm.</p><div id="gradeErr"></div></div>`;
+  const payload = {action:'grade', name:user.name, email:user.email, unit:user.unit, region:user.region||'',
+    answers:S.qs.map((q,i)=>({id:q.id, pick: S.picks[i]===undefined ? -1 : q.order[S.picks[i]]})),
+    startedAt:new Date(S.start).toISOString(), durationSec:dur,
+    lessonsDone:ALL_LESSONS.filter(l=>done[l.id]).length+'/'+ALL_LESSONS.length, userAgent:navigator.userAgent.slice(0,120)};
+  try{
+    const r = await fetch(SHEET_ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(payload)});
+    const res = await r.json();
+    if(!res.ok) throw new Error(res.error || 'Lỗi chấm bài');
+    S.finished = true; S.res = res;
+    attempts = res.attempt || attempts+1; store.set('attempts', attempts);
+    const best = store.get('best', null); if(!best || res.score > best.score) store.set('best', {score:res.score, passed:res.passed, code:res.code, date:res.date});
+    renderResult();
+  }catch(e){
+    S.grading = false;
+    $('#gradeErr').innerHTML = `<div class="callout bad" style="text-align:left;margin-top:16px"><div class="ci">!</div><p>Chưa gửi được bài làm (${esc(e.message||'lỗi mạng')}). Bài làm vẫn được giữ nguyên – kiểm tra kết nối mạng rồi bấm gửi lại.</p></div><button class="btn btn-primary" onclick="submitExam()">Gửi lại bài làm</button>`;
+  }
+}
+function renderResult(){
+  const S = examState, r = S.res, pct = Math.round(r.score/r.total*100), C = 2*Math.PI*72;
+  const qById = Object.fromEntries(S.qs.map(q=>[q.id,q]));
+  const d = new Date(r.date), ds = d.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'});
+  $('#examArea').innerHTML = `
+  <div class="card res-top">
+    <div class="ring"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="72" fill="none" stroke="#EAF2FF" stroke-width="14"/><circle cx="80" cy="80" r="72" fill="none" stroke="${r.passed?'#0E9F6E':'#D92D20'}" stroke-width="14" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct/100)}"/></svg><div class="rv"><div><b>${r.score}/${r.total}</b><br><span>${pct}% đúng</span></div></div></div>
+    <div><span class="status ${r.passed?'pass':'fail'}">${r.passed?'✓ ĐẠT':'✕ CHƯA ĐẠT'}</span>
+      <h2 style="margin-top:10px">${r.passed?'Chúc mừng, '+esc(user.name)+'!':'Gần được rồi, cố lên!'}</h2>
+      <p style="color:var(--muted)">${r.passed?'Bạn đã sẵn sàng tư vấn An Tâm Số cho khách hàng MISA.':'Cần đúng tối thiểu '+Math.ceil(r.total*EXAM.pass)+'/'+r.total+' câu. Xem lại các câu sai bên dưới rồi thi lại nhé.'} Thời gian làm bài: ${Math.floor(S.dur/60)} phút ${S.dur%60} giây · Lần thi thứ ${r.attempt}.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">${Object.entries(r.byCategory||{}).map(([c,v])=>`<span class="chip" style="${v[0]<v[1]?'background:#FFF4E5;color:var(--orange)':''}">${EXAM.cats[c]}: ${v[0]}/${v[1]}</span>`).join('')}</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">${r.passed?`<button class="btn btn-yellow" onclick="window.print()">In / Lưu PDF giấy xác nhận</button>`:''}<button class="btn ${r.passed?'btn-line':'btn-primary'}" onclick="startExam()">Thi lại</button><button class="btn btn-line" onclick="go('learn')">Ôn tập</button></div>
+      <div class="sync ok"><span class="dot"></span><span>Kết quả đã được chấm và lưu tại hệ thống BH PVI.</span></div>
+    </div>
+  </div>
+  ${r.passed?`<div id="certArea"><div class="cert">
+    <img class="cl" src="${LOGO}" alt="BH PVI">
+    <div class="ct">Giấy xác nhận</div><h2>Hoàn thành đào tạo Bảo hiểm An Tâm Số</h2>
+    <div class="cname">${esc(user.name)}</div><div class="cunit">${esc(user.unit)}${user.region?' · '+esc(user.region):''} – MISA</div>
+    <div class="cbody">Đã hoàn thành chương trình đào tạo sản phẩm và kỹ năng tư vấn Bảo hiểm An Tâm Số (Quy tắc bảo hiểm An ninh mạng SME – PVI CYBERSHIELD SME) và đạt bài kiểm tra cuối khóa.</div>
+    <div class="cmeta"><div>Kết quả<b>${r.score}/${r.total} (${pct}%)</b></div><div>Ngày hoàn thành<b>${ds}</b></div><div>Mã xác nhận<b>${esc(r.code)}</b></div></div>
+    <div class="cfoot">Phòng Thương mại điện tử – Ban Hàng không & Khách hàng Doanh nghiệp, Tổng Công ty Bảo hiểm PVI · Xác nhận đào tạo nội bộ, không thay thế chứng chỉ đại lý bảo hiểm.</div>
+    <div class="seal">BH PVI<br>×<br>MISA</div>
+  </div></div>`:''}
+  ${(r.review||[]).length?`<div class="review"><h3>Xem lại ${r.review.length} câu chưa đúng</h3>${r.review.map(x=>{ const q=qById[x.id]; if(!q) return ''; return `<div class="rv-item"><div class="rq">${q.q}</div><div class="ra">${x.pick>=0?`Bạn chọn: <span class="bad">${q.o[x.pick]}</span><br>`:'<span class="bad">Chưa trả lời</span><br>'}Đáp án đúng: <span class="good">${q.o[x.ans]}</span></div><div class="rx">${x.e}</div></div>`; }).join('')}</div>`:''}`;
+  window.scrollTo({top:0});
+}
+window.addEventListener('beforeunload', e => { if(examState && !examState.finished){ e.preventDefault(); e.returnValue=''; } });
+
+/* ---------- Mobile side ---------- */
+function openSide(){ $('#side').classList.add('open'); $('#scrim').classList.remove('hidden'); }
+function closeSide(){ $('#side').classList.remove('open'); $('#scrim').classList.add('hidden'); }
+
+/* ---------- Icons ---------- */
+const svgShield = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>';
+const svgChat = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg>';
+const svgTrophy = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M16 5h3v2a3 3 0 0 1-3 3M8 5H5v2a3 3 0 0 0 3 3M12 13v4M8 20h8M10 17h4"/></svg>';
+const svgCalc = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg>';
+const svgTarget = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>';
+
+/* ---------- Boot ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  $$('.topnav button').forEach(b => b.onclick = () => go(b.dataset.go));
+  $('#menuBtn').onclick = openSide; $('#scrim').onclick = closeSide;
+  $('#bankCount').textContent = BANK.length;
+  $('#topLogo').src = LOGO; renderWho(); route();
+});
+</script>
+</body>
+</html>
