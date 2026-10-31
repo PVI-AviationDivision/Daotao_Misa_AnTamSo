@@ -451,6 +451,85 @@ footer b{color:#fff}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 .scrim{position:fixed;inset:0;background:rgba(11,27,77,.4);z-index:70}
 
+/* ---------- Tool cards (home) ---------- */
+.toolcards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.toolcard{display:grid;grid-template-columns:56px 1fr 28px;gap:18px;align-items:center;padding:22px 24px;border-radius:var(--r-lg);border:2px solid var(--line);background:#fff;text-decoration:none;color:var(--text);box-shadow:0 4px 0 var(--line);transition:transform .15s var(--ease),box-shadow .15s var(--ease),border-color .15s}
+.toolcard:hover{border-color:var(--sky-3);transform:translateY(-2px);box-shadow:0 6px 0 var(--sky-3)}
+.toolcard:active{transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
+.toolcard b{display:block;font-family:var(--display);font-weight:900;font-size:19px;color:var(--navy);margin-bottom:4px}
+.toolcard span span{display:block;font-size:14.5px;color:var(--muted);line-height:1.5}
+.tc-ic{width:56px;height:56px;border-radius:16px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:26px;box-shadow:inset 0 -3px 0 var(--sky-3)}
+.tc-yellow .tc-ic{background:#FFF4D6;color:#9A6A00;box-shadow:inset 0 -3px 0 #F5DC97}
+.tc-go{color:var(--blue);font-size:20px}
+
+/* ---------- Bottom tab bar (mobile) ---------- */
+.tabbar{display:none}
+
+/* ---------- Practice (flashcards) ---------- */
+.pr-wrap,.st-wrap{max-width:960px;margin:0 auto;padding:32px 24px 96px}
+.pr-head,.st-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:18px}
+.pr-head h1,.st-head h1{font-size:clamp(28px,3.4vw,40px);margin-bottom:6px}
+.pr-head p,.st-head p{color:var(--muted);max-width:62ch;margin:0}
+.pr-stat{flex:none;text-align:center;background:var(--sky-2);border:2px solid var(--line);border-radius:var(--r);padding:10px 18px}
+.pr-stat b{display:block;font-family:var(--display);font-weight:900;font-size:24px;color:var(--navy)}
+.pr-stat span{font-size:13px;color:var(--muted);font-weight:600}
+.pchips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.pchip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14.5px;color:var(--text);display:inline-flex;gap:8px;align-items:center}
+.pchip span{font-size:12.5px;color:var(--muted);background:var(--sky-2);border-radius:999px;padding:1px 8px}
+.pchip:hover{border-color:var(--sky-3)}
+.pchip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.pchip.on span{background:rgba(255,255,255,.2);color:#fff}
+.pr-prog{margin-bottom:18px}
+.flash-wrap{perspective:1400px}
+.flash{position:relative;display:block;width:100%;min-height:320px;border:0;padding:0;background:none;cursor:pointer;transform-style:preserve-3d;transition:transform .5s var(--ease);text-align:left;font:inherit;color:inherit}
+.flash.flipped{transform:rotateY(180deg)}
+.flash .face{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;padding:34px 38px;border-radius:24px;border:2px solid var(--line);background:#fff;box-shadow:0 6px 0 var(--line);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:auto}
+.flash .back{transform:rotateY(180deg);background:var(--sky-2);border-color:var(--sky-3);box-shadow:0 6px 0 var(--sky-3)}
+.flash:focus-visible{outline:none}
+.flash:focus-visible .face{outline:3px solid var(--blue-2);outline-offset:3px}
+.fc-cat{align-self:flex-start;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--blue);background:var(--sky);border-radius:999px;padding:4px 10px}
+.fc-q{font-family:var(--display);font-weight:900;font-size:clamp(22px,2.6vw,30px);line-height:1.3;color:var(--navy);margin:auto 0}
+.fc-hint{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;font-weight:600}
+.fc-qs{font-weight:700;color:var(--muted);font-size:15px}
+.fc-a{font-size:18px;line-height:1.6;color:var(--text)}
+.fc-a b{color:var(--navy)}
+.pr-act{display:flex;justify-content:center;gap:14px;margin-top:26px;flex-wrap:wrap}
+.pr-act .btn{min-width:180px}
+.pr-keys{text-align:center;color:var(--muted);font-size:13px;margin-top:14px}
+kbd{font-family:var(--display);font-weight:800;font-size:12px;background:#fff;border:2px solid var(--line);border-bottom-width:3px;border-radius:7px;padding:1px 7px;color:var(--navy)}
+.pr-done{padding:44px 32px;text-align:center}
+.pr-done-ic{width:72px;height:72px;margin:0 auto 14px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:34px;box-shadow:inset 0 -4px 0 var(--green-d)}
+.pr-done h2{font-size:28px;margin-bottom:8px}
+.pr-done-act{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+
+/* ---------- Handbook (sổ tay) ---------- */
+.st-wrap{max-width:1100px}
+.st-print{flex:none}
+.st-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--navy);color:#fff;border-radius:var(--r-lg);overflow:hidden;margin-bottom:22px}
+.st-facts>div{padding:18px 20px;border-right:2px solid rgba(255,255,255,.1)}
+.st-facts>div:last-child{border-right:0}
+.st-facts span,.st-contact span{display:block;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;opacity:.75}
+.st-facts b{display:block;font-family:var(--display);font-weight:900;font-size:21px;margin:4px 0 2px;color:var(--yellow)}
+.st-facts small,.st-contact small{font-size:13px;opacity:.8}
+.st-sec{margin-bottom:22px}
+.st-sec h2{font-size:21px;margin-bottom:10px}
+.st-sec .tbl-wrap{margin:0}
+.st-pk td:not(:first-child),.st-pk th:not(:first-child){text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.st-pk tr:nth-child(4) td{background:var(--sky-2)}
+.st-note{font-size:14px;color:var(--muted);margin:10px 0 0}
+.st-note b{color:var(--text)}
+.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}
+.st-grid .st-sec{background:#fff;border:2px solid var(--line);border-radius:var(--r-lg);padding:20px 22px}
+.st-ol,.st-ul{margin:0;padding-left:22px;font-size:15px}
+.st-ol li,.st-ul li{margin-bottom:6px}
+.st-x li::marker{content:'✕  ';color:var(--red);font-weight:900}
+.st-contact{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.st-contact>div{border:2px solid var(--line);border-radius:var(--r);padding:16px 18px;background:#fff}
+.st-contact span{color:var(--muted);opacity:1}
+.st-contact b{display:block;font-family:var(--display);font-weight:900;font-size:19px;color:var(--navy);margin:4px 0 2px;word-break:break-word}
+.st-contact small{color:var(--muted);opacity:1}
+.st-say .say{margin:0;font-size:16.5px}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1020px){
   .hero-in{grid-template-columns:1fr;padding-bottom:110px}
@@ -471,6 +550,10 @@ footer b{color:#fff}
   .fact:nth-child(2){border-right:0}
   .fact:nth-child(-n+2){border-bottom:2px solid rgba(255,255,255,.1)}
   footer .wrap{grid-template-columns:1fr}
+  .st-grid{grid-template-columns:1fr}
+  .st-facts{grid-template-columns:1fr 1fr}
+  .st-facts>div:nth-child(2){border-right:0}
+  .st-facts>div:nth-child(-n+2){border-bottom:2px solid rgba(255,255,255,.1)}
 }
 @media (max-width:640px){
   body{font-size:15.5px}
@@ -509,25 +592,62 @@ footer b{color:#fff}
   .fb-in{flex-wrap:wrap}
   .fb .btn{margin-left:0;width:100%}
   .btn-lg{padding:14px 22px;font-size:17px}
+  .toolcards,.st-contact{grid-template-columns:1fr}
+  .toolcard{grid-template-columns:48px 1fr;padding:18px}
+  .toolcard .tc-go{display:none}
+  .tc-ic{width:48px;height:48px;font-size:22px}
+  .pr-wrap,.st-wrap{padding:22px 16px 110px}
+  .pr-head,.st-head{flex-direction:column}
+  .pr-stat{display:flex;gap:8px;align-items:baseline;padding:6px 14px}
+  .pr-stat b{font-size:18px}
+  .flash{min-height:360px}
+  .flash .face{padding:24px 22px}
+  .pr-act .btn{min-width:0;flex:1}
+  .pr-keys{display:none}
+  .st-facts b{font-size:18px}
+  .st-grid .st-sec{padding:16px}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:2px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .tabbar button{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border-radius:12px;color:var(--muted);font-size:11.5px;font-weight:800;font-family:var(--display)}
+  .tabbar button .i{font-size:20px}
+  .tabbar button.on{color:var(--blue);background:var(--sky)}
+  body{padding-bottom:68px}
+  body[data-view=exam] .tabbar{display:none}
+  body[data-view=exam]{padding-bottom:0}
+  .toast{bottom:84px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* ---------- Print: certificate only ---------- */
+/* ---------- Print: certificate (exam) · handbook (sổ tay) ---------- */
 @media print{
   body{background:#fff}
-  body *{visibility:hidden}
+  body:not([data-view=sotay]) *{visibility:hidden}
   #certArea,#certArea *{visibility:visible}
   #certArea{position:absolute;left:0;top:0;width:100%}
   .cert{margin:0}
-  @page{size:A4 landscape;margin:10mm}
+  body[data-view=sotay] .topbar,body[data-view=sotay] footer,body[data-view=sotay] .tabbar,body[data-view=sotay] .st-print,body[data-view=sotay] .toast{display:none!important}
+  body[data-view=sotay]{font-size:11.5px;padding:0}
+  .st-wrap{padding:0;max-width:none;zoom:.8}
+  .st-head{margin-bottom:8px}.st-head h1{font-size:22px;margin:0 0 2px}.st-head p{font-size:10.5px}
+  .st-facts{margin-bottom:10px;grid-template-columns:repeat(4,1fr)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .st-facts>div{padding:7px 10px;border-bottom:0!important;border-right:2px solid rgba(255,255,255,.1)!important}.st-facts>div:last-child{border-right:0!important}.st-facts b{font-size:13.5px}.st-facts span{font-size:9px}.st-facts small{font-size:9.5px}
+  .tbl-wrap{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .st-sec{margin-bottom:10px;break-inside:avoid}.st-sec h2{font-size:14px;margin-bottom:5px}
+  .st-grid{grid-template-columns:1fr 1fr!important;gap:0 10px}.st-grid .st-sec{padding:8px 10px;margin-bottom:8px}
+  .st-contact span{font-size:9px}.st-contact small{font-size:9.5px}
+  .tbl{font-size:11px}.tbl th,.tbl td{padding:5px 8px}
+  .st-ol,.st-ul{font-size:11px}.st-ol li,.st-ul li{margin-bottom:2px}
+  .st-note{font-size:10.5px;margin-top:5px}
+  .st-contact{grid-template-columns:repeat(3,1fr)}.st-contact>div{padding:8px 10px}.st-contact b{font-size:13px}
+  .st-say .say{font-size:12px;padding:8px 12px}
 }
 </style>
+<style id="pgStyle">@page{size:A4 landscape;margin:10mm}</style>
 </head>
 <body>
 <header class="topbar"><div class="topbar-in">
   <button class="menu-btn" id="menuBtn" aria-label="Mục lục"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   <a class="brand" href="#home"><img src="data:image/png;base64,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" id="topLogo" alt="BH PVI"><span class="sep"></span><span class="name">Học viện An Tâm Số</span></a>
-  <nav class="topnav"><button data-go="home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1v-9z'/></svg> Trang chủ</button><button data-go="learn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15z'/><path d='M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5'/></svg> Bài học</button><button data-go="exam"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx='12' cy='9' r='6'/><path d='M8.5 14l-1.5 8 5-3 5 3-1.5-8'/></svg> Bài thi</button></nav>
+  <nav class="topnav"><button data-go="home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1v-9z'/></svg> Trang chủ</button><button data-go="learn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15z'/><path d='M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5'/></svg> Bài học</button><button data-go="practice"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x='3' y='6' width='13' height='15' rx='2.5'/><path d='M8 3h10.5A2.5 2.5 0 0 1 21 5.5V17'/></svg> Ôn tập</button><button data-go="sotay"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z'/><path d='M6 3v18M3.5 7.5H6M3.5 12H6M3.5 16.5H6M10 8h5M10 12h5'/></svg> Sổ tay</button><button data-go="exam"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx='12' cy='9' r='6'/><path d='M8.5 14l-1.5 8 5-3 5 3-1.5-8'/></svg> Bài thi</button></nav>
   <div class="who" id="who"></div>
 </div></header>
 
@@ -561,6 +681,13 @@ footer b{color:#fff}
       <div class="fact"><b>50% · 20%</b><span>Hạn mức khôi phục dữ liệu · tư vấn khủng hoảng, tính trên GHTN</span></div>
     </div>
   </div></section>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <div class="section-head"><h2>Ôn luyện và tra cứu</h2><p>Dùng trước bài thi và ngay cả khi đang tư vấn khách.</p></div>
+    <div class="toolcards">
+      <a class="toolcard" href="#practice"><span class="tc-ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x='3' y='6' width='13' height='15' rx='2.5'/><path d='M8 3h10.5A2.5 2.5 0 0 1 21 5.5V17'/></svg></span><span><b>Ôn tập bằng thẻ</b><span>28 thẻ hỏi nhanh, đáp gọn. Lật thẻ, tự chấm “Đã nhớ” hay “Chưa nhớ”, ôn lại thẻ chưa nhớ.</span></span><span class="tc-go"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M5 12h14M13 6l6 6-6 6'/></svg></span></a>
+      <a class="toolcard tc-yellow" href="#sotay"><span class="tc-ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z'/><path d='M6 3v18M3.5 7.5H6M3.5 12H6M3.5 16.5H6M10 8h5M10 12h5'/></svg></span><span><b>Sổ tay tra cứu nhanh</b><span>Toàn bộ gói, phí, quyền lợi, điều kiện và đầu mối liên hệ trên một trang. In được khổ A4.</span></span><span class="tc-go"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M5 12h14M13 6l6 6-6 6'/></svg></span></a>
+    </div>
+  </div></section>
 </main>
 
 <!-- LEARN -->
@@ -572,6 +699,12 @@ footer b{color:#fff}
 </main>
 <div class="scrim hidden" id="scrim"></div>
 
+<!-- PRACTICE -->
+<main id="v-practice" class="view hidden"><div class="pr-wrap" id="practiceArea"></div></main>
+
+<!-- HANDBOOK -->
+<main id="v-sotay" class="view hidden"><div class="st-wrap" id="sotayArea"></div></main>
+
 <!-- EXAM -->
 <main id="v-exam" class="view hidden"><div class="exam-wrap" id="examArea"></div></main>
 
@@ -580,6 +713,7 @@ footer b{color:#fff}
   <div><h5>Sửa thông tin, hủy hợp đồng</h5><p><b>misa.antamso@pvi.com.vn</b></p><h5 style="margin-top:12px">Thông báo sự cố, bồi thường</h5><p>Hotline <b>0888 994 664</b><br><b>claim.vn@iglooinsure.com</b><br>QR trên GCNBH</p></div>
   <div><h5>Nghiệp vụ sản phẩm, đào tạo</h5><p>Phòng Thương mại điện tử – Ban HK&amp;KHDN<br>Tổng Công ty Bảo hiểm PVI</p></div>
 </div></footer>
+<nav class="tabbar" aria-label="Điều hướng"><button data-go="home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1v-9z'/></svg><span>Trang chủ</span></button><button data-go="learn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15z'/><path d='M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5'/></svg><span>Bài học</span></button><button data-go="practice"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x='3' y='6' width='13' height='15' rx='2.5'/><path d='M8 3h10.5A2.5 2.5 0 0 1 21 5.5V17'/></svg><span>Ôn tập</span></button><button data-go="sotay"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d='M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z'/><path d='M6 3v18M3.5 7.5H6M3.5 12H6M3.5 16.5H6M10 8h5M10 12h5'/></svg><span>Sổ tay</span></button><button data-go="exam"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx='12' cy='9' r='6'/><path d='M8.5 14l-1.5 8 5-3 5 3-1.5-8'/></svg><span>Bài thi</span></button></nav>
 <div class="toast" id="toast"></div>
 <script>const LOGO="data:image/png;base64,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";</script>
 <script>/* ===== Nội dung khóa học An Tâm Số — nguồn: Sổ tay đào tạo v1.1, Bảng báo phí, Quy tắc QĐ 888/QĐ-PVIBH ===== */
@@ -916,9 +1050,42 @@ const OBJECTIONS = [
  ['“Mua rồi mình có phải làm gì thêm không?”','“Dạ chỉ cần lưu giấy chứng nhận. Khi phát hiện sự cố, thông báo ngay cho BH PVI và không tự hứa bồi thường với ai trước khi BH PVI đồng ý ạ.”']
 ];
 
+/* ===== Thẻ ôn tập — bộ riêng, KHÔNG trùng ngân hàng câu thi ===== */
+const CARD_CATS = {P:'Sản phẩm', X:'Không chi trả', E:'Điều kiện', C:'Quy trình', S:'Tư vấn'};
+const CARDS = [
+ {c:'P', q:'Ai phát hành An Tâm Số? MISA đóng vai trò gì?', a:'<b>BH PVI</b> (Tổng Công ty Bảo hiểm PVI) phát hành và giải quyết bồi thường. <b>MISA là đại lý phân phối.</b>'},
+ {c:'P', q:'Phí của 4 gói An Tâm Số?', a:'Gói 50: <b>599.000đ</b> · Gói 100: <b>1.099.000đ</b> · Gói 200: <b>2.199.000đ</b> · Gói 500: <b>4.999.000đ</b> mỗi năm, đã gồm VAT.'},
+ {c:'P', q:'Con số 50 / 100 / 200 / 500 trong tên gói nghĩa là gì?', a:'Là <b>giới hạn trách nhiệm (GHTN)</b>, tính bằng triệu đồng: tổng tối đa BH PVI trả trong 1 năm, cộng tất cả các quyền lợi.'},
+ {c:'P', q:'4 quyền lợi và hạn mức của từng quyền lợi?', a:'1. Trách nhiệm với bên thứ ba: đến 100% GHTN<br>2. Tiền phạt theo quy định: đến 100% GHTN<br>3. Khôi phục dữ liệu: tối đa <b>50%</b> GHTN<br>4. Tư vấn khủng hoảng: tối đa <b>20%</b> GHTN<br>Tất cả nằm trong GHTN, không cộng dồn.'},
+ {c:'P', q:'Mức khấu trừ là bao nhiêu và áp dụng thế nào?', a:'<b>8 triệu đồng mỗi sự cố.</b> Khách tự chịu 8 triệu đầu, BH PVI trả phần vượt (trong hạn mức). Áp dụng <b>một lần</b> cho mỗi sự cố, kể cả khi liên quan nhiều quyền lợi.'},
+ {c:'P', q:'Thời hạn và phạm vi lãnh thổ?', a:'Thời hạn <b>01 năm</b>, phạm vi <b>Việt Nam</b>. Khách mua ngay trên phần mềm MISA, mục <b>Kết nối bảo hiểm</b>.'},
+ {c:'X', q:'Khách bị lừa chuyển khoản, mất tiền trong tài khoản ngân hàng. Có được trả không?', a:'<b>Không.</b> Tiền bị chiếm đoạt, lừa đảo chuyển khoản không thuộc phạm vi bảo hiểm.'},
+ {c:'X', q:'Doanh thu bị mất vì phải tạm ngừng bán hàng sau sự cố?', a:'<b>Không chi trả.</b> Đây là tổn thất gián tiếp.'},
+ {c:'X', q:'Sau sự cố, khách muốn nâng cấp, thay mới hệ thống bảo mật. Có được trả?', a:'<b>Không.</b> Chi phí nâng cấp, cải tiến hệ thống vượt tình trạng trước sự cố bị loại trừ.'},
+ {c:'X', q:'Sự cố đã xảy ra hoặc đã biết trước khi mua bảo hiểm?', a:'<b>Không chi trả.</b> Sự cố, vụ kiện, tình huống đã biết trước thời hạn bảo hiểm bị loại trừ.'},
+ {c:'X', q:'Kể 3 loại trừ khác hay gặp.', a:'Hành vi <b>cố ý</b> vi phạm pháp luật · <b>phạt hình sự</b> · lộ/dùng trái phép <b>số thẻ, số tài khoản, mật khẩu</b>. Ngoài ra: thiên tai, chiến tranh, trách nhiệm theo hợp đồng vượt quy định pháp luật.'},
+ {c:'E', q:'Doanh thu tối đa để được tham gia?', a:'Tổng doanh thu năm dương lịch gần nhất <b>không quá 26 tỷ đồng</b>.'},
+ {c:'E', q:'5 điều kiện khách phải tự xác nhận?', a:'1. Doanh thu ≤ 26 tỷ<br>2. 3 năm gần nhất chưa có sự cố rò rỉ dữ liệu, an ninh mạng<br>3. Không hoạt động/liên hệ khu vực bị cấm vận<br>4. Chưa bị xử phạt về dữ liệu, tấn công mạng<br>5. Không biết tình huống có thể dẫn tới sự cố'},
+ {c:'E', q:'Khách kể năm ngoái từng bị hack. Làm gì?', a:'<b>Dừng tư vấn sản phẩm này</b>, giải thích lịch sự là chương trình chưa phù hợp, ghi nhận nhu cầu để chuyển BH PVI tư vấn giải pháp khác.'},
+ {c:'E', q:'Khai sai điều kiện thì sao?', a:'BH PVI có quyền <b>hủy hợp đồng hoặc từ chối bồi thường</b>. Vì vậy nhân viên không tích hộ, không khai hộ.'},
+ {c:'C', q:'Hạn thông báo sự cố cho BH PVI?', a:'Càng sớm càng tốt, <b>không muộn hơn 14 ngày</b> từ khi phát hiện. Với khôi phục dữ liệu và tư vấn khủng hoảng: thông báo <b>ngay</b> khi phát hiện tấn công.'},
+ {c:'C', q:'Thông báo cơ quan có thẩm quyền trong bao lâu?', a:'Trong <b>72 giờ</b> theo quy định. BH PVI hỗ trợ mẫu khai báo.'},
+ {c:'C', q:'Khách cần thuê đơn vị khôi phục dữ liệu hoặc tư vấn khủng hoảng. Thủ tục?', a:'<b>Chỉ cần thông báo cho BH PVI</b>, không cần văn bản chấp thuận. Giữ đủ hóa đơn, chứng từ.'},
+ {c:'C', q:'Khách muốn hứa đền tiền cho người bị lộ dữ liệu để giữ uy tín?', a:'<b>Không tự thừa nhận trách nhiệm, không hứa bồi thường, không dàn xếp</b> khi chưa có đồng ý bằng văn bản của BH PVI.'},
+ {c:'C', q:'Kênh báo sự cố, yêu cầu bồi thường?', a:'Hotline <b>0888 994 664</b> · email <b>claim.vn@iglooinsure.com</b> · hoặc quét QR trên GCNBH.'},
+ {c:'C', q:'Khách muốn sửa thông tin hoặc hủy hợp đồng?', a:'Gửi email tới BH PVI: <b>misa.antamso@pvi.com.vn</b>. BH PVI xử lý, gửi kết quả cho khách và đồng gửi MISA.'},
+ {c:'C', q:'Hoàn phí khi hủy trước hạn?', a:'Đến 3 tháng: <b>70%</b> · trên 3–6 tháng: <b>40%</b> · trên 6–9 tháng: <b>10%</b> · trên 9 tháng: <b>0%</b>. Chỉ khi chưa có yêu cầu bồi thường nào đã thanh toán hoặc đang giải quyết.'},
+ {c:'C', q:'Bảo hiểm có hiệu lực khi nào? Bồi thường trong bao lâu?', a:'Có hiệu lực khi <b>phí đã thanh toán đầy đủ</b>. Thanh toán bồi thường trong <b>15 ngày làm việc</b> kể từ khi nhận đủ hồ sơ hợp lệ.'},
+ {c:'S', q:'Gợi ý gói theo doanh thu?', a:'Dưới 5 tỷ: <b>50</b> · 5 đến dưới 10 tỷ: <b>100</b> · 10 đến dưới 20 tỷ: <b>200</b> · 20 đến 26 tỷ: <b>500</b>.'},
+ {c:'S', q:'Điều chỉnh gói theo mức độ dữ liệu?', a:'Cơ bản (tên, SĐT): giữ gói · Hệ thống (CRM, bán online, CCCD): <b>nâng 1 bậc</b> · Nhạy cảm (sức khỏe, tài chính, học sinh): <b>nâng 1 bậc</b>, ưu tiên gói 200 trở lên.'},
+ {c:'S', q:'Khách hỏi “Đã dùng MISA rồi, sao còn cần bảo hiểm?”', a:'MISA bảo vệ <b>hệ thống phần mềm</b>; An Tâm Số bảo vệ <b>tài chính doanh nghiệp</b> khi sự cố xảy ra. Hai lớp bổ sung, không thay thế nhau.'},
+ {c:'S', q:'5 bước tư vấn?', a:'1. Mở, xin phép · 2. Khơi vấn đề · 3. Giải pháp · 4. Chọn gói · 5. Chốt và nói rõ giới hạn.'},
+ {c:'S', q:'Những câu tuyệt đối không nói?', a:'“Bảo hiểm của MISA” · “bị gì cũng đền” · “phần mềm nào cũng bị hack” · “anh/chị chắc chắn bị phạt” · tự cam kết số tiền, thời gian bồi thường.'}
+];
+
 const EXAM = {"total": 30, "pass": 0.8, "minutes": 30, "quota": {"P": 8, "X": 6, "E": 4, "C": 6, "S": 6}, "cats": {"P": "Sản phẩm & quyền lợi", "X": "Phạm vi & loại trừ", "E": "Điều kiện tham gia", "C": "Quy trình & bồi thường", "S": "Tư vấn & tuân thủ"}};
 const BANK = [{"id": "P01", "c": "P", "q": "Đơn vị nào là nhà bảo hiểm phát hành An Tâm Số?", "o": ["MISA", "BH PVI (Tổng Công ty Bảo hiểm PVI)", "Igloo", "Một công ty phần mềm bảo mật"]}, {"id": "P02", "c": "P", "q": "Phí gói An Tâm Số 100 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["999.000đ", "1.099.000đ", "1.000.000đ", "1.199.000đ"]}, {"id": "P03", "c": "P", "q": "Phí gói An Tâm Số 200 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["2.200.000đ", "1.999.000đ", "2.199.000đ", "2.099.000đ"]}, {"id": "P04", "c": "P", "q": "Phí gói An Tâm Số 500 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["5.000.000đ", "4.999.000đ", "4.599.000đ", "5.499.000đ"]}, {"id": "P05", "c": "P", "q": "Phí gói An Tâm Số 50 mỗi năm (đã gồm VAT) là bao nhiêu?", "o": ["499.000đ", "500.000đ", "599.000đ", "699.000đ"]}, {"id": "P06", "c": "P", "q": "Con số trong tên gói (50, 100, 200, 500) thể hiện điều gì?", "o": ["Phí bảo hiểm, tính bằng nghìn đồng", "Giới hạn trách nhiệm, tính bằng triệu đồng", "Số nhân viên tối đa của doanh nghiệp", "Số khách hàng tối đa được bảo vệ dữ liệu"]}, {"id": "P07", "c": "P", "q": "Gói An Tâm Số 500: tổng số tiền tối đa BH PVI chi trả trong cả năm là bao nhiêu?", "o": ["1,35 tỷ đồng (cộng 4 quyền lợi)", "500 triệu đồng cho mỗi quyền lợi", "500 triệu đồng cho tất cả các khoản", "500 triệu đồng cho mỗi sự cố"]}, {"id": "P08", "c": "P", "q": "Chi phí khôi phục thông tin cá nhân được chi trả tối đa bao nhiêu % giới hạn trách nhiệm?", "o": ["20%", "30%", "50%", "100%"]}, {"id": "P09", "c": "P", "q": "Chi phí tư vấn quản lý khủng hoảng được chi trả tối đa bao nhiêu % giới hạn trách nhiệm?", "o": ["10%", "20%", "50%", "100%"]}, {"id": "P10", "c": "P", "q": "Với gói An Tâm Số 200, hạn mức chi phí tư vấn quản lý khủng hoảng là bao nhiêu?", "o": ["20 triệu", "40 triệu", "100 triệu", "200 triệu"]}, {"id": "P11", "c": "P", "q": "Mức khấu trừ của An Tâm Số được áp dụng như thế nào?", "o": ["8 triệu đồng mỗi sự cố, áp dụng một lần dù sự cố liên quan nhiều quyền lợi", "8 triệu đồng cho mỗi quyền lợi trong cùng sự cố", "8% số tiền yêu cầu bồi thường", "Không có mức khấu trừ"]}, {"id": "P12", "c": "P", "q": "Thời hạn bảo hiểm của An Tâm Số là bao lâu?", "o": ["6 tháng", "01 năm", "03 năm", "Theo thời hạn hợp đồng phần mềm MISA"]}, {"id": "P13", "c": "P", "q": "Phạm vi lãnh thổ của An Tâm Số là?", "o": ["Việt Nam", "Đông Nam Á", "Toàn cầu", "Nơi đặt máy chủ của doanh nghiệp"]}, {"id": "P14", "c": "P", "q": "Gói An Tâm Số 100. Một sự cố tấn công mạng làm lộ dữ liệu, khách hàng đòi bồi thường hợp lệ 40 triệu, không có khoản nào khác. BH PVI chi trả bao nhiêu?", "o": ["40 triệu", "32 triệu", "100 triệu", "0 đồng"]}, {"id": "P15", "c": "P", "q": "Gói An Tâm Số 50. Sau một cuộc tấn công, chi phí khôi phục dữ liệu khách hàng (đã thông báo cho BH PVI) là 40 triệu. BH PVI chi trả tối đa bao nhiêu?", "o": ["40 triệu", "32 triệu", "25 triệu", "50 triệu"]}, {"id": "P16", "c": "P", "q": "An Tâm Số áp dụng cho yêu cầu bồi thường được đưa ra vào thời điểm nào?", "o": ["Lần đầu trong thời hạn bảo hiểm", "Bất kỳ lúc nào, kể cả trước khi mua", "Trong vòng 3 năm sau khi hết hạn", "Chỉ khi trùng ngày ký hợp đồng phần mềm"]}, {"id": "P17", "c": "P", "q": "Câu nào mô tả đúng sự khác nhau giữa phần mềm MISA và An Tâm Số?", "o": ["MISA bảo vệ hệ thống phần mềm; An Tâm Số bảo vệ tài chính doanh nghiệp khi sự cố xảy ra", "An Tâm Số thay thế các biện pháp bảo mật của MISA", "An Tâm Số chỉ chi trả khi MISA bị lỗi", "Hai sản phẩm giống nhau, chỉ khác tên"]}, {"id": "P18", "c": "P", "q": "Quyền lợi nào sau đây KHÔNG thuộc 4 quyền lợi của An Tâm Số?", "o": ["Trách nhiệm pháp lý đối với bên thứ ba", "Các khoản phạt theo quy định", "Bồi thường doanh thu bị mất do gián đoạn kinh doanh", "Chi phí tư vấn quản lý khủng hoảng"]}, {"id": "X01", "c": "X", "q": "Khách bị kẻ gian giả mạo đối tác, lừa chuyển khoản mất 50 triệu. An Tâm Số có chi trả không?", "o": ["Có, theo quyền lợi trách nhiệm với bên thứ ba", "Có, sau khi trừ 8 triệu", "Không, lừa đảo chuyển khoản không thuộc phạm vi bảo hiểm", "Có, nếu báo trong 14 ngày"]}, {"id": "X02", "c": "X", "q": "Tài khoản ngân hàng của doanh nghiệp bị hack, mất tiền. An Tâm Số xử lý thế nào?", "o": ["Chi trả toàn bộ số tiền bị mất", "Không chi trả – sản phẩm không bồi thường tiền bị chiếm đoạt", "Chi trả 50%", "Chi trả nếu là gói 500"]}, {"id": "X03", "c": "X", "q": "Máy bị mã độc khóa, cửa hàng phải ngừng bán 3 ngày. Doanh thu mất trong 3 ngày đó có được bồi thường?", "o": ["Có, theo quyền lợi khôi phục dữ liệu", "Có, sau khi trừ khấu trừ", "Không – doanh thu bị mất và tổn thất gián tiếp không được chi trả", "Có, nếu có hóa đơn"]}, {"id": "X04", "c": "X", "q": "Doanh nghiệp bị mất laptop chứa dữ liệu. Giá trị chiếc laptop có được bồi thường?", "o": ["Có", "Không – tài sản hữu hình không thuộc phạm vi bảo hiểm", "Có, tối đa 20% GHTN", "Chỉ với gói 200 trở lên"]}, {"id": "X05", "c": "X", "q": "Hacker lấy được công thức sản phẩm và bảng báo giá (bí mật kinh doanh). An Tâm Số có chi trả?", "o": ["Có, đây là dữ liệu quan trọng nhất", "Không – chỉ bảo hiểm thông tin cá nhân của bên thứ ba", "Có, theo quyền lợi khủng hoảng", "Có, nếu khách báo ngay"]}, {"id": "X06", "c": "X", "q": "Khoản nào sau đây CÓ THỂ được An Tâm Số chi trả?", "o": ["Tiền phạt hành chính do vi phạm bảo vệ dữ liệu cá nhân sau vụ tấn công (trong phạm vi luật cho phép bảo hiểm)", "Tiền phạt hình sự", "Tiền bị chiếm đoạt từ tài khoản ngân hàng", "Chi phí nâng cấp hệ thống bảo mật sau sự cố"]}, {"id": "X07", "c": "X", "q": "Khách biết hệ thống từng bị xâm nhập trước khi mua, nay mới phát sinh khiếu nại. Sự cố đó có được bảo hiểm?", "o": ["Có, vì khiếu nại đến sau khi mua", "Không – sự cố, tình huống đã biết trước khi mua không được bảo hiểm", "Có, nếu mua gói 500", "Có, sau khi trừ 8 triệu"]}, {"id": "X08", "c": "X", "q": "Khoản chi phí nào sau đây KHÔNG được chi trả theo quyền lợi 3 (khôi phục dữ liệu) và 4 (tư vấn khủng hoảng)?", "o": ["Phí thuê đơn vị IT bên ngoài khôi phục dữ liệu khách hàng (đã thông báo BH PVI)", "Chi phí làm thêm giờ để nhập lại dữ liệu khách hàng", "Chi phí nâng cấp, thay mới hệ thống bảo mật sau sự cố", "Phí công ty tư vấn khủng hoảng (đã thông báo BH PVI)"]}, {"id": "X09", "c": "X", "q": "Công ty kế toán tư vấn sai nghiệp vụ (không liên quan tấn công mạng), khách hàng đòi bồi thường. Đúng hay sai: An Tâm Số chi trả?", "o": ["Đúng", "Sai – đây là rủi ro trách nhiệm nghề nghiệp, không thuộc An Tâm Số", "Đúng, nếu là gói 200 trở lên", "Đúng, sau khi trừ khấu trừ"]}, {"id": "X10", "c": "X", "q": "Đối tượng dữ liệu mà An Tâm Số bảo vệ là gì?", "o": ["Mọi dữ liệu của doanh nghiệp", "Thông tin cá nhân của bên thứ ba (khách hàng, nhân sự, đối tác)", "Chỉ dữ liệu kế toán trên MISA", "Chỉ dữ liệu của chủ doanh nghiệp"]}, {"id": "E01", "c": "E", "q": "Doanh thu tối đa để được tham gia An Tâm Số là bao nhiêu?", "o": ["Không quá 26 tỷ đồng (năm dương lịch gần nhất)", "Không quá 30 tỷ đồng", "Không quá 20 tỷ đồng", "Không giới hạn"]}, {"id": "E02", "c": "E", "q": "Khách cho biết năm ngoái đơn vị từng bị lộ dữ liệu khách hàng. Nhân viên nên làm gì?", "o": ["Tư vấn gói 500 để được bảo vệ cao nhất", "Bán bình thường nhưng không ghi nhận", "Dừng tư vấn sản phẩm này, giải thích lịch sự và ghi nhận để chuyển BH PVI tư vấn riêng", "Khuyên khách không khai thông tin này"]}, {"id": "E03", "c": "E", "q": "Khách nhờ nhân viên tích hộ các ô xác nhận điều kiện cho nhanh. Xử lý đúng là?", "o": ["Tích hộ vì khách đã đồng ý miệng", "Từ chối lịch sự, hướng dẫn khách tự đọc và tự xác nhận", "Tích hộ và chụp màn hình lưu lại", "Bỏ qua bước xác nhận"]}, {"id": "E04", "c": "E", "q": "Hậu quả nếu khách khai sai điều kiện tham gia?", "o": ["Không ảnh hưởng gì", "Chỉ phải đóng thêm phí", "BH PVI có quyền hủy hợp đồng hoặc từ chối bồi thường", "MISA chịu trách nhiệm thay"]}, {"id": "E05", "c": "E", "q": "Điều nào sau đây KHÔNG phải là điều kiện tham gia An Tâm Số?", "o": ["Có tối thiểu 10 nhân viên", "Doanh thu năm gần nhất không quá 26 tỷ đồng", "03 năm gần nhất chưa từng có sự cố rò rỉ dữ liệu/an ninh mạng", "Chưa từng bị xử phạt về vi phạm dữ liệu"]}, {"id": "E06", "c": "E", "q": "Doanh nghiệp có doanh thu năm gần nhất 28 tỷ đồng muốn mua An Tâm Số. Nhân viên trả lời thế nào?", "o": ["Bán gói 500", "Bán gói 500 và ghi doanh thu 26 tỷ", "Chương trình dành cho doanh thu đến 26 tỷ; ghi nhận để BH PVI tư vấn giải pháp phù hợp", "Bán 2 gói 500"]}, {"id": "E07", "c": "E", "q": "Điều kiện về lịch sử sự cố: đơn vị chưa từng xảy ra sự cố rò rỉ dữ liệu hoặc an ninh mạng trong bao nhiêu năm gần nhất?", "o": ["01 năm", "02 năm", "03 năm", "05 năm"]}, {"id": "E08", "c": "E", "q": "Đối tượng nào được tham gia An Tâm Số?", "o": ["Chỉ công ty cổ phần", "Tổ chức, hộ kinh doanh, doanh nghiệp đăng ký hoạt động hợp pháp tại Việt Nam", "Cá nhân không kinh doanh", "Doanh nghiệp nước ngoài không có pháp nhân tại Việt Nam"]}, {"id": "C01", "c": "C", "q": "Khách mua An Tâm Số ở đâu?", "o": ["Mục Kết nối bảo hiểm trên phần mềm MISA", "Tại quầy giao dịch ngân hàng", "Gọi hotline bồi thường", "Gửi email cho BH PVI"]}, {"id": "C02", "c": "C", "q": "Bảo hiểm có hiệu lực khi nào?", "o": ["Ngay khi khách bấm chọn gói", "Khi phí bảo hiểm đã được thanh toán đầy đủ", "Khi nhân viên MISA xác nhận qua điện thoại", "Sau 30 ngày kể từ khi đăng ký"]}, {"id": "C03", "c": "C", "q": "Khách muốn sửa thông tin hoặc hủy hợp đồng. Hướng dẫn khách liên hệ kênh nào?", "o": ["Hotline bồi thường 0888 994 664", "Email BH PVI: misa.antamso@pvi.com.vn", "Tự sửa trên phần mềm MISA", "Nhắn Zalo cho nhân viên tư vấn"]}, {"id": "C04", "c": "C", "q": "Khách phát hiện bị tấn công mạng, muốn thông báo sự cố/yêu cầu bồi thường. Kênh đúng là?", "o": ["QR trên GCNBH, hotline 0888 994 664 hoặc email claim.vn@iglooinsure.com", "CSKH MISA", "Email misa.antamso@pvi.com.vn", "Tự liên hệ công ty khôi phục dữ liệu"]}, {"id": "C05", "c": "C", "q": "Khách hủy hợp đồng sau 2 tháng, chưa có yêu cầu bồi thường. Khách được hoàn bao nhiêu % phí năm?", "o": ["100%", "70%", "40%", "0%"]}, {"id": "C06", "c": "C", "q": "Khách hủy hợp đồng sau 5 tháng, chưa có yêu cầu bồi thường. Tỷ lệ hoàn phí là?", "o": ["70%", "40%", "10%", "0%"]}, {"id": "C07", "c": "C", "q": "Khách hủy hợp đồng sau 10 tháng. Tỷ lệ hoàn phí là?", "o": ["40%", "10%", "0%", "20%"]}, {"id": "C08", "c": "C", "q": "Sau khi phát hiện sự cố, khách phải thông báo cho BH PVI trong thời hạn nào?", "o": ["Càng sớm càng tốt, không muộn hơn 14 ngày; với chi phí khôi phục dữ liệu và tư vấn khủng hoảng: thông báo ngay", "Trong 60 ngày", "Khi hết thời hạn bảo hiểm", "Không cần thông báo nếu tự xử lý được"]}, {"id": "C09", "c": "C", "q": "Khách thuê công ty khôi phục dữ liệu sau sự cố. Theo chương trình hiện hành, khách cần làm gì để chi phí này được xem xét chi trả?", "o": ["Chờ văn bản chấp thuận của BH PVI rồi mới được thuê", "Thông báo cho BH PVI và giữ đủ hóa đơn, chứng từ", "Không cần báo, chỉ cần gửi hóa đơn", "Chỉ được trả nếu chi phí dưới 8 triệu"]}, {"id": "C10", "c": "C", "q": "Sau vụ lộ dữ liệu, chủ cửa hàng muốn chủ động hứa đền tiền cho khách hàng để giữ uy tín. Nhân viên nên nhắc gì?", "o": ["Cứ hứa, BH PVI sẽ trả sau", "Không tự thừa nhận trách nhiệm, không hứa bồi thường khi chưa có đồng ý bằng văn bản của BH PVI", "Hứa tối đa bằng giới hạn trách nhiệm", "Hứa nhưng chỉ bằng lời nói"]}, {"id": "C11", "c": "C", "q": "Thời hạn thanh toán bồi thường cho chương trình An Tâm Số là?", "o": ["Trong vòng 15 ngày làm việc kể từ khi nhận đủ hồ sơ hợp lệ", "Ngay trong ngày", "Trong vòng 90 ngày", "Do nhân viên MISA cam kết với khách"]}, {"id": "C12", "c": "C", "q": "Khách nhắn Zalo hỏi nhân viên MISA: “Hồ sơ bồi thường của chị có được duyệt không?”. Xử lý đúng là?", "o": ["Khẳng định chắc chắn được duyệt", "Ước lượng số tiền cho khách yên tâm", "Chuyển khách sang hotline bồi thường, không tự trả lời kết quả", "Khuyên khách hủy hợp đồng"]}, {"id": "C13", "c": "C", "q": "Sau khi thanh toán, khách nhận Giấy chứng nhận bảo hiểm (GCNBH) bằng cách nào?", "o": ["Nhận bản giấy qua bưu điện", "GCNBH điện tử gửi tới email đã đăng ký, xem lại qua đường link trên MISA", "Đến văn phòng BH PVI nhận", "Chỉ nhận khi có sự cố"]}, {"id": "C14", "c": "C", "q": "Ngoài thông báo cho BH PVI, khi có sự cố khách còn cần thông báo cho cơ quan có thẩm quyền trong thời hạn nào theo quy định?", "o": ["72 giờ", "30 ngày", "6 tháng", "Không cần thông báo"]}, {"id": "S01", "c": "S", "q": "Bước đầu tiên trong khung tư vấn 5 bước là gì?", "o": ["Báo giá ngay", "Mở – giới thiệu, xin phép, gắn với phần mềm MISA khách đang dùng", "Nói rõ các điểm loại trừ", "Hướng dẫn thanh toán"]}, {"id": "S02", "c": "S", "q": "Câu nào ĐƯỢC phép nói khi tư vấn?", "o": ["“Đây là bảo hiểm của MISA”", "“Bị gì cũng đền ạ”", "“BH PVI là nhà bảo hiểm, MISA là đại lý phân phối”", "“Anh/chị chắc chắn sẽ bị phạt nếu không mua”"]}, {"id": "S03", "c": "S", "q": "Câu nào KHÔNG được nói khi tư vấn?", "o": ["“MISA luôn bảo vệ dữ liệu trên hệ thống MISA”", "“Mua để phòng trường hợp MISA bị lộ dữ liệu”", "“Dữ liệu khách của anh/chị còn nằm ở Excel, Zalo”", "“Sản phẩm không chi trả tiền bị lừa chuyển khoản”"]}, {"id": "S04", "c": "S", "q": "Doanh nghiệp doanh thu 7 tỷ/năm, chỉ lưu tên và số điện thoại khách để chăm sóc. Gói gợi ý chính là?", "o": ["An Tâm Số 50", "An Tâm Số 100", "An Tâm Số 200", "An Tâm Số 500"]}, {"id": "S05", "c": "S", "q": "Phòng khám nha khoa doanh thu 3 tỷ/năm, lưu hồ sơ bệnh nhân. Gói gợi ý là?", "o": ["An Tâm Số 50", "An Tâm Số 100", "An Tâm Số 500", "Không thuộc chương trình"]}, {"id": "S06", "c": "S", "q": "Doanh nghiệp doanh thu 22 tỷ/năm. Gói gợi ý chính là?", "o": ["An Tâm Số 100", "An Tâm Số 200", "An Tâm Số 500", "Không thuộc chương trình"]}, {"id": "S07", "c": "S", "q": "Khách nói “Đắt quá”. Cách trả lời phù hợp nhất?", "o": ["Quy đổi phí theo ngày (gói 50 ≈ 1.600đ/ngày, gói 100 ≈ 3.000đ/ngày) và so với chi phí xử lý một vụ việc", "Hứa giảm giá", "Nói “không mua chắc chắn sẽ bị phạt”", "Chuyển sang chủ đề khác"]}, {"id": "S08", "c": "S", "q": "Khách nói “Mình nhỏ, hacker không để ý đâu”. Gợi ý trả lời?", "o": ["Đồng ý và kết thúc cuộc gọi", "“Hacker thường quét tự động, đơn vị nhỏ ít lớp bảo vệ nên lại dễ bị hơn. Gói nhỏ nhất chỉ 599.000đ/năm”", "“Chắc chắn tuần sau anh/chị bị hack”", "Gửi ngay Quy tắc 14 trang"]}, {"id": "S09", "c": "S", "q": "Khách nói “Đã có bảo hiểm tài sản/cháy nổ rồi”. Ý chính để trả lời?", "o": ["Bảo hiểm cháy nổ đã đủ", "Bảo hiểm tài sản không chi trả trách nhiệm khi dữ liệu khách hàng bị lộ hay tiền phạt về bảo vệ dữ liệu – An Tâm Số bổ sung đúng phần còn thiếu", "Nên hủy bảo hiểm cháy nổ", "An Tâm Số cũng chi trả cháy nổ"]}, {"id": "S10", "c": "S", "q": "Tin nhắn Zalo đầu tiên gửi khách nên như thế nào?", "o": ["Gửi ngay file Quy tắc và bảng phí đầy đủ", "Ngắn, tối đa 4–5 dòng: tên gói, phí, quyền lợi chính, nơi mua", "Gửi nhiều tin liên tục để khách chú ý", "Chỉ gửi đường link, không giải thích"]}, {"id": "S11", "c": "S", "q": "Khách chỉ đủ ngân sách cho gói thấp hơn gói được gợi ý. Nhân viên nên?", "o": ["Ép khách mua gói cao", "Từ chối bán", "Khuyến khích mua gói thấp năm đầu và nâng cấp khi tái tục", "Cho khách nợ phí"]}, {"id": "S12", "c": "S", "q": "Khi tư vấn công ty công nghệ, câu nào KHÔNG được nói?", "o": ["“Bảo hiểm mọi cam kết bồi thường trong hợp đồng với khách của anh”", "“Sản phẩm chi trả trách nhiệm pháp lý với bên thứ ba”", "“Đây là điểm cộng khi tham dự thầu có yêu cầu bảo mật”", "“Em gợi ý gói 200 hoặc 500”"]}, {"id": "S13", "c": "S", "q": "Khách hỏi “Nếu lỗi do hệ thống MISA thì sao?”. Nhân viên trả lời thế nào?", "o": ["“Thì MISA sẽ đền”", "“Lỗi đó chắc chắn không được bảo hiểm”", "BH PVI xem xét chi trả theo Quy tắc khi thông tin cá nhân bị lộ do tấn công mạng; không bình luận lỗi thuộc bên nào, chuyển câu hỏi chi tiết cho BH PVI", "“MISA không bao giờ có lỗi”"]}, {"id": "S14", "c": "S", "q": "Khách nói “Để suy nghĩ thêm”. Cách xử lý phù hợp?", "o": ["Gọi lại mỗi ngày đến khi khách mua", "Gửi bảng quyền lợi qua Zalo/email, hẹn thời gian gọi lại phù hợp", "Nói chương trình sắp hết hạn để tạo áp lực", "Không liên hệ nữa"]}, {"id": "S15", "c": "S", "q": "Khi gặp trực tiếp khách (Account Manager), cách mở đầu được khuyến nghị là?", "o": ["Mở đầu ngay bằng bảng giá bảo hiểm", "Lồng vào buổi chăm sóc/gia hạn phần mềm; dùng màn hình MISA của khách chỉ ra dữ liệu họ đang giữ", "Gửi trước Quy tắc 14 trang", "Nhấn mạnh mức phạt tối đa"]}, {"id": "S16", "c": "S", "q": "Khách nói “Mình không có dữ liệu gì”. Câu hỏi khơi vấn đề phù hợp?", "o": ["“Vậy thì anh/chị không cần mua”", "“Mình có lưu số điện thoại khách, thông tin nhân viên để tính lương không ạ?”", "“Ai cũng có dữ liệu, anh/chị đang nói sai”", "“Hacker sẽ tìm ra thôi”"]}, {"id": "S17", "c": "S", "q": "Đơn vị có dữ liệu ở mức “Hệ thống” (có CRM, bán online, lưu địa chỉ, CCCD, lịch sử mua của nhiều khách). Điều chỉnh gói thế nào so với gợi ý theo doanh thu?", "o": ["Giữ nguyên gói theo doanh thu", "Nâng 1 bậc", "Nâng thẳng lên gói 500", "Hạ 1 bậc để giảm phí"]}];
-const ICONS = {"arrowR": "<path d='M5 12h14M13 6l6 6-6 6'/>", "arrowL": "<path d='M19 12H5M11 6l-6 6 6 6'/>", "check": "<path d='M5 12.5l4.5 4.5L19 7'/>", "x": "<path d='M6 6l12 12M18 6L6 18'/>", "plus": "<path d='M12 5v14M5 12h14'/>", "info": "<circle cx='12' cy='12' r='9'/><path d='M12 11v5M12 7.6v.4'/>", "alert": "<path d='M12 3.5l9 16H3l9-16z'/><path d='M12 10v4M12 16.8v.2'/>", "home": "<path d='M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1v-9z'/>", "book": "<path d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15z'/><path d='M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5'/>", "award": "<circle cx='12' cy='9' r='6'/><path d='M8.5 14l-1.5 8 5-3 5 3-1.5-8'/>", "clock": "<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 2'/>", "flag": "<path d='M5 21V4M5 4h11l-2 4 2 4H5'/>", "rotate": "<path d='M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5'/>", "cup": "<path d='M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z'/><path d='M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v2M12 3v2'/>", "chart": "<path d='M4 4v16h16'/><path d='M8 16v-5M12 16V8M16 16v-3'/>", "bag": "<path d='M5 8h14l-1 13H6L5 8z'/><path d='M9 8V6a3 3 0 0 1 6 0v2'/>", "phone": "<path d='M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z'/>", "users": "<circle cx='9' cy='8' r='3.5'/><path d='M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6'/>", "chat": "<path d='M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z'/><path d='M8.5 11h7M8.5 14h4'/>", "shield": "<path d='M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z'/><path d='M8.5 12l2.5 2.5 4.5-5'/>", "calc": "<rect x='5' y='3' width='14' height='18' rx='2'/><path d='M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01'/>", "target": "<circle cx='12' cy='12' r='9'/><circle cx='12' cy='12' r='5'/><circle cx='12' cy='12' r='1'/>", "lock": "<rect x='5' y='11' width='14' height='10' rx='2'/><path d='M8 11V8a4 4 0 0 1 8 0v3'/>", "print": "<path d='M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2'/><rect x='7' y='14' width='10' height='7'/>", "user": "<circle cx='12' cy='8' r='4'/><path d='M4 21a8 8 0 0 1 16 0'/>", "mail": "<rect x='3' y='5' width='18' height='14' rx='2'/><path d='M3 7l9 6 9-6'/>"};
+const ICONS = {"arrowR": "<path d='M5 12h14M13 6l6 6-6 6'/>", "arrowL": "<path d='M19 12H5M11 6l-6 6 6 6'/>", "check": "<path d='M5 12.5l4.5 4.5L19 7'/>", "x": "<path d='M6 6l12 12M18 6L6 18'/>", "plus": "<path d='M12 5v14M5 12h14'/>", "info": "<circle cx='12' cy='12' r='9'/><path d='M12 11v5M12 7.6v.4'/>", "alert": "<path d='M12 3.5l9 16H3l9-16z'/><path d='M12 10v4M12 16.8v.2'/>", "home": "<path d='M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1v-9z'/>", "book": "<path d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15z'/><path d='M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5'/>", "award": "<circle cx='12' cy='9' r='6'/><path d='M8.5 14l-1.5 8 5-3 5 3-1.5-8'/>", "clock": "<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 2'/>", "flag": "<path d='M5 21V4M5 4h11l-2 4 2 4H5'/>", "rotate": "<path d='M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5'/>", "cup": "<path d='M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z'/><path d='M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v2M12 3v2'/>", "chart": "<path d='M4 4v16h16'/><path d='M8 16v-5M12 16V8M16 16v-3'/>", "bag": "<path d='M5 8h14l-1 13H6L5 8z'/><path d='M9 8V6a3 3 0 0 1 6 0v2'/>", "phone": "<path d='M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z'/>", "users": "<circle cx='9' cy='8' r='3.5'/><path d='M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6'/>", "chat": "<path d='M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z'/><path d='M8.5 11h7M8.5 14h4'/>", "shield": "<path d='M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z'/><path d='M8.5 12l2.5 2.5 4.5-5'/>", "calc": "<rect x='5' y='3' width='14' height='18' rx='2'/><path d='M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01'/>", "target": "<circle cx='12' cy='12' r='9'/><circle cx='12' cy='12' r='5'/><circle cx='12' cy='12' r='1'/>", "lock": "<rect x='5' y='11' width='14' height='10' rx='2'/><path d='M8 11V8a4 4 0 0 1 8 0v3'/>", "print": "<path d='M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2'/><rect x='7' y='14' width='10' height='7'/>", "user": "<circle cx='12' cy='8' r='4'/><path d='M4 21a8 8 0 0 1 16 0'/>", "mail": "<rect x='3' y='5' width='18' height='14' rx='2'/><path d='M3 7l9 6 9-6'/>", "cards": "<rect x='3' y='6' width='13' height='15' rx='2.5'/><path d='M8 3h10.5A2.5 2.5 0 0 1 21 5.5V17'/>", "notebook": "<path d='M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z'/><path d='M6 3v18M3.5 7.5H6M3.5 12H6M3.5 16.5H6M10 8h5M10 12h5'/>", "flip": "<path d='M4 10a8 8 0 0 1 14.5-4.5M20 4v5h-5M20 14a8 8 0 0 1-14.5 4.5M4 20v-5h5'/>"};
 
 /* ===================== CẤU HÌNH ===================== */
 /* Dán URL Web App của Google Apps Script vào đây (xem README). Để trống = bài thi bị khóa. */
@@ -952,9 +1119,11 @@ function route(){
   const [view, arg] = location.hash.replace('#','').split('/');
   document.body.dataset.view = view||'home';
   $$('.view').forEach(v => v.classList.add('hidden'));
-  $$('.topnav button').forEach(b => b.classList.toggle('on', b.dataset.go === (view||'home')));
+  $$('.topnav button, .tabbar button').forEach(b => b.classList.toggle('on', b.dataset.go === (view||'home')));
   closeSide();
   if(view === 'learn'){ $('#v-learn').classList.remove('hidden'); renderLesson(arg || firstUndone()); }
+  else if(view === 'practice'){ $('#v-practice').classList.remove('hidden'); renderPractice(); }
+  else if(view === 'sotay'){ $('#v-sotay').classList.remove('hidden'); renderSotay(); }
   else if(view === 'exam'){ $('#v-exam').classList.remove('hidden'); if(!examState || examState.finished) renderExamIntro(); }
   else { $('#v-home').classList.remove('hidden'); renderHome(); }
   window.scrollTo({top:0});
@@ -1271,8 +1440,8 @@ function renderResult(){
       <h2 style="margin-top:10px">${r.passed?'Chúc mừng, '+esc(user.name)+'!':'Gần được rồi, thử lại nhé'}</h2>
       <p style="color:var(--muted)">${r.passed?'Bạn đã sẵn sàng tư vấn An Tâm Số cho khách hàng MISA.':'Cần đúng tối thiểu '+Math.ceil(r.total*EXAM.pass)+'/'+r.total+' câu. Xem lại các câu sai bên dưới rồi thi lại.'} Thời gian làm bài: ${Math.floor(S.dur/60)} phút ${S.dur%60} giây · Lần thi thứ ${r.attempt}.</p>
       <div class="chips" style="margin-bottom:16px">${Object.entries(r.byCategory||{}).map(([c,v])=>`<span class="chip" style="${v[0]<v[1]?'background:var(--orange-bg);color:#9A5200':''}">${EXAM.cats[c]}: ${v[0]}/${v[1]}</span>`).join('')}</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">${r.passed?`<button class="btn btn-yellow" onclick="window.print()">${ic('print')} In / lưu PDF giấy xác nhận</button>`:''}<button class="btn ${r.passed?'btn-line':''}" onclick="startExam()">${ic('rotate')} Thi lại</button><button class="btn btn-line" onclick="go('learn')">Ôn tập</button></div>
-      <div class="sync"><span class="dot"></span><span>Kết quả đã được chấm và lưu tại hệ thống BH PVI.</span></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">${r.passed?`<button class="btn btn-yellow" onclick="window.print()">${ic('print')} In / lưu PDF giấy xác nhận</button>`:''}<button class="btn ${r.passed?'btn-line':''}" onclick="startExam()">${ic('rotate')} Thi lại</button><button class="btn btn-line" onclick="go('practice')">Ôn tập bằng thẻ</button></div>
+      <div class="sync"><span class="dot"></span><span>Kết quả đã được chấm và lưu tại hệ thống BH PVI.${r.mailed?` Chứng nhận đã được gửi tới <b>${esc(user.email)}</b>.`:''}</span></div>
     </div>
   </div>
   ${r.passed?`<div id="certArea"><div class="cert">
@@ -1290,14 +1459,136 @@ function renderResult(){
 }
 window.addEventListener('beforeunload', e => { if(examState && !examState.finished){ e.preventDefault(); e.returnValue=''; } });
 
+/* ---------- Ôn tập bằng thẻ ---------- */
+let PR = null;
+function prStart(cat, only){
+  const known = store.get('known', {});
+  let ids = CARDS.map((c,i)=>i).filter(i => cat==='all' || CARDS[i].c===cat);
+  if(only) ids = ids.filter(i => only.includes(i));
+  PR = {cat, queue:ids, pos:0, flipped:false, total:ids.length, gotIt:0, again:[], seen:new Set(), known};
+}
+function renderPractice(){
+  if(!PR) prStart('all');
+  const a = $('#practiceArea');
+  const counts = {all:CARDS.length}; CARDS.forEach(c => counts[c.c]=(counts[c.c]||0)+1);
+  const knownN = Object.keys(store.get('known', {})).length;
+  const chips = [['all','Tất cả'], ...Object.entries(CARD_CATS)].map(([k,l]) =>
+    `<button class="pchip ${PR.cat===k?'on':''}" aria-pressed="${PR.cat===k}" onclick="prStart('${k}');renderPractice()">${l} <span>${counts[k]}</span></button>`).join('');
+  const head = `<div class="pr-head"><div><h1>Ôn tập bằng thẻ</h1><p>Đọc câu hỏi, tự trả lời trong đầu rồi lật thẻ. Bộ thẻ này tách riêng, không trùng câu trong bài thi.</p></div>
+    <div class="pr-stat"><b>${knownN}/${CARDS.length}</b><span>thẻ đã nhớ</span></div></div>
+    <div class="pchips" role="group" aria-label="Chọn nhóm thẻ">${chips}</div>`;
+  if(PR.pos >= PR.queue.length){
+    const left = PR.again.length;
+    a.innerHTML = head + `<div class="pr-done card"><div class="pr-done-ic">${ic('check')}</div><h2>Xong một lượt ôn</h2>
+      <p>Bạn đã nhớ <b>${PR.gotIt}/${PR.total}</b> thẻ trong lượt này${left?`, còn <b>${left}</b> thẻ cần ôn lại`:''}.</p>
+      <div class="pr-done-act">${left?`<button class="btn" onclick="prStart('${PR.cat}',[${PR.again.join(',')}]);renderPractice()">${ic('rotate')} Ôn lại ${left} thẻ chưa nhớ</button>`:''}
+      <button class="btn btn-line" onclick="prStart('${PR.cat}');renderPractice()">Ôn lại từ đầu</button>
+      <button class="btn btn-yellow" onclick="go('exam')">Làm bài thi ${ic('arrowR')}</button></div></div>`;
+    return;
+  }
+  const i = PR.queue[PR.pos], c = CARDS[i];
+  const pct = Math.round(PR.pos / PR.queue.length * 100);
+  a.innerHTML = head + `<div class="prog pr-prog"><div class="bar"><i style="width:${Math.max(3,pct)}%"></i></div><span class="pct">${PR.pos+1}/${PR.queue.length}</span></div>
+    <div class="flash-wrap"><button class="flash ${PR.flipped?'flipped':''}" id="flash" aria-live="polite" aria-label="${PR.flipped?'Mặt sau: đáp án':'Mặt trước: câu hỏi. Bấm để lật thẻ'}" onclick="prFlip()">
+      <span class="face front"><span class="fc-cat">${CARD_CATS[c.c]}</span><span class="fc-q">${c.q}</span><span class="fc-hint">${ic('flip')} Bấm để lật thẻ</span></span>
+      <span class="face back"><span class="fc-cat">${CARD_CATS[c.c]}</span><span class="fc-qs">${c.q}</span><span class="fc-a">${c.a}</span></span>
+    </button></div>
+    <div class="pr-act">${PR.flipped
+      ? `<button class="btn btn-line" onclick="prMark(false)">${ic('rotate')} Chưa nhớ</button><button class="btn btn-green" onclick="prMark(true)">${ic('check')} Đã nhớ</button>`
+      : `<button class="btn" onclick="prFlip()">${ic('flip')} Lật thẻ</button>`}</div>
+    <p class="pr-keys">Phím tắt: <kbd>Space</kbd> lật thẻ · <kbd>1</kbd> chưa nhớ · <kbd>2</kbd> đã nhớ</p>`;
+}
+function prFlip(){ PR.flipped = !PR.flipped; const f=$('#flash'); if(f){ f.classList.toggle('flipped', PR.flipped); } renderPracticeActs(); }
+function renderPracticeActs(){ const pa=$('.pr-act'); if(!pa) return; pa.innerHTML = PR.flipped
+  ? `<button class="btn btn-line" onclick="prMark(false)">${ic('rotate')} Chưa nhớ</button><button class="btn btn-green" onclick="prMark(true)">${ic('check')} Đã nhớ</button>`
+  : `<button class="btn" onclick="prFlip()">${ic('flip')} Lật thẻ</button>`;
+  const f=$('#flash'); if(f) f.setAttribute('aria-label', PR.flipped?'Mặt sau: đáp án':'Mặt trước: câu hỏi. Bấm để lật thẻ'); }
+function prMark(ok){
+  const i = PR.queue[PR.pos]; const known = store.get('known', {});
+  if(ok){ known[i]=1; if(!PR.seen.has(i)) PR.gotIt++; PR.again = PR.again.filter(x=>x!==i); }
+  else { delete known[i]; if(!PR.again.includes(i)) PR.again.push(i); PR.queue.push(i); }
+  PR.seen.add(i); store.set('known', known);
+  PR.pos++; PR.flipped=false; renderPractice();
+  if(ok && PR.pos < PR.queue.length) toast('Đã nhớ ✓');
+}
+document.addEventListener('keydown', e => {
+  if(document.body.dataset.view!=='practice' || !PR || PR.pos>=PR.queue.length || /input|textarea|select/i.test(e.target.tagName)) return;
+  if(e.key===' '||e.key==='Enter'){ if(e.target.tagName==='BUTTON' && e.target.id!=='flash') return; e.preventDefault(); prFlip(); }
+  else if(PR.flipped && e.key==='1') prMark(false);
+  else if(PR.flipped && e.key==='2') prMark(true);
+});
+
+/* ---------- Sổ tay tra cứu nhanh ---------- */
+function renderSotay(){
+  const tr = n => fmt(n);
+  const col = f => PKGS.map(p => `<td>${f(p)}</td>`).join('');
+  $('#sotayArea').innerHTML = `
+  <div class="st-head"><div><h1>Sổ tay tra cứu nhanh An Tâm Số</h1>
+    <p>Dùng khi tư vấn khách. Tóm tắt từ Quy tắc bảo hiểm An ninh mạng SME (QĐ 888/QĐ-PVIBH ngày 20/08/2026); khi có khác biệt, Quy tắc và GCNBH được ưu tiên.</p></div>
+    <button class="btn btn-line btn-sm st-print" onclick="window.print()">${ic('print')} In / lưu PDF</button></div>
+
+  <div class="st-facts">
+    <div><span>Nhà bảo hiểm</span><b>BH PVI</b><small>MISA là đại lý phân phối</small></div>
+    <div><span>Đối tượng</span><b>DN, HKD ≤ 26 tỷ</b><small>doanh thu năm gần nhất</small></div>
+    <div><span>Thời hạn · phạm vi</span><b>1 năm · Việt Nam</b><small>hiệu lực khi đã thanh toán đủ phí</small></div>
+    <div><span>Khấu trừ</span><b>8 triệu / sự cố</b><small>áp dụng 1 lần mỗi sự cố</small></div>
+  </div>
+
+  <section class="st-sec"><h2>Bảng gói và quyền lợi</h2>
+   <div class="tbl-wrap"><table class="tbl st-pk"><tr><th></th>${PKGS.map(p=>`<th>Gói ${p.id}</th>`).join('')}</tr>
+    <tr><td>Phí/năm (gồm VAT)</td>${col(p=>`<b>${tr(p.price)}đ</b>`)}</tr>
+    <tr><td>Tương đương</td>${col(p=>p.day)}</tr>
+    <tr><td><b>GHTN cả năm</b> – tổng tối đa mọi quyền lợi</td>${col(p=>`<b>${p.limit} triệu</b>`)}</tr>
+    <tr><td>1. Tiền đền bên thứ ba bị lộ thông tin</td>${col(p=>`đến ${p.limit} tr`)}</tr>
+    <tr><td>2. Tiền phạt theo quy định</td>${col(p=>`đến ${p.limit} tr`)}</tr>
+    <tr><td>3. Khôi phục dữ liệu (50% GHTN)</td>${col(p=>`${p.limit*0.5} tr`)}</tr>
+    <tr><td>4. Tư vấn khủng hoảng (20% GHTN)</td>${col(p=>`${p.limit*0.2} tr`)}</tr></table></div>
+   <p class="st-note">Không cộng dồn: gói 500 trả tối đa 500 triệu cho cả năm. Quyền lợi 3, 4: khách chỉ cần thông báo cho BH PVI, không cần văn bản chấp thuận.</p></section>
+
+  <div class="st-grid">
+   <section class="st-sec"><h2>Chọn gói nhanh</h2>
+    <div class="tbl-wrap"><table class="tbl"><tr><th>Doanh thu năm gần nhất</th><th>Gói gợi ý</th></tr>
+     <tr><td>Dưới 5 tỷ</td><td><b>50</b> (nâng: 100)</td></tr><tr><td>5 – dưới 10 tỷ</td><td><b>100</b> (nâng: 200)</td></tr>
+     <tr><td>10 – dưới 20 tỷ</td><td><b>200</b> (nâng: 500)</td></tr><tr><td>20 – 26 tỷ</td><td><b>500</b></td></tr>
+     <tr><td>Trên 26 tỷ</td><td>Không thuộc chương trình</td></tr></table></div>
+    <p class="st-note"><b>Dữ liệu hệ thống</b> (CRM, bán online, CCCD): nâng 1 bậc. <b>Dữ liệu nhạy cảm</b> (sức khỏe, tài chính, học sinh): nâng 1 bậc, ưu tiên gói 200 trở lên.</p></section>
+
+   <section class="st-sec"><h2>5 điều kiện khách tự xác nhận</h2>
+    <ol class="st-ol"><li>Doanh thu năm gần nhất không quá 26 tỷ.</li><li>3 năm gần nhất chưa có sự cố rò rỉ dữ liệu, an ninh mạng.</li><li>Không hoạt động tại, không liên hệ khu vực bị cấm vận.</li><li>Chưa bị xử phạt về dữ liệu, tấn công mạng, bảo vệ dữ liệu cá nhân.</li><li>Không biết tình huống nào có thể dẫn tới sự cố.</li></ol>
+    <p class="st-note">Không tích hộ, không khai hộ. Khai sai: BH PVI có quyền hủy hợp đồng hoặc từ chối bồi thường.</p></section>
+
+   <section class="st-sec"><h2>Không chi trả (hay gặp)</h2>
+    <ul class="st-ul st-x"><li>Lừa đảo chuyển khoản, tiền bị chiếm đoạt từ tài khoản</li><li>Lộ số thẻ, số tài khoản, mật khẩu</li><li>Sự cố đã biết trước khi mua</li><li>Hành vi cố ý vi phạm pháp luật; phạt hình sự</li><li>Doanh thu mất do ngừng kinh doanh (tổn thất gián tiếp)</li><li>Nâng cấp, thay mới hệ thống sau sự cố</li><li>Hư hỏng máy móc, tài sản hữu hình</li><li>Trách nhiệm theo hợp đồng vượt quy định pháp luật</li></ul></section>
+
+   <section class="st-sec"><h2>Khi khách gặp sự cố</h2>
+    <ol class="st-ol"><li>Báo BH PVI <b>không muộn hơn 14 ngày</b>; khôi phục dữ liệu, tư vấn khủng hoảng: báo <b>ngay</b>.</li><li>Báo cơ quan có thẩm quyền trong <b>72 giờ</b>; BH PVI hỗ trợ mẫu.</li><li>Không tự nhận lỗi, không hứa bồi thường, không dàn xếp khi chưa có đồng ý bằng văn bản của BH PVI.</li><li>Thuê khôi phục dữ liệu, tư vấn khủng hoảng: thông báo BH PVI, giữ đủ hóa đơn, chứng từ.</li></ol>
+    <p class="st-note">Bồi thường trong 15 ngày làm việc từ khi đủ hồ sơ. Nhân viên MISA không cam kết kết quả bồi thường.</p></section>
+  </div>
+
+  <section class="st-sec"><h2>Liên hệ</h2>
+   <div class="st-contact">
+    <div><span>Báo sự cố, bồi thường</span><b>0888 994 664</b><small>claim.vn@iglooinsure.com · QR trên GCNBH</small></div>
+    <div><span>Sửa thông tin, hủy hợp đồng</span><b>misa.antamso@pvi.com.vn</b><small>BH PVI xử lý, đồng gửi MISA</small></div>
+    <div><span>Phần mềm, thanh toán trên MISA</span><b>CSKH MISA</b><small>xem GCNBH tại mục Kết nối bảo hiểm</small></div>
+   </div>
+   <p class="st-note">Hoàn phí khi hủy (chưa có bồi thường): đến 3 tháng 70% · 3–6 tháng 40% · 6–9 tháng 10% · trên 9 tháng 0%.</p></section>
+
+  <section class="st-sec st-say"><h2>Câu nói chuẩn</h2>
+   <p class="say">“MISA bảo vệ hệ thống phần mềm; An Tâm Số bảo vệ tài chính của anh/chị khi chẳng may dữ liệu khách hàng bị lộ do tấn công mạng: BH PVI trả tiền đền, tiền phạt và chi phí khắc phục, chỉ từ 599.000 đồng một năm ạ.”</p>
+   <p class="st-note"><b>Không nói:</b> “bảo hiểm của MISA”, “bị gì cũng đền”, “phần mềm nào cũng bị hack”, “chắc chắn bị phạt”.</p></section>`;
+}
+
 /* ---------- Mobile side ---------- */
 function openSide(){ $('#side').classList.add('open'); $('#scrim').classList.remove('hidden'); }
 function closeSide(){ $('#side').classList.remove('open'); $('#scrim').classList.add('hidden'); }
 
+window.addEventListener('beforeprint', () => { $('#pgStyle').textContent = document.body.dataset.view==='sotay' ? '@page{size:A4;margin:9mm}' : '@page{size:A4 landscape;margin:10mm}'; });
+
+if('scrollRestoration' in history) history.scrollRestoration='manual';
 /* ---------- Boot ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   $('#topLogo').src = LOGO;
-  $$('.topnav button').forEach(b => b.onclick = () => go(b.dataset.go));
+  $$('.topnav button, .tabbar button').forEach(b => b.onclick = () => go(b.dataset.go));
   $('#menuBtn').onclick = openSide; $('#scrim').onclick = closeSide;
   renderWho(); route();
 });
